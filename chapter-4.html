@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chapter 4 · Who Belonged? Who Decided?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500;1,700&amp;family=Inter+Tight:wght@300;400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:#16171a linear-gradient(180deg,#16171a 0%,#121a26 40%,#0a121c 100%) fixed;color:#f2efe9;-webkit-font-smoothing:antialiased}
+a{color:#efcf98;text-decoration:none}
+a:hover{color:#fff1d2}
+textarea:focus{outline:none;border-color:#efcf98 !important}
+::selection{background:#efcf98;color:#16171a}
+</style>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;height:3px;background:#efcf98;z-index:20;width:{{ progressPct }}"></div>
+
+<header style="padding:16px clamp(12px,2vw,24px) 0">
+  <div style="position:relative;min-height:92vh;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:28px clamp(20px,4vw,56px) 32px;isolation:isolate;background:linear-gradient(180deg,#6f8098 0%,#b9a98c 38%,#d9a55c 50%,#3a3029 72%,#16171a 100%)">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,244,222,.34) 0%,rgba(255,244,222,.12) 48%,rgba(22,23,26,0) 62%,rgba(22,23,26,.82) 100%)"></div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:#16171a">Who Belonged? Who Decided?</span>
+        <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c31">An Interactive History of the Americas</span>
+      </div>
+      <a href="#intro" style="font-family:'Inter',sans-serif;font-size:13px;color:#fff;background:#16171a;padding:11px 20px;border-radius:999px">Begin reading →</a>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-top:4vh">
+      <div style="font-weight:700;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#1d1f23">— {{ chapterLabel }} —</div>
+      <h1 style="margin:0;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(46px,8vw,124px);line-height:.92;letter-spacing:-.02em;color:#16171a;max-width:1100px;text-wrap:balance">{{ title }}</h1>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(24px,2.6vw,34px);color:#16171a">{{ subtitle }}</div>
+      <div aria-hidden="true" style="position:relative;width:100%;height:clamp(48px,9vh,96px)">
+        <div style="position:absolute;left:50%;top:50%;width:max(112vw,190vh);aspect-ratio:1422/794;transform:translate(-50.2%,-40.3%);z-index:-1;background:url('dawn.jpg') center/cover no-repeat"></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px">
+        <a href="#intro" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border-radius:999px">Start the chapter →</a>
+        <a href="#complex-characters" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">Meet Massasoit</a>
+        <a href="#listen" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">▶ Listen</a>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
+      <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Minute read</div></div>
+        <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Sections</div></div>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
+      <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">6</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div style="display:grid;grid-template-columns:{{ gridCols }};gap:64px;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+  <nav style="display:{{ tocDisplay }};position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;padding:56px 0 40px">
+    <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae;margin-bottom:20px">Chapter 4 · Contents</div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
+        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:34px 1fr;gap:6px;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;padding-top:3px;color:#80858d">{{ t.num }}</span>
+          <span>{{ t.title }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </nav>
+
+  <main style="min-width:0;padding:72px 0 120px">
+    <section id="intro" data-sec="1" style="max-width:820px;margin-bottom:96px">
+      <div style="margin:0 0 8px;max-width:680px;border-radius:16px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 28px rgba(0,0,0,.35);padding:26px 30px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#93a1b3">Primary source</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:#f2efe9;text-wrap:pretty">{{ epigraph }}</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#93a1b3">{{ epigraphBy }}</div>
+            </div>
+      <sc-if value="{{ hasData }}" hint-placeholder-val="{{ false }}">
+            <figure style="margin:44px 0;display:flex;flex-direction:column;gap:12px;max-width:{{ introFig.maxW }}">
+              <div style="width:100%;aspect-ratio:{{ introFig.ratio }};background:rgba(255,255,255,.05)">
+                <div role="img" class="fig" style="width:100%;height:100%;background:url('{{ introFig.src }}') center/contain no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ introFig.caption }}</figcaption>
+              <sc-if value="{{ introFig.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">{{ introFig.credit }}</div></sc-if>
+            </figure>
+      </sc-if>
+      <sc-for list="{{ introParas }}" as="ip" hint-placeholder-count="2">
+        <p style="margin:0 0 26px;font-family:'Newsreader',serif;font-size:20px;line-height:1.72;color:#dcd8d1;max-width:680px;text-wrap:pretty">{{ ip }}</p>
+      </sc-for>
+    </section>
+
+    <section id="listen" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Listen</div>
+          <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.05">Hear the chapter</h2>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#a3a7ae">{{ lSummary }}</div>
+        </div>
+        <button type="button" onClick="{{ lBegin }}" style="display:flex;align-items:center;gap:16px;text-align:left;background:rgba(0,0,0,.25);border:1px solid rgba(239,207,152,.5);border-radius:14px;padding:14px 18px;cursor:pointer;color:#f2efe9;max-width:460px">
+          <span aria-hidden="true" style="flex:none;width:46px;height:46px;border-radius:50%;background:#efcf98;color:#16171a;display:flex;align-items:center;justify-content:center;font-size:18px">▶</span>
+          <span style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px">{{ lBeginTitle }}</span><span style="font-family:'Newsreader',serif;font-size:16px;color:#c8c4bc">{{ lBeginSub }}</span></span>
+        </button>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae;line-height:1.5">{{ lVoiceNote }}</div>
+        <div style="display:flex;flex-direction:column">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a3a7ae;padding-bottom:12px">Selected passages</div>
+          <sc-for list="{{ lTracks }}" as="lt" hint-placeholder-count="6">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)">
+              <span style="flex:none;width:38px;font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:#efcf98">{{ lt.num }}</span>
+              <div style="flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:3px">
+                <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.25;color:{{ lt.titleColor }}">{{ lt.title }}</div>
+                <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ lt.meta }}</div>
+              </div>
+              <button type="button" onClick="{{ lt.onListen }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid #efcf98;background:{{ lt.btnBg }};color:{{ lt.btnColor }}">{{ lt.btnLabel }}</button>
+              <a href="#{{ lt.id }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.25);color:#f2efe9">Read</a>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
+      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px">
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #2c2f36;margin-bottom:32px;max-width:680px">
+          <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">{{ sec.num }}</div>
+          <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08;text-wrap:balance">{{ sec.title }}</h2>
+          <button type="button" onClick="{{ sec.listen }}" style="align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(239,207,152,.6);background:transparent;color:#efcf98">{{ sec.listenLabel }}</button>
+        </div>
+        <sc-for list="{{ sec.blocks }}" as="b" hint-placeholder-count="2">
+          <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0 0 26px;font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#dcd8d1;max-width:680px;text-wrap:pretty">{{ b.text }}</p>
+          </sc-if>
+
+          <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:36px 0;max-width:680px;border-radius:16px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 28px rgba(0,0,0,.35);padding:26px 30px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#93a1b3">Primary source</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:#f2efe9;text-wrap:pretty">{{ b.text }}</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#93a1b3">{{ b.by }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isImage }}" hint-placeholder-val="{{ false }}">
+            <figure style="margin:44px 0;display:flex;flex-direction:column;gap:12px;max-width:{{ b.maxW }}">
+              <div style="width:100%;aspect-ratio:{{ b.ratio }};background:rgba(255,255,255,.05)">
+                <div role="img" class="fig" style="width:100%;height:100%;background:url('{{ b.src }}') center/contain no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
+              <sc-if value="{{ b.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">{{ b.credit }}</div></sc-if>
+            </figure>
+          </sc-if>
+
+          <sc-if value="{{ b.isThree }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Three foundings</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ fdTabs }}" as="ft" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ft.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ft.border }};background:{{ ft.bg }};color:{{ ft.color }}">{{ ft.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px 28px">
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">Who came</div><div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ fdSel.who }}</div></div>
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">What they came for</div><div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ fdSel.why }}</div></div>
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">What they needed from Native people</div><div style="font-family:'Playfair Display',serif;font-weight:500;font-size:22px;line-height:1.25;color:#efcf98">{{ fdSel.need }}</div></div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isHeadright }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The headright arithmetic</div>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">The Virginia Company granted fifty acres to every freeman who paid his own passage and fifty more for each servant he imported. Move the slider to import servants.</div>
+              <div style="display:flex;flex-direction:column;gap:10px;max-width:640px">
+                <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
+                  <label for="c4-headright" style="font-family:'Inter',sans-serif;font-size:13px;color:#c8c4bc">{{ hrLabel }}</label>
+                  <span style="font-family:'Playfair Display',serif;font-weight:500;font-size:34px;color:#efcf98">{{ hrAcres }}</span>
+                </div>
+                <input id="c4-headright" type="range" min="0" max="30" step="1" value="{{ hr }}" onChange="{{ onHr }}" style="width:100%;accent-color:#efcf98">
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Servants exchanged free passage for seven years of service and were promised land and “full rights of Englishmen” upon finishing out the contract.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isCompany }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The Company’s arithmetic</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ coTabs }}" as="ct" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ct.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ct.border }};background:{{ ct.bg }};color:{{ ct.color }}">{{ ct.label }}</button>
+                </sc-for>
+              </div>
+              <sc-for list="{{ coRows }}" as="cw" hint-placeholder-count="2">
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
+                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#dcd8d1">{{ cw.label }}</div>
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:28px;color:{{ cw.color }}">{{ cw.value }}</div>
+                  </div>
+                  <div style="position:relative;height:14px;background:rgba(255,255,255,.07)"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ cw.width }};min-width:3px;background:{{ cw.color }};transition:width .5s ease"></div></div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isPowTl }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The Powhatan and the English, 1607–1685</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ pwTabs }}" as="pt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ pt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ pt.border }};background:{{ pt.bg }};color:{{ pt.color }}">{{ pt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ pwSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ pwSel.text }}</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isCollapse }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Two collapses</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ clTabs }}" as="lt2" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ lt2.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ lt2.border }};background:{{ lt2.bg }};color:{{ lt2.color }}">{{ lt2.label }}</button>
+                </sc-for>
+              </div>
+              <sc-for list="{{ clRows }}" as="lw" hint-placeholder-count="2">
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
+                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#dcd8d1">{{ lw.label }}</div>
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:28px;color:{{ lw.color }}">{{ lw.value }}</div>
+                  </div>
+                  <div style="position:relative;height:14px;background:rgba(255,255,255,.07)"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ lw.width }};min-width:3px;background:{{ lw.color }};transition:width .5s ease"></div></div>
+                </div>
+              </sc-for>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:620px">{{ clNote }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isMassTl }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Massasoit, 1621–1970</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ msTabs }}" as="mt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ mt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ mt.border }};background:{{ mt.bg }};color:{{ mt.color }}">{{ mt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ msSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ msSel.text }}</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isKpw }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · Native losses in King Philip’s War</div>
+              <sc-for list="{{ kpRows }}" as="kw" hint-placeholder-count="2">
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
+                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#dcd8d1">{{ kw.label }}</div>
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:28px;color:{{ kw.color }}">{{ kw.value }}</div>
+                  </div>
+                  <div style="position:relative;height:14px;background:rgba(255,255,255,.07)"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ kw.width }};min-width:3px;background:{{ kw.color }};transition:width .5s ease"></div></div>
+                </div>
+              </sc-for>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Together those losses came to some eight thousand people, between roughly forty and eighty percent of the region’s Native population, depending on the prewar estimate.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Plymouth and Massachusetts Bay lost close to eight percent of their adult male population to the war.</div>
+            </div>
+          </sc-if>
+
+        </sc-for>
+      </section>
+    </sc-for>
+
+    <section id="questions" data-sec="1" style="max-width:820px;margin-bottom:104px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:12px;max-width:680px">
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">REVIEW</div>
+        <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Questions for Consideration</h2>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;margin-bottom:36px">Notes save in this browser.</div>
+      <div style="display:flex;flex-direction:column;gap:40px">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 16px">
+            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:32px;color:#efcf98;line-height:1">{{ q.n }}</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ q.text }}</div>
+              <textarea value="{{ q.val }}" onChange="{{ q.onChange }}" placeholder="Your response…" rows="4" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px"></textarea>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="then-and-now" data-sec="1" style="max-width:820px;margin-bottom:80px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:36px;max-width:680px">
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">PAST TO PRESENT</div>
+        <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+        <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
+          <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
+            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:40px;color:#efcf98;line-height:1">{{ q.n }}</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.62;color:#dcd8d1;text-wrap:pretty">{{ q.text }}</div>
+            <textarea value="{{ q.val }}" onChange="{{ q.onChange }}" placeholder="Your reflection…" rows="5" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px;margin-top:auto"></textarea>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #2c2f36;padding-top:28px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">
+      <a href="#intro">↑ Back to top</a>
+      <a href="index.html">Home</a>
+      <a href="chapter-3.html">← Chapter 3</a>
+      <a href="chapter-5.html">Chapter 5 →</a>
+    </div>
+  </main>
+</div>
+<sc-if value="{{ lOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px clamp(10px,2vw,24px) 14px;pointer-events:none">
+    <div style="pointer-events:auto;max-width:980px;margin:0 auto;background:rgba(16,22,32,.92);border:1px solid rgba(255,255,255,.16);border-radius:18px;backdrop-filter:blur(14px);box-shadow:0 12px 40px rgba(0,0,0,.5);padding:12px 16px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <button type="button" aria-label="Previous passage" onClick="{{ lPrev }}" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:14px;cursor:pointer">‹‹</button>
+          <button type="button" aria-label="{{ lToggleLabel }}" onClick="{{ lToggle }}" style="width:46px;height:46px;border-radius:50%;border:0;background:#efcf98;color:#16171a;font-size:16px;cursor:pointer">{{ lToggleIcon }}</button>
+          <button type="button" aria-label="Next passage" onClick="{{ lNext }}" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:14px;cursor:pointer">››</button>
+        </div>
+        <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px">
+          <div style="font-family:'Newsreader',serif;font-size:17px;color:#f2efe9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ lNowTitle }}</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ lNowMeta }}</div>
+        </div>
+        <button type="button" aria-label="Change reading speed" onClick="{{ lRateCycle }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;cursor:pointer">{{ lRateLabel }}</button>
+        <a href="#{{ lNowId }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f2efe9">Go to text</a>
+        <button type="button" aria-label="Close the player" onClick="{{ lClose }}" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:13px;cursor:pointer">✕</button>
+      </div>
+      <div style="height:4px;border-radius:2px;background:rgba(255,255,255,.14);overflow:hidden"><div style="height:100%;background:#efcf98;width:{{ lPct }};transition:width .3s linear"></div></div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, fd: 0, hr: 3, co: 0, pw: 0, cl: 0, ms: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
+
+  componentDidMount() {
+    try { this.setState({ notes: JSON.parse(localStorage.getItem('ch4-notes') || '{}') }); } catch (e) {}
+    fetch('Clark_Textbook_Ch04_text.txt').then(r => r.text()).then(t => this.setState({ data: this.parse(t) }, this.onScroll));
+    this.onScroll = this.onScroll.bind(this);
+    this.lInit();
+    this.onResize = () => this.setState({ wide: window.innerWidth > 1100 });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); this.lStop(); }
+
+  // ---------- Listen: narration ----------
+  // Each passage plays the author's recording when audio/ch4/manifest.json names one for it,
+  // and falls back to the browser's built-in voice when it does not.
+  lInit() {
+    this.lSeq = 0;
+    this.lAudio = new Audio();
+    this.lAudio.addEventListener('timeupdate', () => { const a = this.lAudio; if (a.duration) this.setState({ lAudioPct: a.currentTime / a.duration }); });
+    this.lAudio.addEventListener('ended', () => this.lPlay(this.state.lIdx + 1, 0));
+    fetch('listen-chapter-4.json').then(r => r.ok ? r.json() : {}).then(m => this.setState({ lOwn: (m && m.recorded) || {} })).catch(() => {});
+    const pick = () => {
+      const vs = (window.speechSynthesis ? speechSynthesis.getVoices() : []).filter(v => /^en/i.test(v.lang));
+      const want = ['Samantha', 'Google US English', 'Microsoft Aria', 'Daniel', 'Alex'];
+      this.lVoice = want.map(n => vs.find(v => v.name.indexOf(n) >= 0)).find(Boolean) || vs.find(v => v.default) || vs[0] || null;
+    };
+    if (window.speechSynthesis) { pick(); speechSynthesis.onvoiceschanged = pick; }
+  }
+  lTrackList() {
+    const d = this.state.data; if (!d) return [];
+    const slug = x => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return [{ id: 'intro', title: 'Introduction', text: d.head.slice(3).join(' ') }]
+      .concat(d.sections.map(sec => ({ id: slug(sec.title), title: sec.title, text: sec.title + '. ' + sec.paras.join(' ') })));
+  }
+  lChunks(text) {
+    const parts = text.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [text];
+    const out = []; let cur = '';
+    parts.forEach(p => { cur += p; if (cur.length > 140) { out.push(cur.trim()); cur = ''; } });
+    if (cur.trim()) out.push(cur.trim());
+    return out;
+  }
+  lHalt() { this.lSeq++; if (window.speechSynthesis) speechSynthesis.cancel(); if (this.lAudio) this.lAudio.pause(); }
+  lStop() { this.lHalt(); this.setState({ lIdx: -1, lPlaying: false, lPos: 0, lAudioPct: 0 }); }
+  lPlay(i, from) {
+    const list = this.lTrackList(), tr = list[i];
+    this.lHalt();
+    if (!tr) { this.setState({ lIdx: -1, lPlaying: false }); return; }
+    const own = this.state.lOwn[tr.id];
+    if (own) {
+      const url = '' + own;
+      if (this.lAudioSrc !== url) { this.lAudio.src = url; this.lAudioSrc = url; this.setState({ lAudioPct: 0 }); }
+      this.lAudio.playbackRate = this.state.lRate;
+      this.lAudio.play().catch(() => this.setState({ lPlaying: false }));
+      this.setState({ lIdx: i, lPlaying: true, lPos: 0, lTotal: 1 });
+      return;
+    }
+    if (!window.speechSynthesis) { this.setState({ lIdx: i, lPlaying: false, lPos: 0, lTotal: 1 }); return; }
+    const chunks = this.lChunks(tr.text), seq = this.lSeq;
+    this.setState({ lIdx: i, lPlaying: true, lPos: from || 0, lTotal: chunks.length });
+    const step = k => {
+      if (seq !== this.lSeq) return;
+      if (k >= chunks.length) { this.lPlay(i + 1, 0); return; }
+      this.setState({ lPos: k });
+      const u = new SpeechSynthesisUtterance(chunks[k]);
+      u.rate = this.state.lRate; u.lang = 'en-US'; if (this.lVoice) u.voice = this.lVoice;
+      u.onend = () => step(k + 1);
+      u.onerror = e => { if (e.error !== 'canceled' && e.error !== 'interrupted') step(k + 1); };
+      this.lUtter = u;
+      speechSynthesis.speak(u);
+    };
+    step(from || 0);
+  }
+  lToggle(i) {
+    const s = this.state;
+    if (i !== undefined && i !== s.lIdx) { this.lPlay(i, 0); return; }
+    if (s.lIdx < 0) { this.lPlay(0, 0); return; }
+    if (s.lPlaying) { this.lHalt(); this.setState({ lPlaying: false }); return; }
+    const tr = this.lTrackList()[s.lIdx];
+    if (tr && s.lOwn[tr.id]) { this.lAudio.play(); this.setState({ lPlaying: true }); }
+    else this.lPlay(s.lIdx, s.lPos);
+  }
+  lRateCycle() {
+    const rates = [1, 1.25, 1.5, 0.85], s = this.state;
+    const r = rates[(rates.indexOf(s.lRate) + 1) % rates.length];
+    this.setState({ lRate: r }, () => {
+      if (this.lAudio) this.lAudio.playbackRate = r;
+      const tr = this.lTrackList()[s.lIdx];
+      if (s.lPlaying && tr && !s.lOwn[tr.id]) this.lPlay(s.lIdx, s.lPos);
+    });
+  }
+
+  onScroll() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    let active = 'intro';
+    document.querySelectorAll('[data-sec]').forEach(el => { if (el.getBoundingClientRect().top < 200) active = el.id; });
+    const progress = h > 0 ? window.scrollY / h : 0;
+    if (active !== this.state.active || Math.abs(progress - this.state.progress) > 0.002) this.setState({ active, progress });
+  }
+
+  parse(t) {
+    const lines = t.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    const out = { head: [], sections: [], questions: [], thenNow: [], words: t.split(/\s+/).length };
+    let cur = null, mode = 'head';
+    for (const l of lines) {
+      if (l.startsWith('### ')) { cur = { title: l.slice(4).trim(), sub: '', paras: [] }; out.sections.push(cur); mode = 'sec'; continue; }
+      if (l.startsWith('## ')) { mode = /question/i.test(l) ? 'q' : 'tn'; continue; }
+      if (mode === 'head') out.head.push(l);
+      else if (mode === 'sec') {
+        let p = l; const pre = cur.title + ':';
+        if (!cur.paras.length && p.startsWith(pre)) {
+          p = p.slice(pre.length).trim();
+          const m = p.match(/^([A-Z][A-Za-z, ]{2,30}): /);
+          if (m) { cur.sub = m[1]; p = p.slice(m[0].length); }
+        }
+        cur.paras.push(p);
+      }
+      else (mode === 'q' ? out.questions : out.thenNow).push(l.replace(/^\d+\.\s*/, ''));
+    }
+    return out;
+  }
+
+  setNote(k, v) { const notes = { ...this.state.notes, [k]: v }; this.setState({ notes }); try { localStorage.setItem('ch4-notes', JSON.stringify(notes)); } catch (e) {} }
+
+  renderVals() {
+    const s = this.state, d = s.data;
+    const slug = x => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const G = '#efcf98', R = '#c2653f', B = '#8ea4bb';
+    const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
+    const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c4-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
+    const F = {
+      smithmap: img('smith-map', '1400/1106', '820px', 'Figure 4.1 · John Smith, Virginia, engraved by William Hole', 'Library of Congress, Prints and Photographs Division'),
+      pocahontas: img('pocahontas', '1265/1800', '440px', 'Figure 4.2 · Pocahontas, Matoaka als Rebecca; Simon van de Passe', 'National Portrait Gallery, Smithsonian Institution'),
+      tobacco: img('tobacco-chart', '1400/849', '820px', 'Figure 4.3 · Tobacco output chart', ''),
+      compact: img('compact', '1278/1800', '460px', 'Figure 4.5 · Mayflower Compact', 'not yet confirmed'),
+      winslow: img('winslow-letter', '1278/1800', '460px', 'Figure 4.6 · Winslow’s letter, Mourt’s Relation, pp. 60-61', 'Boston Public Library, via Internet Archive'),
+      massasoit: img('massasoit-dallin', '1271/1600', '440px', 'Massasoit, by Cyrus Dallin. Photograph, c. 1920.', 'Library of Congress, cph 3b10384'),
+      balance: img('balance-timeline', '1400/644', '820px', 'Figure 4.9 · The Balance, Broken Early (timeline)', '')
+    };
+    const inserts = {
+      'Jamestown, 1607': { 0: [F.smithmap], 1: [F.pocahontas] },
+      'Tobacco': { 0: [F.tobacco], 1: [{ isHeadright: true }] },
+      'The Powhatan Wars': { 1: [{ isCompany: true }], 2: [{ isPowTl: true }] },
+      'Plymouth, 1620': { 1: [F.compact], 2: [{ isCollapse: true }], 3: [F.winslow] },
+      'Complex Characters': { 0: [F.massasoit], 5: [{ isMassTl: true }] },
+      'Massachusetts Bay, 1630': { 0: [{ isThree: true }] },
+      'King Philip’s War, 1675–76': { 3: [{ isKpw: true }] },
+      'The Balance, Broken Early': { 0: [F.balance] }
+    };
+    const sections = d ? d.sections.map((sec, i) => {
+      const blocks = [];
+      sec.paras.forEach((p, j) => {
+        const last = blocks[blocks.length - 1];
+        if (p.startsWith('— ') && last && last.isP) blocks[blocks.length - 1] = { isQuote: true, text: last.text, by: p.slice(2) };
+        else blocks.push({ isP: true, text: p });
+        ((inserts[sec.title] || {})[j] || []).forEach(w => blocks.push(w));
+      });
+      return { id: slug(sec.title), num: '4.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks, listen: () => this.lToggle(i + 1), listenLabel: s.lIdx === i + 1 ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen to this section' };
+    }) : [];
+    const tocRaw = [{ id: 'intro', num: '—', title: 'Introduction' }, { id: 'listen', num: '♪', title: 'Listen' }, ...sections.map(x => ({ id: x.id, num: x.num, title: x.title })), { id: 'questions', num: 'Q', title: 'Questions for Consideration' }, { id: 'then-and-now', num: '↔', title: 'Then and Now' }];
+    const toc = tocRaw.map(t => ({ ...t, color: t.id === s.active ? '#f2efe9' : '#8c9198', bar: t.id === s.active ? G : '#2c2f36' }));
+
+    const fdData = [
+      { label: 'Jamestown, 1607', who: 'Three ships and 144 men, mostly gentry and adventurers. By 1630 the colony was eighty percent young single men laboring in the tobacco fields.', why: 'Gold and a passage to the Indies. Then tobacco, which became Virginia’s substitute for gold.', need: 'Food at first. Then land, as the influx of servants and planters drove demand for it.' },
+      { label: 'Plymouth, 1620', who: 'The Mayflower’s 102 passengers, Separatists and “strangers” alike.', why: 'To escape persecution. The Pilgrims had come not to conquer but to find a world of their own.', need: 'Assistance in farming and gathering the land’s resources, and a mutual alliance.' },
+      { label: 'Massachusetts Bay, 1630', who: 'The Winthrop Fleet of eleven ships and nine hundred people, then the bulk of the Great Migration.', why: 'To prove that Puritan belief was truly the way to serve God: “We shall be as a city upon a hill.”', need: 'Only their land. The Puritans had all the labor they needed.' }
+    ];
+    const fdTabs = fdData.map((c, i) => ({ label: c.label, onClick: () => this.setState({ fd: i }), ...tab(i === s.fd) }));
+
+    const hrAcres = (50 + 50 * s.hr).toLocaleString() + ' acres';
+    const hrLabel = 'A freeman who paid his own passage and imported ' + s.hr + (s.hr === 1 ? ' servant' : ' servants');
+
+    const coData = [
+      { label: 'The first winter', rows: [['Colonists left behind, June 1607', 104, '104'], ['Survived the first winter', 38, 'thirty-eight']] },
+      { label: 'March 22, 1622', rows: [['Settler population', 1200, '1,200'], ['Killed in the attack', 347, 'approximately 347']] },
+      { label: 'The Company’s whole record', rows: [['Settlers the Company sent across the Atlantic', 6000, 'some 6,000'], ['Alive in the colony when the king took control, 1624', 1200, 'about 1,200']] }
+    ];
+    const twoBars = rows => rows.map((r, i) => ({ label: r[0], value: r[2], width: (r[1] / rows[0][1] * 100) + '%', color: i ? R : G }));
+    const coTabs = coData.map((c, i) => ({ label: c.label, onClick: () => this.setState({ co: i }), ...tab(i === s.co) }));
+
+    const pwData = [
+      ['1607', 'Jamestown is planted in the middle of the Powhatan Confederation, thirty tribes strong. Only thirty-eight of the 104 colonists left behind survive the first winter.'],
+      ['1609–10', 'The “starving time.” Severe drought forces the Powhatan to keep only enough food to sustain themselves, and starving colonists raid native food supplies.'],
+      ['1610', 'Lord De La Warr arrives, familiar with English warfare against the Irish, and opts for total war. Powhatan refuses to issue an extermination order, thinking he can still profit from English goods.'],
+      ['1613–14', 'Pocahontas is captured, forcing Powhatan to declare peace. She marries the tobacco baron John Rolfe in 1614 and dies in England in 1617.'],
+      ['1618', 'Powhatan dies, at about seventy, leaving in charge his brother Opechancanough, who desires the annihilation of the English.'],
+      ['March 22, 1622', 'A coordinated attack along the James claims approximately 347 colonists, a quarter of the settler population of 1,200. Jamestown itself is left untouched.'],
+      ['The poisoned peace', 'Governor Wyatt pretends to accept Opechancanough’s truce and sends casks of wine to toast the negotiations. An estimated two hundred Indians die of the poison or the musket balls the peace party fired into them.'],
+      ['1624', 'Some eight hundred Pamunkey warriors fight sixty English musketeers for two days and lose. The Crown revokes the Company’s charter and takes Virginia as England’s first royal colony.'],
+      ['1632', 'Opechancanough makes peace.'],
+      ['1644–46', 'Opechancanough strikes once more in 1644. In 1646, aged and nearly blind, he is captured and shot by a guard while in English custody, ending the Third Anglo-Powhatan War.'],
+      ['1685', 'Only 2,500 Powhatans remain of a population of more than twenty thousand in 1607.']
+    ];
+    const pwTabs = pwData.map((c, i) => ({ label: c[0], onClick: () => this.setState({ pw: i }), ...tab(i === s.pw) }));
+
+    const clData = [
+      { label: 'Wampanoag, 1616–1619', note: 'A great plague ravaged New England between 1616 and 1619, killing nearly ninety percent of the native population of the coast. The Narragansett, largely untouched by it, were poised to overtake Massasoit.', rows: [['Before the plague', 2000, 'two thousand'], ['When the Mayflower arrived', 300, 'almost three hundred']] },
+      { label: 'Powhatan, 1607–1685', note: 'Mistrust of Native Americans dominated Anglo-American thinking after 1622, inspiring a program of almost total separation and incessant enmity.', rows: [['1607', 20000, 'more than twenty thousand'], ['1685', 2500, 'only 2,500']] }
+    ];
+    const clTabs = clData.map((c, i) => ({ label: c.label, onClick: () => this.setState({ cl: i }), ...tab(i === s.cl) }));
+
+    const msData = [
+      ['March 22, 1621', 'His treaty with Plymouth requires him to hand over any of his people who harm the English, and it pledges each side to aid the other if attacked.'],
+      ['1622', 'He uses those terms against Tisquantum, sending messengers to Plymouth with his own knife to cut off Tisquantum’s head and hands. Governor Bradford stalls, and Tisquantum dies of a fever that fall.'],
+      ['March 1623', 'Soon after Winslow nurses him back to health, he warns that the Massachusett plan to destroy Wessagusset and then Plymouth itself. Myles Standish kills the Massachusett leader Pecksuot and several of his men.'],
+      ['1635–36', 'He shelters Roger Williams after Massachusetts Bay banishes him. He also keeps the Pokanoket out of the Pequot War.'],
+      ['1649', 'At Sachem Rock he deeds the land that became the Bridgewaters for seven coats, nine hatchets, eight hoes, twenty knives, four moose skins, and ten and a half yards of cotton.'],
+      ['1652', 'A deed for Dartmouth follows. Each sale bought goods and goodwill from the English, and each one left less land for the sons who would succeed him.'],
+      ['c. 1660', 'He dies. Soon after, the Plymouth court gives his sons Wamsutta and Metacom the English names Alexander and Philip.'],
+      ['1921', 'The Improved Order of Red Men, a fraternal order that admitted only white men, commissions a bronze Massasoit from the Utah sculptor Cyrus Dallin and sets it on Cole’s Hill, above Plymouth Rock.'],
+      ['1970', 'Frank James, an Aquinnah Wampanoag known as Wamsutta, delivers his rejected remarks on Cole’s Hill beside the statue. Native people have gathered there every Thanksgiving since for a National Day of Mourning.']
+    ];
+    const msTabs = msData.map((c, i) => ({ label: c[0], onClick: () => this.setState({ ms: i }), ...tab(i === s.ms) }));
+
+    const kpRows = [
+      ['Dead of sickness or starvation', 3000, 'more than three thousand', R],
+      ['Killed or dead of wounds', 2000, 'about two thousand men', G],
+      ['Escaped to other nations to the north and west', 2000, 'about two thousand', B],
+      ['Sold into slavery and transported to the British Caribbean', 1000, 'another thousand', '#c8c4bc']
+    ].map(r => ({ label: r[0], value: r[2], width: (r[1] / 3000 * 100) + '%', color: r[3] }));
+
+    const qmap = (arr, p) => (arr || []).map((text, i) => ({ n: i + 1, text, val: s.notes[p + i] || '', onChange: e => this.setNote(p + i, e.target.value) }));
+    const hd = d ? d.head : [];
+    const hasBy = !!(hd[4] && hd[4].startsWith('—'));
+
+    const lList = this.lTrackList();
+    const lMin = tx => Math.max(1, Math.round(tx.split(/\s+/).length / 155));
+    const lHasVoice = !!window.speechSynthesis;
+    const lTracks = lList.map((tr, i) => {
+      const cur = s.lIdx === i, own = !!s.lOwn[tr.id];
+      return { id: tr.id, num: String(i).padStart(2, '0'), title: tr.title,
+        meta: lMin(tr.text) + ' min · ' + (own ? 'Read by the author' : 'Synthetic voice'),
+        titleColor: cur ? '#efcf98' : '#f2efe9',
+        btnLabel: cur ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen',
+        btnBg: cur ? '#efcf98' : 'transparent', btnColor: cur ? '#16171a' : '#efcf98',
+        onListen: () => this.lToggle(i) };
+    });
+    const lNow = lList[s.lIdx] || null;
+    const lNowOwn = !!(lNow && s.lOwn[lNow.id]);
+    const lTotalMin = lList.reduce((a, tr) => a + lMin(tr.text), 0);
+    return {
+      lTracks, lOpen: s.lIdx >= 0,
+      lSummary: lList.length ? lList.length + ' passages · about ' + (lTotalMin >= 60 ? Math.floor(lTotalMin / 60) + ' h ' + (lTotalMin % 60) + ' min' : lTotalMin + ' min') + ' in all' : '',
+      lBegin: () => this.lPlay(0, 0), lBeginTitle: 'Begin',
+      lBeginSub: lList.length ? 'Introduction (' + lMin(lList[0].text) + ' min), then section 1' : '',
+      lVoiceNote: lHasVoice ? 'Narration uses this device’s built-in voice. Passages recorded by the author are marked “Read by the author” and play the recording instead.' : 'This browser has no built-in voice, so only passages recorded by the author can play.',
+      lToggle: () => this.lToggle(), lToggleIcon: s.lPlaying ? '❚❚' : '▶', lToggleLabel: s.lPlaying ? 'Pause' : 'Play',
+      lPrev: () => this.lPlay(Math.max(0, s.lIdx - 1), 0), lNext: () => this.lPlay(s.lIdx + 1, 0), lClose: () => this.lStop(),
+      lRateCycle: () => this.lRateCycle(), lRateLabel: s.lRate + '×',
+      lNowTitle: lNow ? lNow.title : '', lNowId: lNow ? lNow.id : 'listen',
+      lNowMeta: lNow ? (s.lIdx ? 'Passage ' + s.lIdx + ' of ' + (lList.length - 1) : 'Introduction') + ' · ' + (lNowOwn ? 'Read by the author' : 'Synthetic voice') : '',
+      lPct: ((lNowOwn ? s.lAudioPct : (s.lTotal ? s.lPos / s.lTotal : 0)) * 100) + '%',
+      progressPct: (s.progress * 100) + '%',
+      hasData: false,
+      chapterLabel: d ? hd[0] : 'Chapter 4', title: d ? hd[1] : '', subtitle: d ? hd[2] : '',
+      epigraph: d ? hd[3] : '', epigraphBy: hasBy ? hd[4].slice(2) : '', introParas: d ? hd.slice(hasBy ? 5 : 4) : [], introFig: F.smithmap,
+      minutes: d ? Math.round(d.words / 230) : '—', sectionCount: sections.length || '—',
+      gridCols: s.wide ? '240px minmax(0,1fr)' : 'minmax(0,1fr)', tocDisplay: s.wide ? 'block' : 'none',
+      toc, sections,
+      fdTabs, fdSel: fdData[s.fd],
+      hr: s.hr, hrAcres, hrLabel, onHr: e => this.setState({ hr: +e.target.value }),
+      coTabs, coRows: twoBars(coData[s.co].rows),
+      pwTabs, pwSel: { date: pwData[s.pw][0], text: pwData[s.pw][1] },
+      clTabs, clRows: twoBars(clData[s.cl].rows), clNote: clData[s.cl].note,
+      msTabs, msSel: { date: msData[s.ms][0], text: msData[s.ms][1] },
+      kpRows,
+      questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't')
+    };
+  }
+}
+</script>
+</body>
+</html>
