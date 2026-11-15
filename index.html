@@ -90,6 +90,9 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ u.label }}</div>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.1">{{ u.title }}</h3>
           <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#c8c4bc;max-width:760px">{{ u.q }}</div>
+          <sc-if value="{{ u.hasOpener }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ u.opener }}" style="display:inline-block;align-self:flex-start;padding:15px 0;margin:-6px 0 -15px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">Read the unit introduction →</a>
+          </sc-if>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:{{ u.gridMax }}">
           <sc-for list="{{ u.chapters }}" as="c" hint-placeholder-count="2">
@@ -153,12 +156,13 @@ class Component extends DCLogic {
     const cards = ch.map((c, i) => ({ href: c[0], num: String(i + 1).padStart(2, '0'), title: c[1], sub: c[2], img: 'ch' + (i + 1) + '.jpg', alt: alts[i] }));
     const live = [["I", "Worlds and the Exchange", "The Americas and Europe before 1492, and what the meeting changed", [1, 2]], ["II", "Empires and the Balance", "Four ways of colonizing, and why native leverage held in one place and broke in another", [3, 4]], ["III", "Making British America", "The price, the law, and the four societies that grew where one was planned", [5, 6]], ["IV", "Empire, Resistance, Revolution", "The cost of victory, a debt incurred, and a war over who would pay", [7, 8, 9]]];
     const later = [["V", "A Government on Paper", "What the founders built when the Confederation ran out of money and authority, and what the Constitution left for someone else to answer", [[10, "The Constitution"], [11, "The New Republic"], [12, "The Jeffersonian Republic"]]], ["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [[13, "The Market Revolution"], [14, "The Age of Jackson"]]], ["VII", "Written Into Law", "What the South built, and what the reformers found they were up against", [[15, "The American Reformation"], [16, "The Peculiar Institution"]]], ["VIII", "The One Boundary", "Everything between Texas and the Pacific, and the line the nation could not draw through it", [[17, "Manifest Destiny"], [18, "A House Divided"]]], ["IX", "From Slavery to Salvation", "Four million freed — but free to do what?", [[19, "The War for the Union"], [20, "A New Birth of Freedom"]]]];
+    const openers = { I: 'unit-1.html', II: 'unit-2.html', III: 'unit-3.html' };
     return {
       starts: [
         { href: 'preface.html', label: 'Front matter', title: 'Preface', sub: 'What game was being played? What were the rules? What were we playing for? And perhaps most importantly, who kept score?', cta: 'Read the Preface →' },
         { href: 'introduction.html', label: 'Introduction', title: 'Thinking Like a Historian', sub: '“Ancora imparo.” I am still learning.', cta: 'Read the Introduction →' }
       ],
-      units: live.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
+      units: live.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], hasOpener: !!openers[u[0]], opener: openers[u[0]] || '', gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
       coming: later.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], chapters: u[3].map(c => ({ num: c[0], title: c[1] })) })),
       ways: [
         { head: 'Three questions', text: 'A set of three questions to ask of any conflict: What does the law say? What do the morals mandate? Who holds the power?' },
