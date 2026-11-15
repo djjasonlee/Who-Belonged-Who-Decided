@@ -43,7 +43,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </div>
 
     <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
-      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">6</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Chapters so far</div></div>
+      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Chapters so far</div></div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f2efe9">Jason L. Clark, Ph.D.</div>
     </div>
@@ -91,7 +91,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.1">{{ u.title }}</h3>
           <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#c8c4bc;max-width:760px">{{ u.q }}</div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:{{ u.gridMax }}">
           <sc-for list="{{ u.chapters }}" as="c" hint-placeholder-count="2">
         <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:0 0 22px;color:#f2efe9;overflow:hidden">
           <div role="img" aria-label="{{ c.alt }}" style="width:100%;aspect-ratio:16/10;background:#22252b url('{{ c.img }}') center/cover no-repeat;border-bottom:1px solid rgba(255,255,255,.12)"></div>
@@ -109,7 +109,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </sc-for>
 
     <div style="display:flex;flex-direction:column;gap:22px;border-top:1px solid #2c2f36;padding-top:24px">
-      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#80858d">Coming · Chapters 7–20</div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#80858d">Coming · Chapters 8–20</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px 40px">
         <sc-for list="{{ coming }}" as="cu" hint-placeholder-count="6">
           <div style="display:flex;flex-direction:column;gap:10px">
@@ -144,18 +144,19 @@ class Component extends DCLogic {
       ['chapter-3.html', 'Four Empires', 'Spain, France, the Netherlands, and England in North America, 1565–1700'],
       ['chapter-4.html', 'Founding and Conflict', 'The Chesapeake and New England, 1607–1676'],
       ['chapter-5.html', 'Slavery in British North America', 'The Price, the Law, and the Making of Race'],
-      ['chapter-6.html', 'Colonial Society and Culture', 'Four Regions, Two Awakenings, 1660–1750']
+      ['chapter-6.html', 'Colonial Society and Culture', 'Four Regions, Two Awakenings, 1660–1750'],
+      ['chapter-7.html', 'Empire and War', 'The Atlantic Economy, the Imperial State, and the Struggle for North America, 1660–1763']
     ];
-    const alts = ['Engraving of two Native men standing with longbows', 'Map of Tenochtitlan', 'Painting of the Spanish Armada', 'Engraving of John Smith taking the King of Pamunkey prisoner', 'Deck plans of the slave ship Brookes', 'Painting of a Salem witch trial'];
+    const alts = ['Engraving of two Native men standing with longbows', 'Map of Tenochtitlan', 'Painting of the Spanish Armada', 'Engraving of John Smith taking the King of Pamunkey prisoner', 'Deck plans of the slave ship Brookes', 'Painting of a Salem witch trial', 'Lithograph of George Washington on horseback at the Monongahela'];
     const cards = ch.map((c, i) => ({ href: c[0], num: String(i + 1).padStart(2, '0'), title: c[1], sub: c[2], img: 'ch' + (i + 1) + '.jpg', alt: alts[i] }));
-    const live = [["I", "Worlds and the Exchange", "The Americas and Europe before 1492, and what the meeting changed", [1, 2]], ["II", "Empires and the Balance", "Four ways of colonizing, and why native leverage held in one place and broke in another", [3, 4]], ["III", "Making British America", "The price, the law, and the four societies that grew where one was planned", [5, 6]]];
-    const later = [["IV", "Empire, Resistance, Revolution", "The cost of victory, a debt incurred, and a war over who would pay", [[7, "Empire and War"], [8, "The Rejection of Empire"], [9, "Revolution"]]], ["V", "A Government on Paper", "What the founders built when the Confederation ran out of money and authority, and what the Constitution left for someone else to answer", [[10, "The Constitution"], [11, "The New Republic"], [12, "The Jeffersonian Republic"]]], ["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [[13, "The Market Revolution"], [14, "The Age of Jackson"]]], ["VII", "Written Into Law", "What the South built, and what the reformers found they were up against", [[15, "The American Reformation"], [16, "The Peculiar Institution"]]], ["VIII", "The One Boundary", "Everything between Texas and the Pacific, and the line the nation could not draw through it", [[17, "Manifest Destiny"], [18, "A House Divided"]]], ["IX", "From Slavery to Salvation", "Four million freed — but free to do what?", [[19, "The War for the Union"], [20, "A New Birth of Freedom"]]]];
+    const live = [["I", "Worlds and the Exchange", "The Americas and Europe before 1492, and what the meeting changed", [1, 2]], ["II", "Empires and the Balance", "Four ways of colonizing, and why native leverage held in one place and broke in another", [3, 4]], ["III", "Making British America", "The price, the law, and the four societies that grew where one was planned", [5, 6]], ["IV", "Empire, Resistance, Revolution", "The cost of victory, a debt incurred, and a war over who would pay", [7]]];
+    const later = [["IV", "Empire, Resistance, Revolution", "The cost of victory, a debt incurred, and a war over who would pay", [[8, "The Rejection of Empire"], [9, "Revolution"]]], ["V", "A Government on Paper", "What the founders built when the Confederation ran out of money and authority, and what the Constitution left for someone else to answer", [[10, "The Constitution"], [11, "The New Republic"], [12, "The Jeffersonian Republic"]]], ["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [[13, "The Market Revolution"], [14, "The Age of Jackson"]]], ["VII", "Written Into Law", "What the South built, and what the reformers found they were up against", [[15, "The American Reformation"], [16, "The Peculiar Institution"]]], ["VIII", "The One Boundary", "Everything between Texas and the Pacific, and the line the nation could not draw through it", [[17, "Manifest Destiny"], [18, "A House Divided"]]], ["IX", "From Slavery to Salvation", "Four million freed — but free to do what?", [[19, "The War for the Union"], [20, "A New Birth of Freedom"]]]];
     return {
       starts: [
         { href: 'preface.html', label: 'Front matter', title: 'Preface', sub: 'What game was being played? What were the rules? What were we playing for? And perhaps most importantly, who kept score?', cta: 'Read the Preface →' },
         { href: 'introduction.html', label: 'Introduction', title: 'Thinking Like a Historian', sub: '“Ancora imparo.” I am still learning.', cta: 'Read the Introduction →' }
       ],
-      units: live.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], chapters: u[3].map(n => cards[n - 1]) })),
+      units: live.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
       coming: later.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], chapters: u[3].map(c => ({ num: c[0], title: c[1] })) })),
       ways: [
         { head: 'Three questions', text: 'A set of three questions to ask of any conflict: What does the law say? What do the morals mandate? Who holds the power?' },
