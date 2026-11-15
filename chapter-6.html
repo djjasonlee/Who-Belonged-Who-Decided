@@ -412,8 +412,18 @@ class Component extends DCLogic {
     fetch('listen-chapter-6.json').then(r => r.ok ? r.json() : {}).then(m => this.setState({ lOwn: (m && m.recorded) || {} })).catch(() => {});
     const pick = () => {
       const vs = (window.speechSynthesis ? speechSynthesis.getVoices() : []).filter(v => /^en/i.test(v.lang));
-      const want = ['Samantha', 'Google US English', 'Microsoft Aria', 'Daniel', 'Alex'];
-      this.lVoice = want.map(n => vs.find(v => v.name.indexOf(n) >= 0)).find(Boolean) || vs.find(v => v.default) || vs[0] || null;
+      // Best voice first: Edge's natural voices, Apple's premium and enhanced voices, then the usual built-ins.
+      const older = ['samantha', 'google us english', 'microsoft aria', 'daniel', 'alex'];
+      const score = v => {
+        const n = (v.name + ' ' + (v.voiceURI || '')).toLowerCase(); let sc = 0;
+        if (/natural/.test(n)) sc = 100; else if (/premium/.test(n)) sc = 90; else if (/enhanced/.test(n)) sc = 80;
+        else { const i = older.findIndex(w => n.indexOf(w) >= 0); if (i >= 0) sc = 50 - i; }
+        if (sc && /\b(ava|andrew|emma|brian|jenny|zoe|evan|nathan)\b/.test(n)) sc += 5;
+        if (sc && /en[-_]us/i.test(v.lang)) sc += 3;
+        return sc;
+      };
+      const best = vs.slice().sort((a, b) => score(b) - score(a))[0];
+      this.lVoice = (best && score(best) > 0 ? best : null) || vs.find(v => v.default) || vs[0] || null;
     };
     if (window.speechSynthesis) { pick(); speechSynthesis.onvoiceschanged = pick; }
   }
