@@ -72,8 +72,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae;margin-bottom:20px">Chapter 11 · Contents</div>
     <div style="display:flex;flex-direction:column;gap:2px">
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
-        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:34px 1fr;gap:6px;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;padding-top:3px;color:#80858d">{{ t.num }}</span>
+        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
           <span>{{ t.title }}</span>
         </a>
       </sc-for>
@@ -351,7 +351,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <button type="button" onClick="{{ tocCloseFn }}" aria-label="Close the contents" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:15px;cursor:pointer">✕</button>
     </div>
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
-      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:40px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
+      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
         <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
         <span>{{ tm.title }}</span>
       </a>
@@ -583,8 +583,8 @@ class Component extends DCLogic {
       natgaz: img('national-gazette-1792', '1400/2198', '520px', 'National Gazette, edited by Philip Freneau, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83025887'),
       gus: img('gazette-us-1792', '1400/2258', '520px', 'Gazette of the United States, published by John Fenno, the same day, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83030483'),
       whiskey: img('whiskey-kemmelmeyer', '1400/892', '820px', 'Frederick Kemmelmeyer, Washington Reviewing the Western Army at Fort Cumberland, Maryland, after 1795.', 'The Metropolitan Museum of Art, Gift of Edgar William and Bernice Chrysler Garbisch, 1963, 63.201.2'),
-      pugilists: img('congressional-pugilists', '1400/1066', '760px', '“Congressional Pugilists.” Congress Hall, Philadelphia, February 15, 1798. Etching.', ''),
-      xyz: img('property-protected', '1400/867', '820px', 'Property Protected à la Françoise. Published June 1, 1798, by S. W. Fores, London: five Frenchmen plunder a young woman representing America.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-31156')
+      pugilists: img('congressional-pugilists', '1400/1066', '760px', 'Figure 11.4 · “Congressional Pugilists.” Congress Hall, Philadelphia, February 15, 1798. Etching.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-15707'),
+      xyz: img('property-protected', '1400/867', '820px', 'Figure 11.6 · Property Protected à la Françoise. Published June 1, 1798, by S. W. Fores, London: five Frenchmen plunder a young woman representing America.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-31156')
     };
     const inserts = {
       'The First Cabinet': { 0: [{ isCabinet: true }] },
@@ -594,9 +594,9 @@ class Component extends DCLogic {
       'The War of Words': { 0: [F.natgaz, F.gus] },
       'The Whiskey Rebellion': { 0: [F.whiskey] },
       'Two Treaties': { 2: [{ isTreaties: true }] },
-      'Democracy’s First Test': { 1: [{ isVote: true }], 3: [F.pugilists] },
+      'Democracy’s First Test': { 1: [{ isVote: true }] },
       'The XYZ Affair and the Quasi-War': { 0: [F.xyz] },
-      'The Alien and Sedition Acts': { 1: [{ isAlien: true }] },
+      'The Alien and Sedition Acts': { 1: [F.pugilists], 2: [{ isAlien: true }] },
       'The Midnight Appointments': { 1: [{ isJudiciary: true }] }
     };
     const sections = d ? d.sections.map((sec, i) => {
