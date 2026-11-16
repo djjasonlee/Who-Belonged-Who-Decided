@@ -60,7 +60,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -600,16 +600,17 @@ class Component extends DCLogic {
       road: img('road-to-philadelphia', '1400/796', '760px', 'Figure 10.3 · The road to Philadelphia, 1785–1787: states represented at Mount Vernon, Annapolis, and Philadelphia (chart)', ''),
       constitution: img('constitution-p1', '1400/1695', '600px', 'Figure 10.5 · The Constitution of the United States, page 1.', 'National Archives, NAID 1667751'),
       threefifths: img('three-fifths-clause', '1600/210', '820px', 'Figure 10.6 · Article I, Section 2, from page 1 of the Constitution: “three fifths of all other Persons.”', 'National Archives, NAID 1667751'),
-      ordinance: img('northwest-ordinance-sixth', '1600/406', '820px', 'Figure 10.7 · The Northwest Ordinance, July 13, 1787, Article the Sixth.', 'Library of Congress, item 90898154'),
+      ordinance: img('northwest-ordinance-sixth', '1600/406', '820px', 'Figure 10.7 · The Northwest Ordinance, July 13, 1787, Article the Sixth.', 'Library of Congress, Rare Book and Special Collections Division, Continental Congress & Constitutional Convention Broadsides Collection'),
       pillars: img('federal-pillars', '1400/964', '720px', 'Figure 10.8 · “The Federal Pillars,” Massachusetts Centinel, August 2, 1788: eleven states raised, North Carolina rising, Rhode Island broken.', 'Library of Congress, Prints and Photographs Division, cph 3a45782'),
-      crest: img('rising-sun-crest', '1400/1050', '640px', 'Figure 10.9 · The Rising Sun Chair, crest rail, with its carved half-sun.', 'National Park Service. Public domain.')
+      chair: img('rising-sun-chair', '1400/2503', '440px', 'Figure 10.4 · The Rising Sun Armchair, 1779, made by John Folwell.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.'),
+      crest: img('rising-sun-crest', '1400/1050', '640px', 'Figure 10.9 · The Rising Sun Armchair, crest rail: the carved half-sun.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.')
     };
     const inserts = {
       'The Articles of Confederation': { 0: [F.articles], 7: [{ isArticles: true }] },
       'The Price of Victory': { 2: [{ isDebt: true }] },
       'Shays’ Rebellion': { 0: [F.shays] },
       'The Road to Philadelphia': { 0: [F.road] },
-      'Philadelphia, May 1787': { 3: [F.crest] },
+      'Philadelphia, May 1787': { 3: [F.chair] },
       'New Men': { 0: [{ isDelegates: true }] },
       'The Great Compromise': { 0: [{ isPlans: true }] },
       'The Machinery': { 1: [F.constitution] },
@@ -618,7 +619,7 @@ class Component extends DCLogic {
       'The Warning Shot': { 0: [F.ordinance] },
       'The Word That Isn’t There': { 0: [{ isClauses: true }], 2: [{ isWitness: true }] },
       'The Campaign': { 0: [{ isRatify: true }] },
-      'The Case Against': { 7: [{ isPress: true }], 8: [F.pillars] }
+      'The Case Against': { 7: [{ isPress: true }], 8: [F.pillars], 9: [F.crest] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
