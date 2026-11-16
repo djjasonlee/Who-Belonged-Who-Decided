@@ -67,8 +67,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae;margin-bottom:20px">Contents</div>
     <div style="display:flex;flex-direction:column;gap:2px">
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
-        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:34px 1fr;gap:6px;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;padding-top:3px;color:#80858d">{{ t.num }}</span>
+        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
           <span>{{ t.title }}</span>
         </a>
       </sc-for>
@@ -178,7 +178,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <button type="button" onClick="{{ tocCloseFn }}" aria-label="Close the contents" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:15px;cursor:pointer">✕</button>
     </div>
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
-      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:40px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
+      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
         <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
         <span>{{ tm.title }}</span>
       </a>
