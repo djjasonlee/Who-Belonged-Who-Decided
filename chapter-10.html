@@ -72,8 +72,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae;margin-bottom:20px">Chapter 10 · Contents</div>
     <div style="display:flex;flex-direction:column;gap:2px">
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
-        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:34px 1fr;gap:6px;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;padding-top:3px;color:#80858d">{{ t.num }}</span>
+        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
           <span>{{ t.title }}</span>
         </a>
       </sc-for>
@@ -367,7 +367,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <button type="button" onClick="{{ tocCloseFn }}" aria-label="Close the contents" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:15px;cursor:pointer">✕</button>
     </div>
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
-      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:40px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
+      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
         <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
         <span>{{ tm.title }}</span>
       </a>
@@ -602,8 +602,8 @@ class Component extends DCLogic {
       threefifths: img('three-fifths-clause', '1600/210', '820px', 'Figure 10.6 · Article I, Section 2, from page 1 of the Constitution: “three fifths of all other Persons.”', 'National Archives, NAID 1667751'),
       ordinance: img('northwest-ordinance-sixth', '1600/406', '820px', 'Figure 10.7 · The Northwest Ordinance, July 13, 1787, Article the Sixth.', 'Library of Congress, Rare Book and Special Collections Division, Continental Congress & Constitutional Convention Broadsides Collection'),
       pillars: img('federal-pillars', '1400/964', '720px', 'Figure 10.8 · “The Federal Pillars,” Massachusetts Centinel, August 2, 1788: eleven states raised, North Carolina rising, Rhode Island broken.', 'Library of Congress, Prints and Photographs Division, cph 3a45782'),
-      chair: img('rising-sun-chair', '1400/2503', '440px', 'Figure 10.4 · The Rising Sun Armchair, 1779, made by John Folwell.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.'),
-      crest: img('rising-sun-crest', '1400/1050', '640px', 'Figure 10.9 · The Rising Sun Armchair, crest rail: the carved half-sun.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.')
+      chair: img('rising-sun-chair', '1400/2503', '440px', 'Figure 10.4 · Armchair, 1779, made by John Folwell, now called the Rising Sun Chair; the name came into use later.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.'),
+      crest: img('rising-sun-crest', '1400/1050', '640px', 'Figure 10.9 · The chair’s crest rail: the carved half-sun. The name “Rising Sun Chair” came into use later.', 'Independence National Historical Park, INDE 11826. NPS photo, public domain.')
     };
     const inserts = {
       'The Articles of Confederation': { 0: [F.articles], 7: [{ isArticles: true }] },

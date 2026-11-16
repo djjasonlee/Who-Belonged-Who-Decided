@@ -579,12 +579,12 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c11-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      hamilton: img('hamilton-trumbull', '1400/1795', '520px', 'John Trumbull, Alexander Hamilton, 1804–6.', 'The Metropolitan Museum of Art, Gift of Henry G. Marquand, 1881, 81.11'),
-      natgaz: img('national-gazette-1792', '1400/2198', '520px', 'National Gazette, edited by Philip Freneau, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83025887'),
-      gus: img('gazette-us-1792', '1400/2258', '520px', 'Gazette of the United States, published by John Fenno, the same day, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83030483'),
-      whiskey: img('whiskey-kemmelmeyer', '1400/892', '820px', 'Frederick Kemmelmeyer, Washington Reviewing the Western Army at Fort Cumberland, Maryland, after 1795.', 'The Metropolitan Museum of Art, Gift of Edgar William and Bernice Chrysler Garbisch, 1963, 63.201.2'),
+      hamilton: img('hamilton-trumbull', '1400/1795', '520px', 'Figure 11.3 · John Trumbull, Alexander Hamilton, 1804–6.', 'The Metropolitan Museum of Art, Gift of Henry G. Marquand, 1881, 81.11'),
+      natgaz: img('national-gazette-1792', '1400/2198', '520px', 'Figure 11.5 · National Gazette, edited by Philip Freneau, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83025887'),
+      gus: img('gazette-us-1792', '1400/2258', '520px', 'Figure 11.5 · Gazette of the United States, published by John Fenno, the same day, October 24, 1792, page 1.', 'Library of Congress, Chronicling America, sn83030483'),
+      whiskey: img('whiskey-kemmelmeyer', '1400/892', '820px', 'Figure 11.7 · Frederick Kemmelmeyer, Washington Reviewing the Western Army at Fort Cumberland, Maryland, after 1795.', 'The Metropolitan Museum of Art, Gift of Edgar William and Bernice Chrysler Garbisch, 1963, 63.201.2'),
       pugilists: img('congressional-pugilists', '1400/1066', '760px', 'Figure 11.4 · “Congressional Pugilists.” Congress Hall, Philadelphia, February 15, 1798. Etching.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-15707'),
-      xyz: img('property-protected', '1400/867', '820px', 'Figure 11.6 · Property Protected à la Françoise. Published June 1, 1798, by S. W. Fores, London: five Frenchmen plunder a young woman representing America.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-31156')
+      xyz: img('property-protected', '1400/867', '820px', 'Figure 11.6 · Property Protected à la Françoise, a British satire published June 1, 1798, by S. W. Fores, London: five Frenchmen plunder a young woman representing America.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-31156')
     };
     const inserts = {
       'The First Cabinet': { 0: [{ isCabinet: true }] },
