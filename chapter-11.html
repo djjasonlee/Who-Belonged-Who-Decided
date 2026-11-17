@@ -666,7 +666,7 @@ class Component extends DCLogic {
       return { isCC, head: isCC ? who : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
         ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
         ccTop: isCC ? '0' : '28px', ccRule: isCC ? 'transparent' : '#2c2f36', ccSize: isCC ? 'clamp(40px,5.4vw,64px)' : 'clamp(32px,4vw,48px)',
-        id: slug(sec.title), num: '11.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks,
+        id: slug(sec.title), num: '11.' + String(i + 1).padStart(2, '0'), title: (isCC && full === 'Complex Characters') ? 'Complex Characters: ' + who : full, blocks,
         hasPart: !!sec.part, partNum: pp[0] || '', partTitle: pp[1] || '',
         listen: () => this.lToggle(ti), listenLabel: s.lIdx === ti ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen to this section' };
     }) : [];
