@@ -43,7 +43,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </div>
 
     <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
-      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Chapters so far</div></div>
+      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Chapters so far</div></div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f2efe9">Jason L. Clark, Ph.D.</div>
     </div>
@@ -112,7 +112,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </sc-for>
 
     <div style="display:flex;flex-direction:column;gap:22px;border-top:1px solid #2c2f36;padding-top:24px">
-      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#80858d">Coming · Chapters 14–20</div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#80858d">Coming · Chapters 15–20</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px 40px">
         <sc-for list="{{ coming }}" as="cu" hint-placeholder-count="6">
           <div style="display:flex;flex-direction:column;gap:10px">
@@ -154,13 +154,14 @@ class Component extends DCLogic {
       ['chapter-10.html', 'The Constitution', 'From the Critical Period to the Bill of Rights, 1781–1791'],
       ['chapter-11.html', 'The New Republic', 'The Federalist Decade and the First Transfer of Power, 1789–1801'],
       ['chapter-12.html', 'The Jeffersonian Republic', 'From the Revolution of 1800 to the Monroe Doctrine, 1800–1823'],
-      ['chapter-13.html', 'The Market Revolution', 'Money, Machines, and the Remaking of American Work, 1800–1840']
+      ['chapter-13.html', 'The Market Revolution', 'Money, Machines, and the Remaking of American Work, 1800–1840'],
+      ['chapter-14.html', 'The Age of Jackson', 'The Democratic Revolution and the Second Great Awakening, 1815–1840']
     ];
-    const alts = ['Engraving of two Native men standing with longbows', 'Map of Tenochtitlan', 'Painting of the Spanish Armada', 'Engraving of John Smith taking the King of Pamunkey prisoner', 'Deck plans of the slave ship Brookes', 'Painting of a Salem witch trial', 'Lithograph of George Washington on horseback at the Monongahela', 'Lithograph of the destruction of tea at Boston Harbor', 'Painting of Washington crossing the Delaware', 'The first page of the Constitution, “We the People”', 'British cartoon of French officials surrounding a woman representing America, 1798', 'London print of the British burning the city of Washington, 1814', 'Lithograph of derricks lifting stone from the Erie Canal rock cut at Lockport'];
+    const alts = ['Engraving of two Native men standing with longbows', 'Map of Tenochtitlan', 'Painting of the Spanish Armada', 'Engraving of John Smith taking the King of Pamunkey prisoner', 'Deck plans of the slave ship Brookes', 'Painting of a Salem witch trial', 'Lithograph of George Washington on horseback at the Monongahela', 'Lithograph of the destruction of tea at Boston Harbor', 'Painting of Washington crossing the Delaware', 'The first page of the Constitution, “We the People”', 'British cartoon of French officials surrounding a woman representing America, 1798', 'London print of the British burning the city of Washington, 1814', 'Lithograph of derricks lifting stone from the Erie Canal rock cut at Lockport', 'Aquatint of a crowd pressing into the White House for Jackson’s reception'];
     const cards = ch.map((c, i) => ({ href: c[0], num: String(i + 1).padStart(2, '0'), title: c[1], sub: c[2], img: 'ch' + (i + 1) + '.jpg', alt: alts[i] }));
-    const live = [["I", "Worlds and the Exchange", "The Americas and Europe before 1492, and what the meeting changed", [1, 2]], ["II", "Empires and the Balance", "Four ways of colonizing, and why native leverage held in one place and broke in another", [3, 4]], ["III", "Making British America", "The price, the law, and the four societies that grew where one was planned", [5, 6]], ["IV", "Empire, Resistance, Revolution", "The End of Rivalry, a Revolution, and the Making of a Nation", [7, 8, 9]], ["V", "The Rules of the Game", "What the founders built when the Confederation ran out of money and authority, and what the Constitution left for someone else to answer", [10, 11, 12]], ["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [13]]];
-    const later = [["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [[14, "The Age of Jackson"]]], ["VII", "Written Into Law", "What the South built, and what the reformers found they were up against", [[15, "The American Reformation"], [16, "The Peculiar Institution"]]], ["VIII", "The One Boundary", "Everything between Texas and the Pacific, and the line the nation could not draw through it", [[17, "Manifest Destiny"], [18, "A House Divided"]]], ["IX", "From Slavery to Salvation", "Four million freed — but free to do what?", [[19, "The War for the Union"], [20, "A New Birth of Freedom"]]]];
-    const openers = { I: 'unit-1.html', II: 'unit-2.html', III: 'unit-3.html', IV: 'unit-4.html' };
+    const live = [["I", "Worlds and the Exchange", "The Americas and Europe before 1492, and what the meeting changed", [1, 2]], ["II", "Empires and the Balance", "Four ways of colonizing, and why native leverage held in one place and broke in another", [3, 4]], ["III", "Making British America", "The price, the law, and the four societies that grew where one was planned", [5, 6]], ["IV", "Empire, Resistance, Revolution", "The End of Rivalry, a Revolution, and the Making of a Nation", [7, 8, 9]], ["V", "The Rules of the Game", "What the founders built when the Confederation ran out of money and authority, and what the Constitution left for someone else to answer", [10, 11, 12]], ["VI", "The Market and the Majority", "An economy nobody designed, a politics ordinary men captured, and the circle they drew together", [13, 14]]];
+    const later = [["VII", "Written Into Law", "What the South built, and what the reformers found they were up against", [[15, "The American Reformation"], [16, "The Peculiar Institution"]]], ["VIII", "The One Boundary", "Everything between Texas and the Pacific, and the line the nation could not draw through it", [[17, "Manifest Destiny"], [18, "A House Divided"]]], ["IX", "From Slavery to Salvation", "Four million freed — but free to do what?", [[19, "The War for the Union"], [20, "A New Birth of Freedom"]]]];
+    const openers = { I: 'unit-1.html', II: 'unit-2.html', III: 'unit-3.html', IV: 'unit-4.html', V: 'unit-5.html' };
     return {
       starts: [
         { href: 'preface.html', label: 'Front matter', title: 'Preface', sub: 'What game was being played? What were the rules? What were we playing for? And perhaps most importantly, who kept score?', cta: 'Read the Preface →' },
