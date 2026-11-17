@@ -631,7 +631,7 @@ class Component extends DCLogic {
       });
       if ((sec.sub ? sec.title + ': ' + sec.sub : sec.title) === 'The Valladolid Debate') blocks.push(lmp3('lmp-', 'The Valladolid Debate'));
       const full = sec.sub ? sec.title + ': ' + sec.sub : sec.title, isCC = full === 'Complex Characters' || full.startsWith('Complex Characters: ');
-      const ccNames = {}, ccDates = {"Christopher Columbus": "1451–1506"}, ccAsks = {};
+      const ccNames = {}, ccDates = {"Christopher Columbus": "1451–1506"}, ccAsks = {"Christopher Columbus": "When he praised the Taíno in a journal meant for the Crown, did he describe what he saw or what his sponsors wanted to hear?"};
       const who = isCC ? (ccNames[full] || full.slice(20)) : '', dates = ccDates[who] || '', ask = ccAsks[who] || '';
       return { isCC, head: isCC ? who : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
         ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',

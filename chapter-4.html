@@ -629,7 +629,7 @@ class Component extends DCLogic {
       });
       if ((sec.sub ? sec.title + ': ' + sec.sub : sec.title) === 'King Philip’s War, 1675–76') blocks.push(lmp3('lmp-', 'King Philip’s War, 1675–76'));
       const full = sec.sub ? sec.title + ': ' + sec.sub : sec.title, isCC = full === 'Complex Characters' || full.startsWith('Complex Characters: ');
-      const ccNames = {}, ccDates = {"Massasoit": "died about 1661"}, ccAsks = {};
+      const ccNames = {}, ccDates = {"Massasoit": "died about 1661"}, ccAsks = {"Massasoit": "If your people were devastated by an inexplicable disease and faced the threat of rival conquest, what would you have done?"};
       const who = isCC ? (ccNames[full] || full.slice(20)) : '', dates = ccDates[who] || '', ask = ccAsks[who] || '';
       return { isCC, head: isCC ? who : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
         ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
