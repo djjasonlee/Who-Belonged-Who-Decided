@@ -60,7 +60,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -74,7 +74,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
         <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
           <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
-          <span>{{ t.title }}</span>
+          <span><span style="color:#efcf98;font-size:.7em">{{ t.mark }}</span>{{ t.title }}</span>
         </a>
       </sc-for>
     </div>
@@ -127,16 +127,22 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
-      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px">
+      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px;box-sizing:border-box;background:{{ sec.ccBg }};border-left:{{ sec.ccLeft }};border-radius:{{ sec.ccRad }};padding:{{ sec.ccPad }}">
         <sc-if value="{{ sec.hasPart }}" hint-placeholder-val="{{ false }}">
           <div style="margin:0 0 64px;padding-top:28px;border-top:1px solid #efcf98;display:flex;flex-direction:column;gap:10px">
             <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ sec.partNum }}</div>
             <div role="heading" aria-level="2" style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(38px,5vw,60px);line-height:1.02;color:#f2efe9;text-wrap:balance">{{ sec.partTitle }}</div>
           </div>
         </sc-if>
-        <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #2c2f36;margin-bottom:32px;max-width:680px">
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:{{ sec.ccTop }};border-top:1px solid {{ sec.ccRule }};margin-bottom:32px;max-width:680px">
           <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">{{ sec.num }}</div>
-          <h2 data-read="1" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08;text-wrap:balance">{{ sec.title }}</h2>
+          <sc-if value="{{ sec.isCC }}" hint-placeholder-val="{{ false }}">
+            <div data-read="1" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98;border:1px solid rgba(239,207,152,.5);border-radius:999px;padding:7px 14px;align-self:flex-start">Complex Characters</div>
+          </sc-if>
+          <h2 data-read="1" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:{{ sec.ccSize }};line-height:1.08;text-wrap:balance">{{ sec.head }}</h2>
+          <sc-if value="{{ sec.hasDates }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.2vw,25px);line-height:1.3;color:#c8c4bc">{{ sec.dates }}</div>
+          </sc-if>
           <button type="button" onClick="{{ sec.listen }}" style="align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(239,207,152,.6);background:transparent;color:#efcf98">{{ sec.listenLabel }}</button>
         </div>
         <sc-for list="{{ sec.blocks }}" as="b" hint-placeholder-count="2">
@@ -310,6 +316,9 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
         </sc-for>
+        <sc-if value="{{ sec.hasAsk }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,207,152,.5);max-width:680px;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.8vw,32px);line-height:1.25;color:#efcf98;text-wrap:balance">{{ sec.ask }}</div>
+        </sc-if>
       </section>
     </sc-for>
 
@@ -390,7 +399,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
       <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
         <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
-        <span>{{ tm.title }}</span>
+        <span><span style="color:#efcf98;font-size:.7em">{{ tm.mark }}</span>{{ tm.title }}</span>
       </a>
     </sc-for>
   </div>
@@ -619,6 +628,7 @@ class Component extends DCLogic {
       duel: img('weehawken-duel', '1343/1157', '640px', 'Figure 12.1 · The duel at Weehawken as a later printmaker imagined it, in an undated print the Bain News Service photographed. The print takes a side: Hamilton fires into the air as Burr takes aim. The seconds, the only witnesses, never agreed on what happened.', 'Library of Congress, Prints and Photographs Division, LC-USZ62-75928'),
       convention: img('louisiana-convention', '1400/2236', '480px', 'Figure 12.2 · The last page of the convention on American claims against France, one of the three agreements that made up the Louisiana Purchase, in the French copy exchanged with the United States. Below Article 13 and the envoys’ names, Napoleon Bonaparte, as First Consul, ratifies it on May 22, 1803 (2 Prairial, year 11); Talleyrand and Maret countersign.', 'National Archives, General Records of the United States Government, Record Group 11'),
       map: img('lewis-clark-map', '1400/621', '820px', 'Figure 12.3 · A Map of Lewis and Clark’s Track, Across the Western Portion of North America, from the Mississippi to the Pacific Ocean, published with the expedition’s History in 1814 and copied by Samuel Lewis from William Clark’s original drawing.', 'Newberry Library'),
+      jeffBrown: img('jefferson-mather-brown', '1200/1548', '380px', 'Thomas Jefferson by Mather Brown, oil on canvas, 1786.', 'National Portrait Gallery, Smithsonian Institution; bequest of Charles Francis Adams'),
       statue: img('sakakawea-statue', '629/1024', '380px', 'Bruno Louis Zimm’s statue of Sakakawea, exhibited at the 1904 Louisiana Purchase Exposition in St. Louis. No known image of her dates from her lifetime; every likeness is someone’s invention.', 'Frontispiece, John C. Luttig, Journal of a Fur-Trading Expedition on the Upper Missouri, 1812–1813 (St. Louis: Missouri Historical Society, 1920)'),
       embargo: img('embargo-cartoon', '1400/942', '820px', 'Figure 12.4 · The happy Effects of that Grand Systom of shutting Ports against the English!!, a British satire signed Cruikshank and published in London on October 15, 1808, misspellings its own. Jefferson calls the embargo “a Grand Philosophical Idea” while Napoleon, behind the chair, promises “You shall be King hereafter.” The citizens answer: “My warehouses are full,” “My goods are Spoiling,” “My famely is Starving.”', 'Library of Congress, Prints and Photographs Division'),
       exports: img('exports-chart', '1400/630', '720px', 'Figure 12.5 · American exports by fiscal year. The embargo cut them by four-fifths in a single year.', 'Data: North, The United States Balance of Payments, 1790–1860, NBER, Table 1'),
@@ -637,6 +647,7 @@ class Component extends DCLogic {
       'The Louisiana Purchase': { 1: [{ isPurchase: true }, F.convention] },
       'The Corps of Discovery': { 0: [F.map] },
       'Complex Characters: Sacagawea': { 5: [F.statue] },
+      'Complex Characters: Thomas Jefferson': { pre: [F.jeffBrown] },
       'The Shores of Tripoli': { 2: [{ isBarbary: true }] },
       'The Embargo': { 1: [F.embargo, F.exports] },
       'The Prophet and the Chief': { 0: [{ isProphets: true }] },
@@ -647,6 +658,7 @@ class Component extends DCLogic {
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
+      ((inserts[sec.title] || {}).pre || []).forEach(w => blocks.push(w));
       sec.paras.forEach((p, j) => {
         const last = blocks[blocks.length - 1];
         if (p.startsWith('— ') && last && last.isP) blocks[blocks.length - 1] = { isQuote: true, text: last.text, by: p.slice(2) };
@@ -656,12 +668,19 @@ class Component extends DCLogic {
       if ((sec.sub ? sec.title + ': ' + sec.sub : sec.title) === 'Marbury v. Madison') blocks.push(lmp3('lmp-', 'Marbury v. Madison'));
       const ti = this.lTrackOf(i);
       const pp = (sec.part || '').split(' · ');
-      return { id: slug(sec.title), num: '12.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks,
+      const full = sec.sub ? sec.title + ': ' + sec.sub : sec.title, isCC = full.startsWith('Complex Characters: ');
+      const ccDates = { 'Sacagawea': 'born about 1788 · died 1812, or 1884 by Shoshone tradition', 'Thomas Jefferson': '1743–1826' };
+      const dates = isCC ? (ccDates[full.slice(20)] || '') : '';
+      const ccAsks = {"Thomas Jefferson": "Can a man write the case for liberty and still own the people he enslaves, and which part of him belongs in the history?", "Sacagawea": "If two records give her two deaths, who decided which one counts?"}, ask = isCC ? (ccAsks[full.slice(20)] || '') : '';
+      return { isCC, head: isCC ? full.slice(20) : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
+        ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
+        ccTop: isCC ? '0' : '28px', ccRule: isCC ? 'transparent' : '#2c2f36', ccSize: isCC ? 'clamp(40px,5.4vw,64px)' : 'clamp(32px,4vw,48px)',
+        id: slug(sec.title), num: '12.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks,
         hasPart: !!sec.part, partNum: pp[0] || '', partTitle: pp[1] || '',
         listen: () => this.lToggle(ti), listenLabel: s.lIdx === ti ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen to this section' };
     }) : [];
-    const tocRaw = [{ id: 'intro', num: '—', title: 'Introduction' }, { id: 'listen', num: '♪', title: 'Listen' }, ...sections.map(x => ({ id: x.id, num: x.num, title: x.title })), { id: 'questions', num: 'Q', title: 'Questions for Consideration' }, { id: 'then-and-now', num: '↔', title: 'Then and Now' }];
-    const toc = tocRaw.map(t => ({ ...t, close: () => this.setState({ tocOpen: false }), color: t.id === s.active ? '#f2efe9' : '#8c9198', bar: t.id === s.active ? G : '#2c2f36' }));
+    const tocRaw = [{ id: 'intro', num: '—', title: 'Introduction' }, { id: 'listen', num: '♪', title: 'Listen' }, ...sections.map(x => ({ id: x.id, num: x.num, title: x.title, mark: x.isCC ? '◆\u00a0' : '' })), { id: 'questions', num: 'Q', title: 'Questions for Consideration' }, { id: 'then-and-now', num: '↔', title: 'Then and Now' }];
+    const toc = tocRaw.map(t => ({ ...t, mark: t.mark || '', close: () => this.setState({ tocOpen: false }), color: t.id === s.active ? '#f2efe9' : '#8c9198', bar: t.id === s.active ? G : '#2c2f36' }));
 
     const barRows = (rows, max) => rows.map((r, i) => ({ label: r[0], value: r[2], width: (r[1] / (max || rows[0][1]) * 100) + '%', color: r[3] || (i ? R : G) }));
     const puRows = barRows([['Offered, for the city of New Orleans', 10, '$10 million', B], ['Paid, for the whole of Louisiana', 15, '$15 million', G]], 15);
