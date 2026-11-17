@@ -58,7 +58,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
       </div>
@@ -140,6 +140,22 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           <button type="button" onClick="{{ sec.listen }}" style="align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(239,207,152,.6);background:transparent;color:#efcf98">{{ sec.listenLabel }}</button>
         </div>
         <sc-for list="{{ sec.blocks }}" as="b" hint-placeholder-count="2">
+          <sc-if value="{{ b.isLMP }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Three questions · {{ b.conflict }}</div>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Three questions to ask of any conflict. Answer each in your own words.</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+                <sc-for list="{{ b.qs }}" as="tq" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2c2f36;padding-top:16px">
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:24px;line-height:1.15;color:#efcf98">{{ tq.text }}</div>
+                    <textarea aria-label="{{ tq.text }}" value="{{ tq.val }}" onChange="{{ tq.onChange }}" placeholder="Your answer…" rows="5" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px;margin-top:auto"></textarea>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
+            </div>
+          </sc-if>
+
           <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
             <p data-read="1" style="margin:0 0 26px;font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#dcd8d1;max-width:680px;text-wrap:pretty">{{ b.text }}</p>
           </sc-if>
@@ -326,6 +342,27 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             <textarea aria-label="Your reflection on Then and Now prompt {{ q.n }}" value="{{ q.val }}" onChange="{{ q.onChange }}" placeholder="Your reflection…" rows="5" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px;margin-top:auto"></textarea>
           </div>
         </sc-for>
+      </div>
+      <div style="margin-top:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Bring your own case</div>
+        <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Find something happening now that belongs beside this chapter. Name it, date it, and test the comparison.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <sc-for list="{{ nowTop }}" as="nf" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ nf.label }}</div>
+              <textarea aria-label="{{ nf.label }}" value="{{ nf.val }}" onChange="{{ nf.onChange }}" placeholder="{{ nf.ph }}" rows="{{ nf.rows }}" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:12px 16px;border-radius:12px;resize:{{ nf.resize }}"></textarea>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+          <sc-for list="{{ nowBot }}" as="ng" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ ng.label }}</div>
+              <textarea aria-label="{{ ng.label }}" value="{{ ng.val }}" onChange="{{ ng.onChange }}" placeholder="{{ ng.ph }}" rows="{{ ng.rows }}" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:12px 16px;border-radius:12px;resize:{{ ng.resize }}"></textarea>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Saved on this device only.</div>
       </div>
     </section>
 
@@ -585,6 +622,8 @@ class Component extends DCLogic {
       narrative: img('narrative', '1400/2293', '440px', 'Figure 7.6 · A Narrative of the Late Massacres, in Lancaster County (1764), title page. The pamphlet condemned the Paxton killings; it is generally attributed to Benjamin Franklin.', 'Library of Congress, Rare Book and Special Collections Division'),
       pontiac: img('melchers-pontiac', '1400/1764', '560px', 'Gari Melchers, Conspiracy of Pontiac, about 1921. An imagined scene; no authentic portrait of Pontiac is known.', 'Library of Congress, Prints and Photographs Division, Detroit Publishing Company, LC-DIG-det-4a26367')
     };
+    const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
+    const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const inserts = {
       'The Wheel of the Atlantic': { 0: [F.wheel] },
       'Mercantilism': { 0: [{ isFour: true }] },
@@ -607,6 +646,7 @@ class Component extends DCLogic {
         else blocks.push({ isP: true, text: p });
         ((inserts[sec.title] || {})[j] || []).forEach(w => blocks.push(w));
       });
+      if ((sec.sub ? sec.title + ': ' + sec.sub : sec.title) === 'Pontiac’s War and the Proclamation') blocks.push(lmp3('lmp-', 'Pontiac’s War and the Proclamation'));
       const ti = this.lTrackOf(i);
       const pp = (sec.part || '').split(' · ');
       return { id: slug(sec.title), num: '7.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks,
@@ -704,7 +744,9 @@ class Component extends DCLogic {
       caTabs: tlTabs(caData, 'ca'), caSel: sel(caData, 'ca'),
       tpTabs: tlTabs(tpData, 'tp'), tpSel: sel(tpData, 'tp'),
       lnTabs, lnSel: { date: lnData[s.ln][0], who: lnData[s.ln][1], text: lnData[s.ln][2] },
-      questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't')
+      questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
+      nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
+      nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
     };
   }
 }
