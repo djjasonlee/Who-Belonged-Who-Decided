@@ -58,7 +58,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">6</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
       </div>
@@ -243,6 +243,40 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-if>
 
+          <sc-if value="{{ b.isWitness }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Weigh the witnesses · Who fired first at Weehawken?</div>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Read each witness. Then make your call before you see how a historian ruled.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ wwTabs }}" as="ww" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ww.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ww.border }};background:{{ ww.bg }};color:{{ ww.color }}">{{ ww.label }}</button>
+                </sc-for>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ wwSel.kind }}</div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ wwSel.who }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ wwSel.text }}</div>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:12px">
+                <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Your ruling</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ wrBtns }}" as="wr" hint-placeholder-count="3">
+                    <button type="button" onClick="{{ wr.onClick }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:11px 16px;border-radius:999px;cursor:pointer;border:1px solid {{ wr.border }};background:{{ wr.bg }};color:{{ wr.color }}">{{ wr.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ wrDone }}" hint-placeholder-val="{{ false }}">
+                <div style="border-left:2px solid #efcf98;padding:4px 0 4px 18px;display:flex;flex-direction:column;gap:10px;max-width:640px">
+                  <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">You ruled: {{ wrMine }}</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">How a historian ruled</div>
+                  <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">The leading reconstruction, by the historian Joseph Ellis: Hamilton fired first but threw his shot away into the trees, and Burr fired back and hit him.</div>
+                  <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">One reason: the cedar limb his ball struck was twelve and a half feet up and four feet wide of the line between the two men.</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#efcf98">The chapter explains why ↓</div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
           <sc-if value="{{ b.isHartford }}" hint-placeholder-val="{{ false }}">
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · What Hartford proposed, December 1814</div>
@@ -348,7 +382,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, ti: 0, mb: 0, bb: 0, pr: 0, hf: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
+  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, ti: 0, mb: 0, bb: 0, pr: 0, hf: 0, ww: 0, wr: -1, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
 
   componentDidMount() {
     try { this.setState({ notes: JSON.parse(localStorage.getItem('ch12-notes') || '{}') }); } catch (e) {}
@@ -560,6 +594,7 @@ class Component extends DCLogic {
       'The Tie': { 1: [{ isTie: true }] },
       'Marbury v. Madison': { 0: [{ isMarbury: true }] },
       'Two Seconds, Two Stories': { 0: [F.duel] },
+      'Pendleton’s Answer': { 1: [{ isWitness: true }] },
       'The Louisiana Purchase': { 1: [{ isPurchase: true }, F.convention] },
       'The Corps of Discovery': { 0: [F.map] },
       'Complex Characters: Sacagawea': { 5: [F.statue] },
@@ -614,6 +649,13 @@ class Component extends DCLogic {
       ['Revival', 'Tenskwatawa, Shawnee prophet', 'Preached that Native peoples must renounce American alcohol, clothing, food, and goods and return to the old ways. His followers gathered at Prophetstown.'],
       ['Alliance', 'Tecumseh, Shawnee chief', 'Built a pan-Indian alliance across nations that had often been rivals, the same dream Neolin and Pontiac had pursued half a century earlier.']
     ];
+    const wwData = [
+      ['Van Ness', 'William Van Ness, Burr’s second', 'Eyewitness account', 'He claimed “full & perfect recollection.” At the word “present,” both men took aim. Hamilton’s pistol went off first, and Burr fired after, “only five or six seconds of time intervening.” Rowing back, Burr blamed a small stone under his foot, and said the smoke from Hamilton’s pistol had hidden his opponent from him for a moment.'],
+      ['Pendleton', 'Nathaniel Pendleton, Hamilton’s second', 'Eyewitness account · published July 19, 1804', 'Hamilton had told him he would not fire at Burr the first time. Asked whether he wanted the hair spring of his pistol set, he answered, “Not this time.” Wounded in the boat, he said: “Pendleton knows I did not mean to fire at Col. Burr the first time,” and warned that his pistol “is cocked. It may go off and do mischief.”'],
+      ['Hamilton', 'Alexander Hamilton, his sealed statement', 'Written before the duel · June 28–July 10, 1804', '“I have resolved, if our interview is conducted in the usual manner, and it pleases God to give me the opportunity, to reserve and throw away my first fire, and I have thoughts even of reserving my second fire.”'],
+      ['The cedar limb', 'Found by Pendleton the day after Hamilton died', 'Physical evidence · found the day after Hamilton died', 'Hamilton’s ball had passed through the limb of a cedar tree about twelve and a half feet off the ground, thirteen or fourteen feet from where Hamilton stood, and about four feet wide of the line between the two men, on the right.']
+    ];
+    const wrOpts = ['Hamilton fired first', 'Burr fired first', 'The evidence can’t settle it'];
     const hfData = [
       ['One term', 'Limit presidents to a single term, and forbid two in a row from the same state.'],
       ['Two-thirds', 'Require a two-thirds vote of Congress to admit new states, declare war, or restrict trade.'],
@@ -669,6 +711,8 @@ class Component extends DCLogic {
       bbTabs: tlTabs(bbData, 'bb'), bbSel: sel(bbData, 'bb'),
       prTabs: tlTabs(prData, 'pr'), prSel: selW(prData, 'pr'),
       hfTabs: tlTabs(hfData, 'hf'), hfSel: sel(hfData, 'hf'),
+      wwTabs: tlTabs(wwData, 'ww'), wwSel: { who: wwData[s.ww][1], kind: wwData[s.ww][2], text: wwData[s.ww][3] },
+      wrBtns: wrOpts.map((t, i) => ({ label: t, onClick: () => this.setState({ wr: i }), ...tab(i === s.wr) })), wrDone: s.wr >= 0, wrMine: s.wr >= 0 ? wrOpts[s.wr] : '',
       questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't')
     };
   }
