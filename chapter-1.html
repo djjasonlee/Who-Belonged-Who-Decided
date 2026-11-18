@@ -796,5 +796,55 @@ class Component extends DCLogic {
   }
 }
 </script>
+<!-- fig-zoom:start -->
+<style>
+[role="img"][data-z]{cursor:zoom-in}
+[role="img"][data-z]:focus-visible{outline:2px solid #efcf98;outline-offset:4px}
+#figzoom{position:fixed;inset:0;z-index:1000;background:#0a0c10;display:flex;flex-direction:column}
+#figzoom .fz-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;flex:none}
+#figzoom .fz-hint{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:#a3a7ae}
+#figzoom button{font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:#efcf98;border:0;border-radius:999px;padding:11px 18px;min-height:44px;cursor:pointer}
+#figzoom .fz-stage{flex:1;overflow:auto;display:flex;-webkit-overflow-scrolling:touch}
+#figzoom img{margin:auto;display:block;max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in;background:#fff}
+#figzoom.big img{max-width:none;max-height:none;cursor:zoom-out}
+#figzoom .fz-cap{flex:none;max-height:26vh;overflow:auto;padding:10px 16px 16px;font-family:'Inter',sans-serif;font-size:13px;line-height:1.55;color:#c8c4bc}
+</style>
+<script>
+(function () {
+  var last = null;
+  function srcOf(el) {
+    var f = el.querySelector('.fig');
+    if (f) { var m = (f.style.backgroundImage || '').match(/url\(["']?([^"')]+)["']?\)/); if (m) return m[1]; }
+    var s = el.querySelector('image' + '-slot'); if (s && s.getAttribute('src')) return s.getAttribute('src');
+    var i = el.querySelector('img'); return i ? i.src : '';
+  }
+  function close() { var o = document.getElementById('figzoom'); if (!o) return; o.remove(); document.documentElement.style.overflow = ''; if (last && last.focus) last.focus(); }
+  function open(el) {
+    var src = srcOf(el); if (!src || /\{\{/.test(src)) return;
+    close(); last = el;
+    var o = document.createElement('div'); o.id = 'figzoom'; o.setAttribute('role', 'dialog'); o.setAttribute('aria-modal', 'true'); o.setAttribute('aria-label', 'Enlarged image');
+    var bar = document.createElement('div'); bar.className = 'fz-bar';
+    var hint = document.createElement('span'); hint.className = 'fz-hint'; hint.textContent = 'Tap the image to zoom in and out';
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = 'Close ✕'; b.addEventListener('click', close);
+    bar.appendChild(hint); bar.appendChild(b);
+    var stage = document.createElement('div'); stage.className = 'fz-stage';
+    var img = document.createElement('img'); img.src = src; img.alt = el.getAttribute('aria-label') || '';
+    img.addEventListener('click', function (e) { e.stopPropagation(); var big = o.classList.toggle('big'); img.style.width = big ? Math.min(Math.max(img.naturalWidth, 1200), Math.max(window.innerWidth * 2.4, 900)) + 'px' : ''; });
+    stage.addEventListener('click', function (e) { if (e.target === stage) close(); });
+    stage.appendChild(img);
+    var cap = document.createElement('div'); cap.className = 'fz-cap'; cap.textContent = el.getAttribute('aria-label') || '';
+    o.appendChild(bar); o.appendChild(stage); o.appendChild(cap);
+    document.body.appendChild(o); document.documentElement.style.overflow = 'hidden'; b.focus();
+  }
+  function mark() { var l = document.querySelectorAll('[role="img"]:not([data-z])'); for (var i = 0; i < l.length; i++) { if (!l[i].querySelector('.fig,image' + '-slot,img')) continue; l[i].setAttribute('data-z', '1'); l[i].setAttribute('tabindex', '0'); l[i].setAttribute('title', 'Enlarge image'); } }
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#figzoom')) return; var el = e.target.closest && e.target.closest('[role="img"][data-z]'); if (el) open(el); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') return close();
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.matches && document.activeElement.matches('[role="img"][data-z]')) { e.preventDefault(); open(document.activeElement); }
+  });
+  new MutationObserver(mark).observe(document.documentElement, { childList: true, subtree: true }); mark();
+})();
+</script>
+<!-- fig-zoom:end -->
 </body>
 </html>
