@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Who Belonged? Who Decided?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script src="./support.js"></script>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500;1,700&amp;family=Inter+Tight:wght@300;400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:#16171a linear-gradient(180deg,#16171a 0%,#121a26 40%,#0a121c 100%) fixed;color:#f2efe9;-webkit-font-smoothing:antialiased}
+a{color:#efcf98;text-decoration:none}
+a:hover{color:#fff1d2}
+textarea:focus{outline:none;border-color:#efcf98 !important}
+::selection{background:#efcf98;color:#16171a}
+</style>
+</helmet>
+
+<header style="padding:16px clamp(12px,2vw,24px) 0">
+  <div style="position:relative;min-height:92vh;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:28px clamp(20px,4vw,56px) 32px;isolation:isolate;background:linear-gradient(180deg,#707e92 0%,#707e92 34%,#d9a55c 50%,#3a3029 72%,#16171a 100%)">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,244,222,.34) 0%,rgba(255,244,222,.12) 48%,rgba(22,23,26,0) 62%,rgba(22,23,26,.82) 100%)"></div>
+
+    <div style="position:relative;display:flex;justify-content:flex-end;align-items:center;gap:16px;flex-wrap:wrap">
+      <a href="#chapters" style="font-family:'Inter',sans-serif;font-size:13px;color:#fff;background:#16171a;padding:11px 20px;border-radius:999px">Chapters ↓</a>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-top:4vh">
+      <div style="font-weight:700;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#1d1f23">— An Interactive History of the Americas —</div>
+      <h1 style="margin:0;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(46px,8vw,124px);line-height:.92;letter-spacing:-.02em;color:#16171a;max-width:1100px;text-wrap:balance">Who Belonged? Who Decided?</h1>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(24px,2.6vw,34px);color:#16171a">American History to 1865 · Volume I</div>
+      <div aria-hidden="true" style="position:relative;width:100%;height:clamp(48px,9vh,96px)">
+        <div style="position:absolute;left:50%;top:50%;width:max(112vw,190vh);aspect-ratio:1422/794;transform:translate(-50.2%,-40.3%);z-index:-1;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%);mask-image:linear-gradient(180deg,transparent 0,#000 10%);background:url('dawn.jpg') center/cover no-repeat"></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px">
+        <a href="chapter-1.html" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border-radius:999px">Begin with Chapter 1 →</a>
+        <a href="preface.html" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">Read the Preface</a>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
+      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">20</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Chapters so far</div></div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f2efe9">Jason L. Clark, Ph.D.</div>
+    </div>
+  </div>
+</header>
+
+<main style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px) 72px;display:flex;flex-direction:column;gap:clamp(64px,8vw,104px)">
+  <section id="chapters" style="scroll-margin-top:24px;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Contents</div>
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(34px,4.4vw,54px);line-height:1.05">The book</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+      <sc-for list="{{ starts }}" as="st" hint-placeholder-count="2">
+        <a href="{{ st.href }}" style="display:flex;flex-direction:column;gap:12px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px 28px 24px;color:#f2efe9">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ st.label }}</span>
+          <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.12">{{ st.title }}</h3>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.3;color:#c8c4bc">{{ st.sub }}</span>
+          <span style="margin-top:6px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#efcf98">{{ st.cta }}</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:32px;border-top:1px solid #2c2f36;padding-top:40px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Every chapter includes four tools</div>
+        <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(34px,4.4vw,54px);line-height:1.05">How to read this book</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px 36px">
+        <sc-for list="{{ ways }}" as="w" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #2c2f36;padding-top:20px">
+            <h4 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:26px;line-height:1.15;color:#efcf98">{{ w.head }}</h4>
+            <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.55;color:#dcd8d1;text-wrap:pretty">{{ w.text }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <a href="preface.html" style="display:inline-block;align-self:flex-start;padding:15px 0;margin:-15px 0;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">Read the full Preface →</a>
+    </div>
+
+    <nav aria-label="Units" style="display:flex;flex-direction:column;gap:18px;border-top:1px solid #2c2f36;padding-top:28px">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Jump to a unit</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px 14px">
+        <sc-for list="{{ unitNav }}" as="un" hint-placeholder-count="9">
+          <a href="{{ un.href }}" style="display:grid;grid-template-columns:44px 1fr;gap:4px 10px;align-items:baseline;min-height:44px;padding:12px 16px;box-sizing:border-box;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.03);color:#f2efe9">
+            <span style="font-family:'Playfair Display',serif;font-size:20px;color:#efcf98">{{ un.num }}</span>
+            <span style="font-family:'Newsreader',serif;font-size:18px;line-height:1.25">{{ un.title }}</span>
+            <span></span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ un.chs }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </nav>
+
+    <sc-for list="{{ units }}" as="u" hint-placeholder-count="3">
+      <div id="{{ u.id }}" style="display:flex;flex-direction:column;gap:22px;scroll-margin-top:16px">
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #2c2f36;padding-top:24px">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ u.label }}</div>
+          <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.1">{{ u.title }}</h3>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#c8c4bc;max-width:760px">{{ u.q }}</div>
+          <sc-if value="{{ u.hasOpener }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ u.opener }}" style="display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;margin-top:10px;padding:22px 26px;border:2px solid #efcf98;border-radius:14px;background:rgba(239,207,152,.07);color:#f2efe9">
+              <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:8px">
+                <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">Start here · Unit introduction</div>
+                <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.5;color:#f2efe9;text-wrap:pretty">{{ u.lead }}</div>
+              </div>
+              <div style="flex:0 0 auto;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#16171a;background:#efcf98;padding:14px 24px;border-radius:999px">Read the introduction →</div>
+            </a>
+          </sc-if>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:{{ u.gridMax }}">
+          <sc-for list="{{ u.chapters }}" as="c" hint-placeholder-count="2">
+        <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:0 0 22px;color:#f2efe9;overflow:hidden">
+          <div role="img" aria-label="{{ c.alt }}" style="width:100%;aspect-ratio:16/10;background:#22252b url('{{ c.img }}') center/cover no-repeat;border-bottom:1px solid rgba(255,255,255,.12)"></div>
+          <div style="margin:6px 26px 0;display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+            <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">Chapter</span>
+            <span style="font-family:'Playfair Display',serif;font-weight:500;font-size:44px;line-height:1;color:#efcf98">{{ c.num }}</span>
+          </div>
+          <h4 style="font-family:'Playfair Display',serif;font-weight:500;font-size:28px;line-height:1.12;text-wrap:balance;margin:0 26px">{{ c.title }}</h4>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.25;color:#c8c4bc;margin:0 26px">{{ c.sub }}</div>
+          <div style="margin:auto 26px 0;padding-top:8px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#efcf98">Read the chapter →</div>
+        </a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+
+    <sc-if value="{{ hasComing }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:22px;border-top:1px solid #2c2f36;padding-top:24px">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#80858d">Coming</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px 40px">
+        <sc-for list="{{ coming }}" as="cu" hint-placeholder-count="6">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a3a7ae">{{ cu.label }}</div>
+            <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:22px;line-height:1.15;color:#c8c4bc">{{ cu.title }}</h3>
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.3;color:#b4b8be">{{ cu.q }}</div>
+            <sc-for list="{{ cu.chapters }}" as="cc" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:28px 1fr;gap:6px;font-family:'Newsreader',serif;font-size:16px;line-height:1.4;color:#a3a7ae"><span style="font-family:'Inter',sans-serif;font-size:12px;padding-top:3px;color:#80858d">{{ cc.num }}</span><span>{{ cc.title }}</span></div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+  </section>
+
+  <div style="border-top:1px solid #2c2f36;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:0 28px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#80858d">
+    <span style="padding:15px 0">Who Belonged? Who Decided?</span>
+    <a href="preface.html" style="display:inline-block;padding:15px 0">Preface</a>
+    <a href="introduction.html" style="display:inline-block;padding:15px 0">Thinking Like a Historian</a>
+    <a href="instructors.html" style="display:inline-block;padding:15px 0">For Instructors</a>
+    <a href="chapter-1.html" style="display:inline-block;padding:15px 0">Begin with Chapter 1 →</a>
+  </div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const ch = [
+      ['chapter-1.html', 'Pre-Columbian Indigenous Societies', 'The Americas before 1492'],
+      ['chapter-2.html', 'Contact and Exchange', 'Columbus, Conquest, and the Columbian Exchange, 1492–1650'],
+      ['chapter-3.html', 'Four Empires', 'Spain, France, the Netherlands, and England in North America, 1565–1700'],
+      ['chapter-4.html', 'Founding and Conflict', 'The Chesapeake and New England, 1607–1676'],
+      ['chapter-5.html', 'Slavery in British North America', 'The Price, the Law, and the Making of Race'],
+      ['chapter-6.html', 'Colonial Society and Culture', 'Four Regions, Two Awakenings, 1660–1750'],
+      ['chapter-7.html', 'Empire and War', 'The Atlantic Economy, the Imperial State, and the Struggle for North America, 1660–1763'],
+      ['chapter-8.html', 'The Rejection of Empire', 'Sugar, Stamps, and Tea, 1763–1776'],
+      ['chapter-9.html', 'Revolution', 'The War for Independence, 1776–1783'],
+      ['chapter-10.html', 'The Constitution', 'From the Critical Period to the Bill of Rights, 1781–1791'],
+      ['chapter-11.html', 'The New Republic', 'The Federalist Decade and the First Transfer of Power, 1789–1801'],
+      ['chapter-12.html', 'The Jeffersonian Republic', 'From the Revolution of 1800 to the Monroe Doctrine, 1800–1823'],
+      ['chapter-13.html', 'The Market Revolution', 'Money, Machines, and the Remaking of American Work, 1800–1840'],
+      ['chapter-14.html', 'The Age of Jackson', 'The Democratic Revolution and the Second Great Awakening, 1815–1840'],
+      ['chapter-15.html', 'The American Reformation', 'Religion, Reform, and Division, 1820–1848'],
+      ['chapter-16.html', 'The Peculiar Institution', 'The Cotton Kingdom and the Making of a People, 1793–1860'],
+      ['chapter-17.html', 'Manifest Destiny', 'Expansion, Texas, and the War with Mexico, 1819–1848'],
+      ['chapter-18.html', 'A House Divided', 'The Failure of Compromise, 1848–1861'],
+      ['chapter-19.html', 'The War for the Union', 'From Fort Sumter to Emancipation, 1861–1862'],
+      ['chapter-20.html', 'A New Birth of Freedom', 'From Emancipation to Appomattox, 1863–1865']
+    ];
+    const alts = ['Engraving of two Native men standing with longbows', 'Map of Tenochtitlan', 'Painting of the Spanish Armada', 'Engraving of John Smith taking the King of Pamunkey prisoner', 'Deck plans of the slave ship Brookes', 'Painting of a Salem witch trial', 'Lithograph of George Washington on horseback at the Monongahela', 'Lithograph of the destruction of tea at Boston Harbor', 'Painting of Washington crossing the Delaware', 'The first page of the Constitution, “We the People”', 'British cartoon of French officials surrounding a woman representing America, 1798', 'London print of the British burning the city of Washington, 1814', 'Lithograph of derricks lifting stone from the Erie Canal rock cut at Lockport', 'Aquatint of a crowd pressing into the White House for Jackson’s reception', 'Nathaniel Currier’s print The Drunkard’s Progress, 1846', 'Engraving of Solomon Northup from the 1859 edition of Twelve Years a Slave', 'American Progress, the 1873 chromolithograph after John Gast', 'John L. Magee’s 1856 print of Preston Brooks beating Charles Sumner on the Senate floor', 'Currier & Ives print of the bombardment of Fort Sumter, April 1861', 'Storming Fort Wagner, the Kurz & Allison print of the 54th Massachusetts on the parapet'];
+    const cards = ch.map((c, i) => c && ({ href: c[0], num: String(i + 1).padStart(2, '0'), title: c[1], sub: c[2], img: 'ch' + (i + 1) + '.jpg', alt: alts[i] }));
+    const live = [["I", "Worlds and the Exchange", "The Americas and Europe Before 1492, and What the Meeting Changed", [1, 2]], ["II", "Empires and the Balance", "Four Ways of Colonizing, and Why Native Leverage Held in One Place and Broke in Another", [3, 4]], ["III", "Making British America", "The Price, the Law, and the Four Societies That Grew Where One Was Planned", [5, 6]], ["IV", "Empire, Resistance, Revolution", "The End of Rivalry, a Revolution, and the Making of a Nation", [7, 8, 9]], ["V", "The Rules of the Game", "What the Founders Built When the Confederation Ran Out of Money and Authority, and What the Constitution Left for Someone Else to Answer", [10, 11, 12]], ["VI", "The Market and the Majority", "An Economy Nobody Designed, a Politics Ordinary Men Captured, and the Circle They Drew Together", [13, 14]], ["VII", "Written Into Law", "The Reformers, the Enslaved, and the Law Between Them", [15, 16]], ["VIII", "The One Boundary", "Everything Between Texas and the Pacific, and the Line the Nation Could Not Draw Through It", [17, 18]], ["IX", "From Slavery to Salvation", "Four Million Freed, but Free to Do What?", [19, 20]]];
+    const later = [];
+    const leads = {"I": "It’s quite telling that American history usually begins in 1492, when Europeans “discover” the New World, and not with the original inhabitants of this land.", "II": "This unit sets four experiments in colonization side by side and asks why they produced different results.", "III": "This unit explains how English colonies, planted for wealth and virtue, became four distinct societies bound to one crown — and how one of them wrote race into law.", "IV": "How did Britain’s greatest victory become, within twenty years, the loss of thirteen colonies?", "V": "Native leverage and colonial self-government had both depended on a rival empire and a distracted crown, and in 1763 both disappeared.", "VI": "Between 1815 and 1840 the Constitution did not change a word, and the country became unrecognizable.", "VII": "At the turn of the nineteenth century, many Americans who opposed slavery, even some Virginia planters among them, believed the institution to be in its final stages.", "VIII": "In February 1848 the United States conquered and purchased everything between Texas and the Pacific.", "IX": "The war that began in April 1861 to restore the Union ended in April 1865 having destroyed slavery, and almost nobody who fired the first shots intended that outcome."};
+    const openers = { I: 'unit-1.html', II: 'unit-2.html', III: 'unit-3.html', IV: 'unit-4.html', V: 'unit-5.html', VI: 'unit-6.html', VII: 'unit-7.html', VIII: 'unit-8.html', IX: 'unit-9.html' };
+    return {
+      starts: [
+        { href: 'preface.html', label: 'Front matter', title: 'Preface', sub: 'What game was being played? What were the rules? What were we playing for? And perhaps most importantly, who kept score?', cta: 'Read the Preface →' },
+        { href: 'introduction.html', label: 'Introduction', title: 'Thinking Like a Historian', sub: '“Ancora imparo.” I am still learning.', cta: 'Read the Introduction →' }
+      ],
+      unitNav: live.map(u => ({ href: '#unit-' + u[0].toLowerCase(), num: u[0], title: u[1], chs: u[3].length > 1 ? 'Chapters ' + u[3][0] + '–' + u[3][u[3].length - 1] : 'Chapter ' + u[3][0] })),
+      units: live.map(u => ({ id: 'unit-' + u[0].toLowerCase(), label: 'Unit ' + u[0], title: u[1], q: u[2], hasOpener: !!openers[u[0]], opener: openers[u[0]] || '', lead: leads[u[0]] || '', gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
+      hasComing: later.length > 0,
+      coming: later.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], chapters: u[3].map(c => ({ num: c[0], title: c[1] })) })),
+      ways: [
+        { head: 'Three questions', text: 'A set of three questions to ask of any conflict: What does the law say? What do the morals mandate? Who holds the power?' },
+        { head: 'Explaining is not excusing', text: 'Cultural legacies are real, they are observable patterns of the past. They are not mandates for behavior, nor are they predestined pathways into the future; we all have free will.' },
+        { head: 'Footnotes', text: 'Most textbooks hide their doubts; this one puts them at the bottom of the page. The notes tell you how strong the evidence is behind each claim: which numbers are counts and which are estimates, which famous lines were said and which were invented later.' },
+        { head: 'So what?', text: 'Each chapter concludes with a contemporary parallel, inviting you to consider where those connections hold, where they break down, and what they reveal about the society we have inherited.' }
+      ]
+    };
+  }
+}
+</script>
+<!-- site-search:start -->
+<style>
+#ss-btn{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));z-index:45;display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:13px;color:#f2efe9;background:rgba(22,23,26,.82);border:1px solid rgba(239,207,152,.55);border-radius:999px;padding:0 16px;height:44px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .25s ease,opacity .25s ease}
+#ss-btn:hover{border-color:#efcf98;color:#fff1d2}
+#ss-btn:focus-visible,#ss-panel button:focus-visible,#ss-panel a:focus-visible{outline:2px solid #efcf98;outline-offset:3px}
+html.toc-away #ss-btn{transform:translateY(-180%);opacity:0;pointer-events:none}
+html.toc-away #ss-btn:focus-visible{transform:none;opacity:1;pointer-events:auto}
+@media (max-width:600px){#ss-btn{padding:0;width:44px;justify-content:center}#ss-btn span{display:none}}
+#ss-panel{position:fixed;inset:0;z-index:1100;background:#0d1016;display:flex;flex-direction:column;font-family:'Inter',sans-serif;color:#f2efe9}
+#ss-panel .ss-top{flex:none;display:flex;gap:12px;align-items:center;padding:16px;border-bottom:1px solid #2c2f36;max-width:860px;width:100%;margin:0 auto;box-sizing:border-box}
+#ss-panel input{flex:1;min-width:0;font-family:'Newsreader',serif;font-size:22px;color:#f2efe9;background:#161a22;border:1px solid #3a3f49;border-radius:12px;padding:12px 16px;outline:none}
+#ss-panel input:focus{border-color:#efcf98}
+#ss-panel .ss-x{flex:none;font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:#efcf98;border:0;border-radius:999px;padding:0 18px;height:46px;cursor:pointer}
+#ss-panel .ss-list{flex:1;overflow:auto;-webkit-overflow-scrolling:touch}
+#ss-panel .ss-in{max-width:860px;margin:0 auto;padding:14px 16px 60px;box-sizing:border-box}
+#ss-panel .ss-msg{font-size:14px;line-height:1.6;color:#a3a7ae;padding:10px 0 16px}
+#ss-panel a.ss-r{display:block;padding:16px 0;border-top:1px solid #23262d;color:inherit;text-decoration:none}
+#ss-panel a.ss-r:hover .ss-s{color:#f2efe9}
+#ss-panel .ss-w{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98;margin-bottom:6px}
+#ss-panel .ss-s{font-family:'Newsreader',serif;font-size:18px;line-height:1.55;color:#c8c4bc}
+#ss-panel mark{background:#efcf98;color:#16171a;border-radius:3px;padding:0 2px}
+.ss-flash{animation:ssflash 3.2s ease 1;border-radius:6px}
+@keyframes ssflash{0%,55%{box-shadow:0 0 0 6px rgba(239,207,152,.16),0 0 0 7px rgba(239,207,152,.75)}100%{box-shadow:0 0 0 6px rgba(239,207,152,0),0 0 0 7px rgba(239,207,152,0)}}
+</style>
+<script>
+(function () {
+  var EXT = '.dc' + '.html', onCanvas = decodeURIComponent(location.pathname).slice(-EXT.length) === EXT;
+  var idx = null, norm = null, lastFocus = null;
+  function fold(s) { var o = ''; for (var i = 0; i < s.length; i++) { var c = s.charAt(i); if (c === '’' || c === '‘') c = "'"; else if (c === '“' || c === '”') c = '"'; else if (c === '—' || c === '–') c = '-'; else if (c > '\u007f') c = c.normalize('NFD').charAt(0); o += c.toLowerCase().charAt(0) || ' '; } return o; }
+  function href(p, find) { return (onCanvas ? p.c + EXT : p.s + '.html') + '#find=' + encodeURIComponent(find); }
+  function probe(t) { var a = t.length > 140 ? 64 : (t.length > 70 ? 20 : 0); return t.slice(a, a + 44); }
+  function load(cb) { if (idx) return cb(); fetch('search-index.json').then(function (r) { return r.json(); }).then(function (j) { idx = j; norm = j.e.map(function (e) { return fold(e[3]); }); cb(); }).catch(function () { msg('The search list could not be loaded. Check your connection and try again.'); }); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  var panel, input, list, timer;
+  function msg(t) { if (!list) return; list.textContent = ''; list.appendChild(el('div', 'ss-msg', t)); }
+  function ws(n, w, from) { var j = n.indexOf(w, from); while (j >= 0) { var c = j ? n.charAt(j - 1) : ' '; if (!((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))) return j; j = n.indexOf(w, j + 1); } return -1; }
+  function terms(q) { var out = [], m, re = /"([^"]+)"|(\S+)/g; q = fold(q); while ((m = re.exec(q))) { var w = (m[1] || m[2]).trim(); if (w.length > 1 || /\d/.test(w)) out.push(w); } return out; }
+  function run() {
+    var ts = terms(input.value);
+    if (!ts.length) return msg('Search every chapter, unit introduction and note. Put a phrase in quotation marks to find those exact words.');
+    load(function () {
+      var hits = [];
+      var whole = fold(input.value).replace(/"/g, '').replace(/\s+/g, ' ').trim(), top = [], rest = [];
+      for (var i = 0; i < norm.length; i++) { var n = norm[i], ok = true; for (var k = 0; k < ts.length; k++) if (ws(n, ts[k], 0) < 0) { ok = false; break; } if (ok) (ts.length > 1 && ws(n, whole, 0) >= 0 ? top : rest).push(i); }
+      hits = top.concat(rest);
+      list.textContent = '';
+      list.appendChild(el('div', 'ss-msg', hits.length ? (hits.length === 1 ? '1 passage' : hits.length + ' passages') + (hits.length > 80 ? ', showing the first 80. Add a word to narrow it down.' : '') : 'Nothing found for those words. Check the spelling, or try fewer words.'));
+      hits.slice(0, 80).forEach(function (i) {
+        var e = idx.e[i], p = idx.p[e[0]], t = e[3], n = norm[i], at = ts.length > 1 && ws(n, whole, 0) >= 0 ? ws(n, whole, 0) : ws(n, ts[0], 0);
+        var a = el('a', 'ss-r'); a.href = href(p, probe(t));
+        a.appendChild(el('div', 'ss-w', p.l + (p.t && p.l !== p.t ? ' · ' + p.t : '') + ' · ' + e[1]));
+        var from = Math.max(0, at - 90), to = Math.min(t.length, at + 170);
+        if (from > 0) { var sp = t.indexOf(' ', from); if (sp > 0 && sp < at) from = sp + 1; }
+        if (to < t.length) { var ep = t.lastIndexOf(' ', to); if (ep > at + ts[0].length) to = ep; }
+        var s = el('div', 'ss-s'), spans = [];
+        ts.forEach(function (w) { var j = ws(n, w, from); while (j >= 0 && j < to) { spans.push([j, j + w.length]); j = ws(n, w, j + w.length); } });
+        spans.sort(function (x, y) { return x[0] - y[0]; });
+        var pos = from; if (from > 0) s.appendChild(document.createTextNode('… '));
+        spans.forEach(function (r) { if (r[0] < pos) return; var e2 = Math.min(r[1], to); s.appendChild(document.createTextNode(t.slice(pos, r[0]))); s.appendChild(el('mark', null, t.slice(r[0], e2))); pos = e2; });
+        s.appendChild(document.createTextNode(t.slice(pos, to) + (to < t.length ? ' …' : '')));
+        a.appendChild(s); list.appendChild(a);
+      });
+    });
+  }
+  function close() { if (!panel) return; panel.remove(); panel = null; document.documentElement.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  function open() {
+    if (panel) return; lastFocus = document.activeElement;
+    panel = el('div'); panel.id = 'ss-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); panel.setAttribute('aria-label', 'Search the book');
+    var top = el('div', 'ss-top'); input = el('input'); input.type = 'search'; input.placeholder = 'Search the book'; input.setAttribute('aria-label', 'Search the book'); input.autocomplete = 'off';
+    var x = el('button', 'ss-x', 'Close ✕'); x.type = 'button'; x.addEventListener('click', close);
+    top.appendChild(input); top.appendChild(x);
+    var wrap = el('div', 'ss-list'); list = el('div', 'ss-in'); list.setAttribute('aria-live', 'polite'); wrap.appendChild(list);
+    panel.appendChild(top); panel.appendChild(wrap); document.body.appendChild(panel); document.documentElement.style.overflow = 'hidden';
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 140); });
+    list.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a.ss-r'); if (a && a.getAttribute('href').split('#')[0] === location.pathname.split('/').pop()) { e.preventDefault(); close(); location.hash = a.getAttribute('href').split('#')[1]; arrive(); } });
+    run(); input.focus(); load(function () {});
+  }
+  function arrive() {
+    var m = /^#find=(.+)$/.exec(location.hash); if (!m) return; var want; try { want = decodeURIComponent(m[1]); } catch (e) { return; }
+    var tries = 0, t = setInterval(function () {
+      tries++; var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), node, hit = null;
+      while ((node = w.nextNode())) { if (node.nodeValue.indexOf(want) >= 0 && !(node.parentElement.closest('#ss-panel,script,style'))) { hit = node.parentElement; break; } }
+      if (hit) { clearInterval(t); var box = hit.closest('p,li,blockquote') || hit; var old = document.querySelectorAll('.ss-flash'); for (var q = 0; q < old.length; q++) old[q].classList.remove('ss-flash'); box.scrollIntoView({ block: 'center' }); void box.offsetWidth; box.classList.add('ss-flash'); try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+      else if (tries > 30) clearInterval(t);
+    }, 300);
+  }
+  function addButton() {
+    if (document.getElementById('ss-btn')) return;
+    var b = el('button'); b.id = 'ss-btn'; b.type = 'button'; b.setAttribute('aria-label', 'Search the book');
+    b.innerHTML = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><span>Search</span>';
+    b.addEventListener('click', open); document.body.appendChild(b);
+    var n = 0, t = setInterval(function () { place(); if (++n > 20) clearInterval(t); }, 250); window.addEventListener('resize', place);
+  }
+  function place() { var b = document.getElementById('ss-btn'), c = document.querySelector('a[href="#chapters"]'); if (!b) return; var r = c && c.getBoundingClientRect(); b.style.right = (r && r.width && r.bottom > 0 && r.top < 90) ? Math.round(window.innerWidth - r.left + 10) + 'px' : ''; if (r && r.width && r.bottom > 0 && r.top < 90) b.style.top = Math.round(r.top + (r.height - 44) / 2) + 'px'; else b.style.top = ''; }
+  var last = window.scrollY;
+  window.addEventListener('scroll', function () { var y = window.scrollY, d = y - last; if (Math.abs(d) < 8) return; last = y; var atEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 60; document.documentElement.classList.toggle('toc-away', d > 0 && !atEnd && y > 120); place(); }, { passive: true });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel) { e.stopPropagation(); return close(); }
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (!panel && ((e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'))) { e.preventDefault(); open(); }
+  }, true);
+  addButton(); arrive();
+})();
+</script>
+<!-- site-search:end -->
+
+</body>
+</html>
