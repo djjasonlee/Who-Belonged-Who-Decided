@@ -914,7 +914,9 @@ html.toc-away button[aria-label="Open the contents"]:focus-visible{transform:non
 #ss-btn:focus-visible,#ss-panel button:focus-visible,#ss-panel a:focus-visible{outline:2px solid #efcf98;outline-offset:3px}
 html.toc-away #ss-btn{transform:translateY(-180%);opacity:0;pointer-events:none}
 html.toc-away #ss-btn:focus-visible{transform:none;opacity:1;pointer-events:auto}
-@media (max-width:600px){#ss-btn{padding:0;width:44px;justify-content:center}#ss-btn span{display:none}}
+@media (max-width:600px){#ss-btn{padding:0;width:44px;justify-content:center}#ss-btn span{display:none}html.ss-panel-has.ss-scrolled #ss-btn{transform:translateY(-180%);opacity:0;pointer-events:none}}
+[role="dialog"][aria-label="Contents"]>div:first-child a{white-space:nowrap}
+#ss-in-toc{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;margin-left:auto;border-radius:999px;border:1px solid rgba(239,207,152,.55);background:transparent;color:#f2efe9;font-family:'Inter',sans-serif;font-size:13px;cursor:pointer}
 #ss-panel{position:fixed;inset:0;z-index:1100;background:#0d1016;display:flex;flex-direction:column;font-family:'Inter',sans-serif;color:#f2efe9}
 #ss-panel .ss-top{flex:none;display:flex;gap:12px;align-items:center;padding:16px;border-bottom:1px solid #2c2f36;max-width:860px;width:100%;margin:0 auto;box-sizing:border-box}
 #ss-panel input{flex:1;min-width:0;font-family:'Newsreader',serif;font-size:22px;color:#f2efe9;background:#161a22;border:1px solid #3a3f49;border-radius:12px;padding:12px 16px;outline:none}
@@ -1008,7 +1010,20 @@ html.toc-away #ss-btn:focus-visible{transform:none;opacity:1;pointer-events:auto
     var tag = (document.activeElement && document.activeElement.tagName) || '';
     if (!panel && ((e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'))) { e.preventDefault(); open(); }
   }, true);
-  addButton(); arrive();
+  // Phones: once the reader has scrolled, Search lives inside the Contents panel instead of floating over the text.
+  function inToc() {
+    var d = document.querySelector('[role="dialog"][aria-label="Contents"]'), has = !!document.querySelector('button[aria-label="Open the contents"]') || !!d;
+    document.documentElement.classList.toggle('ss-panel-has', has);
+    if (!d || document.getElementById('ss-in-toc')) return;
+    var x = d.querySelector('button[aria-label="Close the contents"]'); if (!x) return;
+    var b = el('button'); b.id = 'ss-in-toc'; b.type = 'button'; b.setAttribute('aria-label', 'Search the book');
+    b.innerHTML = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>';
+    b.addEventListener('click', function () { x.click(); setTimeout(open, 60); });
+    x.parentNode.insertBefore(b, x);
+  }
+  new MutationObserver(inToc).observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', function () { document.documentElement.classList.toggle('ss-scrolled', window.scrollY > 160); }, { passive: true });
+  addButton(); arrive(); inToc();
 })();
 </script>
 <!-- site-search:end -->
