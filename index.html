@@ -84,8 +84,22 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <a href="preface.html" style="display:inline-block;align-self:flex-start;padding:15px 0;margin:-15px 0;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">Read the full Preface →</a>
     </div>
 
+    <nav aria-label="Units" style="display:flex;flex-direction:column;gap:18px;border-top:1px solid #2c2f36;padding-top:28px">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Jump to a unit</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px 14px">
+        <sc-for list="{{ unitNav }}" as="un" hint-placeholder-count="9">
+          <a href="{{ un.href }}" style="display:grid;grid-template-columns:44px 1fr;gap:4px 10px;align-items:baseline;min-height:44px;padding:12px 16px;box-sizing:border-box;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.03);color:#f2efe9">
+            <span style="font-family:'Playfair Display',serif;font-size:20px;color:#efcf98">{{ un.num }}</span>
+            <span style="font-family:'Newsreader',serif;font-size:18px;line-height:1.25">{{ un.title }}</span>
+            <span></span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ un.chs }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </nav>
+
     <sc-for list="{{ units }}" as="u" hint-placeholder-count="3">
-      <div style="display:flex;flex-direction:column;gap:22px">
+      <div id="{{ u.id }}" style="display:flex;flex-direction:column;gap:22px;scroll-margin-top:16px">
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #2c2f36;padding-top:24px">
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ u.label }}</div>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.1">{{ u.title }}</h3>
@@ -182,7 +196,8 @@ class Component extends DCLogic {
         { href: 'preface.html', label: 'Front matter', title: 'Preface', sub: 'What game was being played? What were the rules? What were we playing for? And perhaps most importantly, who kept score?', cta: 'Read the Preface →' },
         { href: 'introduction.html', label: 'Introduction', title: 'Thinking Like a Historian', sub: '“Ancora imparo.” I am still learning.', cta: 'Read the Introduction →' }
       ],
-      units: live.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], hasOpener: !!openers[u[0]], opener: openers[u[0]] || '', lead: leads[u[0]] || '', gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
+      unitNav: live.map(u => ({ href: '#unit-' + u[0].toLowerCase(), num: u[0], title: u[1], chs: u[3].length > 1 ? 'Chapters ' + u[3][0] + '–' + u[3][u[3].length - 1] : 'Chapter ' + u[3][0] })),
+      units: live.map(u => ({ id: 'unit-' + u[0].toLowerCase(), label: 'Unit ' + u[0], title: u[1], q: u[2], hasOpener: !!openers[u[0]], opener: openers[u[0]] || '', lead: leads[u[0]] || '', gridMax: u[3].length === 1 ? '580px' : 'none', chapters: u[3].map(n => cards[n - 1]) })),
       hasComing: later.length > 0,
       coming: later.map(u => ({ label: 'Unit ' + u[0], title: u[1], q: u[2], chapters: u[3].map(c => ({ num: c[0], title: c[1] })) })),
       ways: [
