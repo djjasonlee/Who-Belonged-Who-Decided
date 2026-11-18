@@ -52,15 +52,15 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
     <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Minutes to read</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Minutes to read</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Sections</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Sections</div></div>
       </div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">5</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Culture regions</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">5</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Culture regions</div></div>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <div style="display:flex;flex-direction:column;gap:2px">
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
         <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
           <span>{{ t.title }}</span>
         </a>
       </sc-for>
@@ -131,7 +131,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
             <a href="#the-first-americans" style="font-family:'Inter',sans-serif;font-size:13px;color:#16171a;background:#efcf98;padding:11px 20px;border-radius:999px">Read what came before →</a>
           </div>
-          <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">AI-generated portrait. No portrait of Columbus painted from life is known to survive.</div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">AI-generated portrait. No portrait of Columbus painted from life is known to survive.</div>
         </div>
         <figure style="flex:0 1 320px;min-width:0;margin:0;padding:8px;border:1px solid rgba(239,207,152,.45);border-radius:6px;background:#0f141f">
           <div role="img" aria-label="Portrait of Christopher Columbus" style="width:100%;aspect-ratio:4/5;background:#0f141f"><div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('columbus.jpg') center/cover no-repeat"></div></div>
@@ -159,7 +159,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                   </div>
                 </sc-for>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
             </div>
           </sc-if>
 
@@ -172,7 +172,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
               <div role="img" aria-label="{{ b.caption }}" style="width:100%;aspect-ratio:16/9;background:rgba(255,255,255,.05)">
                 <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ b.src }}') center/{{ b.fit }} no-repeat"></div>
               </div>
-              <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
+              <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
             </figure>
           </sc-if>
 
@@ -180,7 +180,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px">
               <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline">
                 <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The evidence, in years ago</div>
-                <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">Select a site</div>
+                <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d">Select a site</div>
               </div>
               <div style="position:relative;height:120px;margin:0 8px">
                 <div style="position:absolute;left:0;right:0;top:70px;height:1px;background:#4a4e57"></div>
@@ -262,7 +262,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                   </div>
                 </div>
               </sc-for>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Shaded end of each bar shows the range. Civil War survival is the complement of the 46–56% mortality given in the text.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Shaded end of each bar shows the range. Civil War survival is the complement of the 46–56% mortality given in the text.</div>
             </div>
           </sc-if>
 
@@ -292,7 +292,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 </div>
                 <input type="range" min="0" max="20" step="1" value="{{ gen }}" onChange="{{ onGen }}" style="width:100%;accent-color:#efcf98">
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Illustrative model, not census data. Assumes two children per couple; a Sun or Noble father’s children drop one rank, an Honored father’s become commoners.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Illustrative model, not census data. Assumes two children per couple; a Sun or Noble father’s children drop one rank, an Honored father’s become commoners.</div>
             </div>
           </sc-if>
 
@@ -376,7 +376,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Review</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Questions for Consideration</h2>
       </div>
-      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;margin-bottom:36px">Your answers are saved on this device only.</div>
+      <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;margin-bottom:36px">Your answers are saved on this device only.</div>
       <div style="display:flex;flex-direction:column;gap:40px">
         <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
           <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 16px">
@@ -423,7 +423,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-for>
         </div>
-        <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Saved on this device only.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Saved on this device only.</div>
       </div>
     </section>
 
@@ -447,7 +447,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </div>
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
       <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
-        <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
+        <span style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d">{{ tm.num }}</span>
         <span>{{ tm.title }}</span>
       </a>
     </sc-for>

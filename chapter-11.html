@@ -56,15 +56,15 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
     <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Minutes to read</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Minutes to read</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Sections</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Sections</div></div>
       </div>
       <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     <div style="display:flex;flex-direction:column;gap:2px">
       <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
         <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
           <span><span style="color:#efcf98;font-size:.7em">{{ t.mark }}</span>{{ t.title }}</span>
         </a>
       </sc-for>
@@ -162,7 +162,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                   </div>
                 </sc-for>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
             </div>
           </sc-if>
 
@@ -183,8 +183,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
               <div role="img" aria-label="{{ b.caption }}" style="width:100%;aspect-ratio:{{ b.ratio }};background:rgba(255,255,255,.05)">
                 <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ b.src }}') center/contain no-repeat"></div>
               </div>
-              <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
-              <sc-if value="{{ b.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">{{ b.credit }}</div></sc-if>
+              <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
+              <sc-if value="{{ b.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ b.credit }}</div></sc-if>
             </figure>
           </sc-if>
 
@@ -201,7 +201,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ cbSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ cbSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Washington authorized four departments and appointed the men to lead them.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Washington authorized four departments and appointed the men to lead them.</div>
             </div>
           </sc-if>
 
@@ -217,7 +217,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ tmSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ tmSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Hamilton and Jefferson’s views of governmental power would quickly divide Congress, the states, and the nation.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Hamilton and Jefferson’s views of governmental power would quickly divide Congress, the states, and the nation.</div>
             </div>
           </sc-if>
 
@@ -233,7 +233,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ bnSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ bnSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Imagine Apple stock was used to pay the soldiers of the Revolutionary War, but the stock crashed.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Imagine Apple stock was used to pay the soldiers of the Revolutionary War, but the stock crashed.</div>
             </div>
           </sc-if>
 
@@ -249,7 +249,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ dnSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ dnSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Hamilton’s economic plans bore early fruit.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Hamilton’s economic plans bore early fruit.</div>
             </div>
           </sc-if>
 
@@ -266,7 +266,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ trSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ trSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Pinckney’s efforts placed the United States in a stronger position in relation to European powers.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Pinckney’s efforts placed the United States in a stronger position in relation to European powers.</div>
             </div>
           </sc-if>
 
@@ -298,7 +298,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ alSel.date }}</div>
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ alSel.text }}</div>
               </div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">These resolutions would later serve as the primary argument for states’ rights.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">These resolutions would later serve as the primary argument for states’ rights.</div>
             </div>
           </sc-if>
 
@@ -315,7 +315,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 </div>
               </sc-for>
               <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Nicknamed the Midnight Judges, these last minute appointees became the topic of serious debate.</div>
-              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">The act also cut the Supreme Court from six seats to five.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">The act also cut the Supreme Court from six seats to five.</div>
             </div>
           </sc-if>
 
@@ -331,7 +331,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Review</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Questions for Consideration</h2>
       </div>
-      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;margin-bottom:36px">Your answers are saved on this device only.</div>
+      <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;margin-bottom:36px">Your answers are saved on this device only.</div>
       <div style="display:flex;flex-direction:column;gap:40px">
         <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
           <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 16px">
@@ -378,7 +378,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-for>
         </div>
-        <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Saved on this device only.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Saved on this device only.</div>
       </div>
     </section>
 
@@ -387,7 +387,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:28px;max-width:680px">
           <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Sources</div>
           <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Notes</h2>
-          <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Select a note’s number to go back to its place in the chapter.</div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Select a note’s number to go back to its place in the chapter.</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
           <sc-for list="{{ notesList }}" as="nt" hint-placeholder-count="6">
@@ -420,7 +420,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </div>
     <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
       <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
-        <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
+        <span style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d">{{ tm.num }}</span>
         <span><span style="color:#efcf98;font-size:.7em">{{ tm.mark }}</span>{{ tm.title }}</span>
       </a>
     </sc-for>
