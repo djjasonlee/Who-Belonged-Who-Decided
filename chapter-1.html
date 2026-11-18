@@ -60,7 +60,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Sections</div></div>
       </div>
-      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
+      <div data-cue="scroll" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
@@ -897,6 +897,7 @@ button[aria-label="Open the contents"]{transition:transform .25s ease,opacity .2
 html.toc-away button[aria-label="Open the contents"]{transform:translateY(160%);opacity:0;pointer-events:none}
 html.toc-away button[aria-label="Open the contents"]:focus-visible{transform:none;opacity:1;pointer-events:auto}
 @media (max-width:1100px){main{padding-bottom:88px}}
+@media (max-width:700px){[data-cue="scroll"]{order:3;flex-basis:100%;text-align:center;margin-top:6px}}
 </style>
 <script>
 (function () {
