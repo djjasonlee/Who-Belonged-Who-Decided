@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chapter 19 · Who Belonged? Who Decided?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500;1,700&amp;family=Inter+Tight:wght@300;400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:#16171a linear-gradient(180deg,#16171a 0%,#121a26 40%,#0a121c 100%) fixed;color:#f2efe9;-webkit-font-smoothing:antialiased}
+a{color:#efcf98;text-decoration:none}
+a:hover{color:#fff1d2}
+textarea:focus{outline:none;border-color:#efcf98 !important}
+.fn{font-family:'Inter',sans-serif;font-size:.62em;font-weight:600;font-style:normal;color:#efcf98;background:none;border:0;padding:0 1px 0 2px;margin:0;cursor:pointer;display:inline-block;position:relative;top:-.55em;vertical-align:baseline;line-height:1;min-width:1em;text-align:left}
+.fn::before{content:attr(data-n)}
+.fn:hover{color:#fff1d2}
+::selection{background:#efcf98;color:#16171a}
+::highlight(lread){background-color:#efcf98;color:#16171a}
+</style>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;height:3px;background:#efcf98;z-index:20;width:{{ progressPct }}"></div>
+
+<header style="padding:16px clamp(12px,2vw,24px) 0">
+  <div style="position:relative;min-height:92vh;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:28px clamp(20px,4vw,56px) 32px;isolation:isolate;background:linear-gradient(180deg,#707e92 0%,#707e92 34%,#d9a55c 50%,#3a3029 72%,#16171a 100%)">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,244,222,.34) 0%,rgba(255,244,222,.12) 48%,rgba(22,23,26,0) 62%,rgba(22,23,26,.82) 100%)"></div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <a href="index.html" style="font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:#16171a;text-decoration:none">Who Belonged? Who Decided?</a>
+        <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c31">An Interactive History of the Americas</span>
+      </div>
+      <a href="index.html" style="font-family:'Inter',sans-serif;font-size:13px;color:#fff;background:#16171a;padding:11px 20px;border-radius:999px">← Home</a>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-top:4vh">
+      <div style="font-weight:700;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#1d1f23">— {{ chapterLabel }} —</div>
+      <h1 style="margin:0;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(46px,8vw,124px);line-height:.92;letter-spacing:-.02em;color:#16171a;max-width:1100px;text-wrap:balance">{{ title }}</h1>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(24px,2.6vw,34px);color:#16171a">{{ subtitle }}</div>
+      <div aria-hidden="true" style="position:relative;width:100%;height:clamp(48px,9vh,96px)">
+        <div style="position:absolute;left:50%;top:50%;width:max(112vw,190vh);aspect-ratio:1422/794;transform:translate(-50.2%,-40.3%);z-index:-1;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%);mask-image:linear-gradient(180deg,transparent 0,#000 10%);background:url('dawn.jpg') center/cover no-repeat"></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px">
+        <a href="#intro" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border-radius:999px">Start the chapter →</a>
+        <a href="#antietam" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">Antietam, 1862</a>
+        <a href="#listen" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">▶ Listen</a>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
+      <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ minutes }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Minutes to read</div></div>
+        <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">{{ sectionCount }}</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Sections</div></div>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
+      <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
+        <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div style="display:grid;grid-template-columns:{{ gridCols }};gap:64px;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+  <nav style="display:{{ tocDisplay }};position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;padding:56px 0 40px">
+    <a href="index.html" style="display:inline-block;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#efcf98;padding:12px 0;margin-bottom:8px">← Home</a>
+    <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae;margin-bottom:20px">Chapter 19 · Contents</div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
+        <a href="#{{ t.id }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:7px 0 7px 12px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-family:'Newsreader',serif;font-size:15px;line-height:1.3">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;font-variant-numeric:tabular-nums">{{ t.num }}</span>
+          <span><span style="color:#efcf98;font-size:.7em">{{ t.mark }}</span>{{ t.title }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </nav>
+
+  <main style="min-width:0;padding:72px 0 120px">
+    <section id="intro" data-sec="1" style="max-width:820px;margin-bottom:96px">
+      <div style="margin:0 0 8px;max-width:680px;border-radius:16px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 28px rgba(0,0,0,.35);padding:26px 30px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#93a1b3">Primary source</div>
+              <div data-read="1" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:#f2efe9;text-wrap:pretty">{{ epigraph }}</div>
+              <div data-read="1" style="font-family:'Inter',sans-serif;font-size:13px;color:#93a1b3">{{ epigraphBy }}<sc-if value="{{ epiHasN }}" hint-placeholder-val="{{ false }}"><button type="button" class="fn" id="{{ epiId }}" data-n="{{ epiN }}" onClick="{{ epiOpen }}" aria-label="{{ epiAria }}"></button></sc-if></div>
+            </div>
+      <sc-if value="{{ hasData }}" hint-placeholder-val="{{ false }}">
+      </sc-if>
+      <sc-for list="{{ introParas }}" as="ip" hint-placeholder-count="2">
+        <p data-read="1" style="margin:0 0 26px;font-family:'Newsreader',serif;font-size:20px;line-height:1.72;color:#dcd8d1;max-width:680px;text-wrap:pretty"><sc-for list="{{ ip.segs }}" as="sg" hint-placeholder-count="1">{{ sg.t }}<sc-if value="{{ sg.hasN }}" hint-placeholder-val="{{ false }}"><button type="button" class="fn" id="{{ sg.id }}" data-n="{{ sg.n }}" onClick="{{ sg.open }}" aria-label="{{ sg.aria }}"></button></sc-if></sc-for></p>
+        <sc-if value="{{ ip.isImage }}" hint-placeholder-val="{{ false }}">
+          <figure style="margin:18px 0 44px;display:flex;flex-direction:column;gap:12px;max-width:{{ ip.maxW }}">
+            <div role="img" aria-label="{{ ip.caption }}" style="width:100%;aspect-ratio:{{ ip.ratio }};background:rgba(255,255,255,.05)">
+              <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ ip.src }}') center/contain no-repeat"></div>
+            </div>
+            <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ ip.caption }}</figcaption>
+            <sc-if value="{{ ip.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">{{ ip.credit }}</div></sc-if>
+          </figure>
+        </sc-if>
+      </sc-for>
+    </section>
+
+    <section id="listen" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Listen</div>
+          <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.05">Hear the chapter</h2>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#a3a7ae">{{ lSummary }}</div>
+        </div>
+        <button type="button" onClick="{{ lBegin }}" style="display:flex;align-items:center;gap:16px;text-align:left;background:rgba(0,0,0,.25);border:1px solid rgba(239,207,152,.5);border-radius:14px;padding:14px 18px;cursor:pointer;color:#f2efe9;max-width:460px">
+          <span aria-hidden="true" style="flex:none;width:46px;height:46px;border-radius:50%;background:#efcf98;color:#16171a;display:flex;align-items:center;justify-content:center;font-size:18px">▶</span>
+          <span style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px">{{ lBeginTitle }}</span><span style="font-family:'Newsreader',serif;font-size:16px;color:#c8c4bc">{{ lBeginSub }}</span></span>
+        </button>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae;line-height:1.5">{{ lVoiceNote }}</div>
+        <div style="display:flex;flex-direction:column">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a3a7ae;padding-bottom:12px">Selected passages</div>
+          <sc-for list="{{ lTracks }}" as="lt" hint-placeholder-count="6">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)">
+              <span style="flex:none;width:38px;font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:#efcf98">{{ lt.num }}</span>
+              <div style="flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:3px">
+                <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.25;color:{{ lt.titleColor }}">{{ lt.title }}</div>
+                <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ lt.meta }}</div>
+              </div>
+              <button type="button" onClick="{{ lt.onListen }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid #efcf98;background:{{ lt.btnBg }};color:{{ lt.btnColor }}">{{ lt.btnLabel }}</button>
+              <a href="#{{ lt.id }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.25);color:#f2efe9">Go to text</a>
+            </div>
+          </sc-for>
+          <sc-if value="{{ lMoreShow }}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{ lMoreToggle }}" style="align-self:flex-start;margin-top:10px;font-family:'Inter',sans-serif;font-size:13px;padding:12px 20px;min-height:44px;border-radius:999px;cursor:pointer;border:1px solid rgba(239,207,152,.6);background:transparent;color:#efcf98">{{ lMoreLabel }}</button>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+
+    <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
+      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px;box-sizing:border-box;background:{{ sec.ccBg }};border-left:{{ sec.ccLeft }};border-radius:{{ sec.ccRad }};padding:{{ sec.ccPad }}">
+        <sc-if value="{{ sec.hasPart }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:0 0 64px;padding-top:28px;border-top:1px solid #efcf98;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ sec.partNum }}</div>
+            <div role="heading" aria-level="2" style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(38px,5vw,60px);line-height:1.02;color:#f2efe9;text-wrap:balance">{{ sec.partTitle }}</div>
+          </div>
+        </sc-if>
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:{{ sec.ccTop }};border-top:1px solid {{ sec.ccRule }};margin-bottom:32px;max-width:680px">
+          <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">{{ sec.num }}</div>
+          <sc-if value="{{ sec.isCC }}" hint-placeholder-val="{{ false }}">
+            <div data-read="1" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98;border:1px solid rgba(239,207,152,.5);border-radius:999px;padding:7px 14px;align-self:flex-start">Complex Characters</div>
+          </sc-if>
+          <h2 data-read="1" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:{{ sec.ccSize }};line-height:1.08;text-wrap:balance">{{ sec.head }}</h2>
+          <sc-if value="{{ sec.hasDates }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.2vw,25px);line-height:1.3;color:#c8c4bc">{{ sec.dates }}</div>
+          </sc-if>
+          <button type="button" onClick="{{ sec.listen }}" style="align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(239,207,152,.6);background:transparent;color:#efcf98">{{ sec.listenLabel }}</button>
+        </div>
+        <sc-for list="{{ sec.blocks }}" as="b" hint-placeholder-count="2">
+          <sc-if value="{{ b.isLMP }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Three questions · {{ b.conflict }}</div>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Three questions to ask of any conflict. Answer each in your own words.</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+                <sc-for list="{{ b.qs }}" as="tq" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #2c2f36;padding-top:16px">
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:24px;line-height:1.15;color:#efcf98">{{ tq.text }}</div>
+                    <textarea aria-label="{{ tq.text }}" value="{{ tq.val }}" onChange="{{ tq.onChange }}" placeholder="Your answer…" rows="5" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px;margin-top:auto"></textarea>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Your answers are saved in this browser only.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
+            <p data-read="1" style="margin:0 0 26px;font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#dcd8d1;max-width:680px;text-wrap:pretty"><sc-for list="{{ b.segs }}" as="sg" hint-placeholder-count="1">{{ sg.t }}<sc-if value="{{ sg.hasN }}" hint-placeholder-val="{{ false }}"><button type="button" class="fn" id="{{ sg.id }}" data-n="{{ sg.n }}" onClick="{{ sg.open }}" aria-label="{{ sg.aria }}"></button></sc-if></sc-for></p>
+          </sc-if>
+
+          <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:36px 0;max-width:680px;border-radius:16px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 28px rgba(0,0,0,.35);padding:26px 30px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#93a1b3">Primary source</div>
+              <div data-read="1" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:#f2efe9;text-wrap:pretty">{{ b.text }}</div>
+              <div data-read="1" style="font-family:'Inter',sans-serif;font-size:13px;color:#93a1b3">{{ b.by }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isImage }}" hint-placeholder-val="{{ false }}">
+            <figure style="margin:44px 0;display:flex;flex-direction:column;gap:12px;max-width:{{ b.maxW }}">
+              <div role="img" aria-label="{{ b.caption }}" style="width:100%;aspect-ratio:{{ b.ratio }};background:rgba(255,255,255,.05)">
+                <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ b.src }}') center/contain no-repeat"></div>
+              </div>
+              <figcaption style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
+              <sc-if value="{{ b.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.5">{{ b.credit }}</div></sc-if>
+            </figure>
+          </sc-if>
+
+          <sc-if value="{{ b.isSumter }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Fort Sumter, April 1861</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ fsTabs }}" as="fst" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ fst.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ fst.border }};background:{{ fst.bg }};color:{{ fst.color }}">{{ fst.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ fsSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ fsSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">The ninety-day term revealed how short a war Lincoln expected.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isBorder }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The border states</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ bdTabs }}" as="bdt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ bdt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ bdt.border }};background:{{ bdt.bg }};color:{{ bdt.color }}">{{ bdt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ bdSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ bdSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">The border states made the Civil War a true brothers’ war, splitting families as well as counties.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isContraband }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · From contraband to “forever free”</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ ctTabs }}" as="ctt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ctt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ctt.border }};background:{{ ctt.bg }};color:{{ ctt.color }}">{{ ctt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ ctSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ ctSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Congress followed the fugitives.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isAdvantages }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Advantages, North and South</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ adTabs }}" as="adt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ adt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ adt.border }};background:{{ adt.bg }};color:{{ adt.color }}">{{ adt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ adSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ adSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">In hindsight the North looks like the overwhelming favorite.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isWeapons }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The first modern war</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ wpTabs }}" as="wpt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ wpt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ wpt.border }};background:{{ wpt.bg }};color:{{ wpt.color }}">{{ wpt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ wpSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ wpSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Weapons advanced faster than tactics.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isTheaters }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Two theaters, 1862</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ ttTabs }}" as="ttt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ttt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ttt.border }};background:{{ ttt.bg }};color:{{ ttt.color }}">{{ ttt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ ttSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ ttSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">The war ran in two theaters.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isAntietam }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · September 1862</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ anTabs }}" as="ant" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ ant.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ ant.border }};background:{{ ant.bg }};color:{{ ant.color }}">{{ ant.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ anSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ anSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Antietam remains the deadliest single day of battle in American history.</div>
+            </div>
+          </sc-if>
+
+        </sc-for>
+        <sc-if value="{{ sec.hasAsk }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,207,152,.5);max-width:680px;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.8vw,32px);line-height:1.25;color:#efcf98;text-wrap:balance">{{ sec.ask }}</div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <section id="questions" data-sec="1" style="max-width:820px;margin-bottom:104px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:12px;max-width:680px">
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Review</div>
+        <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Questions for Consideration</h2>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;margin-bottom:36px">Your answers are saved on this device only.</div>
+      <div style="display:flex;flex-direction:column;gap:40px">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 16px">
+            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:32px;color:#efcf98;line-height:1">{{ q.n }}</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.6;color:#dcd8d1;text-wrap:pretty"><sc-for list="{{ q.segs }}" as="sg" hint-placeholder-count="1">{{ sg.t }}<sc-if value="{{ sg.hasN }}" hint-placeholder-val="{{ false }}"><button type="button" class="fn" id="{{ sg.id }}" data-n="{{ sg.n }}" onClick="{{ sg.open }}" aria-label="{{ sg.aria }}"></button></sc-if></sc-for></div>
+              <textarea aria-label="Your response to question {{ q.n }}" value="{{ q.val }}" onChange="{{ q.onChange }}" placeholder="Your response…" rows="4" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px"></textarea>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="then-and-now" data-sec="1" style="max-width:820px;margin-bottom:80px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:36px;max-width:680px">
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Past to present</div>
+        <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+        <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
+          <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
+            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:40px;color:#efcf98;line-height:1">{{ q.n }}</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.62;color:#dcd8d1;text-wrap:pretty"><sc-for list="{{ q.segs }}" as="sg" hint-placeholder-count="1">{{ sg.t }}<sc-if value="{{ sg.hasN }}" hint-placeholder-val="{{ false }}"><button type="button" class="fn" id="{{ sg.id }}" data-n="{{ sg.n }}" onClick="{{ sg.open }}" aria-label="{{ sg.aria }}"></button></sc-if></sc-for></div>
+            <textarea aria-label="Your reflection on Then and Now prompt {{ q.n }}" value="{{ q.val }}" onChange="{{ q.onChange }}" placeholder="Your reflection…" rows="5" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:14px 16px;resize:vertical;border-radius:12px;margin-top:auto"></textarea>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Bring your own case</div>
+        <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Find something happening now that belongs beside this chapter. Name it, date it, and test the comparison.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <sc-for list="{{ nowTop }}" as="nf" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ nf.label }}</div>
+              <textarea aria-label="{{ nf.label }}" value="{{ nf.val }}" onChange="{{ nf.onChange }}" placeholder="{{ nf.ph }}" rows="{{ nf.rows }}" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:12px 16px;border-radius:12px;resize:{{ nf.resize }}"></textarea>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+          <sc-for list="{{ nowBot }}" as="ng" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ ng.label }}</div>
+              <textarea aria-label="{{ ng.label }}" value="{{ ng.val }}" onChange="{{ ng.onChange }}" placeholder="{{ ng.ph }}" rows="{{ ng.rows }}" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);color:#f2efe9;font-family:'Newsreader',serif;font-size:17px;line-height:1.55;padding:12px 16px;border-radius:12px;resize:{{ ng.resize }}"></textarea>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Saved on this device only.</div>
+      </div>
+    </section>
+
+    <sc-if value="{{ hasNotes }}" hint-placeholder-val="{{ false }}">
+      <section id="notes" data-sec="1" style="max-width:820px;margin-bottom:80px;scroll-margin-top:24px">
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:1px solid #efcf98;margin-bottom:28px;max-width:680px">
+          <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Sources</div>
+          <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Notes</h2>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d;line-height:1.6">Select a note’s number to go back to its place in the chapter.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+          <sc-for list="{{ notesList }}" as="nt" hint-placeholder-count="6">
+            <div id="{{ nt.id }}" style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px 10px;align-items:baseline;scroll-margin-top:80px">
+              <button type="button" onClick="{{ nt.back }}" aria-label="{{ nt.aria }}" style="justify-self:start;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#efcf98;background:none;border:0;padding:6px 6px 6px 0;cursor:pointer;font-variant-numeric:tabular-nums">{{ nt.n }}</button>
+              <div style="font-family:'Newsreader',serif;font-size:16px;line-height:1.6;color:#c8c4bc;text-wrap:pretty;overflow-wrap:anywhere">{{ nt.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:0 16px;flex-wrap:wrap;border-top:1px solid #2c2f36;padding-top:14px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">
+      <a href="#intro" style="display:inline-block;padding:15px 0">↑ Back to top</a>
+      <a href="index.html" style="display:inline-block;padding:15px 0">Home</a>
+      <a href="chapter-18.html" style="display:inline-block;padding:15px 0">← Chapter 18</a>
+      <a href="chapter-20.html" style="display:inline-block;padding:15px 0">Chapter 20 →</a>
+    </div>
+  </main>
+</div>
+<sc-if value="{{ tocBtnShow }}" hint-placeholder-val="{{ false }}">
+  <button type="button" onClick="{{ tocOpenFn }}" aria-label="Open the contents" style="position:fixed;right:calc(16px + env(safe-area-inset-right, 0px));bottom:{{ tocBtnBottom }};z-index:40;display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:#efcf98;border:0;border-radius:999px;padding:13px 20px;min-height:46px;box-shadow:0 8px 24px rgba(0,0,0,.45);cursor:pointer"><span aria-hidden="true">☰</span> Contents</button>
+</sc-if>
+<sc-if value="{{ tocPanelShow }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ tocCloseFn }}" style="position:fixed;inset:0;z-index:45;background:rgba(6,10,16,.62);backdrop-filter:blur(3px)"></div>
+  <div role="dialog" aria-label="Contents" style="position:fixed;left:calc(12px + env(safe-area-inset-left, 0px));right:calc(12px + env(safe-area-inset-right, 0px));bottom:calc(12px + env(safe-area-inset-bottom, 0px));max-height:78vh;overflow-y:auto;z-index:46;background:#121a26;border:1px solid rgba(255,255,255,.16);border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,.6);padding:18px 18px 10px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:10px">
+      <span style="display:flex;align-items:center;gap:16px"><a href="index.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98;padding:12px 0">← Home</a><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a3a7ae">{{ tocHeading }}</span></span>
+      <button type="button" onClick="{{ tocCloseFn }}" aria-label="Close the contents" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:15px;cursor:pointer">✕</button>
+    </div>
+    <sc-for list="{{ toc }}" as="tm" hint-placeholder-count="8">
+      <a href="#{{ tm.id }}" onClick="{{ tm.close }}" style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:baseline;padding:12px 0 12px 12px;border-left:2px solid {{ tm.bar }};color:{{ tm.color }};font-family:'Newsreader',serif;font-size:17px;line-height:1.3">
+        <span style="font-family:'Inter',sans-serif;font-size:11px;color:#80858d">{{ tm.num }}</span>
+        <span><span style="color:#efcf98;font-size:.7em">{{ tm.mark }}</span>{{ tm.title }}</span>
+      </a>
+    </sc-for>
+  </div>
+</sc-if>
+<sc-if value="{{ lOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px clamp(10px,2vw,24px) 14px;pointer-events:none">
+    <div style="pointer-events:auto;max-width:980px;margin:0 auto;background:rgba(16,22,32,.92);border:1px solid rgba(255,255,255,.16);border-radius:18px;backdrop-filter:blur(14px);box-shadow:0 12px 40px rgba(0,0,0,.5);padding:12px 16px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <button type="button" aria-label="Previous passage" onClick="{{ lPrev }}" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:14px;cursor:pointer">‹‹</button>
+          <button type="button" aria-label="{{ lToggleLabel }}" onClick="{{ lToggle }}" style="width:46px;height:46px;border-radius:50%;border:0;background:#efcf98;color:#16171a;font-size:16px;cursor:pointer">{{ lToggleIcon }}</button>
+          <button type="button" aria-label="Next passage" onClick="{{ lNext }}" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:14px;cursor:pointer">››</button>
+        </div>
+        <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px">
+          <div style="font-family:'Newsreader',serif;font-size:17px;color:#f2efe9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ lNowTitle }}</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a3a7ae">{{ lNowMeta }}</div>
+        </div>
+        <button type="button" aria-label="Change reading speed" onClick="{{ lRateCycle }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;cursor:pointer">{{ lRateLabel }}</button>
+        <a href="#{{ lNowId }}" onClick="{{ lGoText }}" style="font-family:'Inter',sans-serif;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f2efe9">Go to text</a>
+        <button type="button" aria-label="Close the player" onClick="{{ lClose }}" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#f2efe9;font-size:13px;cursor:pointer">✕</button>
+      </div>
+      <div style="height:4px;border-radius:2px;background:rgba(255,255,255,.14);overflow:hidden"><div style="height:100%;background:#efcf98;width:{{ lPct }};transition:width .3s linear"></div></div>
+    </div>
+  </div>
+</sc-if>
+  <sc-if value="{{ fnShow }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-label="{{ fnAria }}" style="position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom, 0px));width:min(680px,calc(100vw - 24px));box-sizing:border-box;max-height:60vh;overflow:auto;z-index:60;background:#1b2330;border:1px solid rgba(239,207,152,.55);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.6);padding:18px 20px 16px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Note {{ fnN }}</div>
+        <button type="button" onClick="{{ fnClose }}" style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc;background:transparent;border:1px solid #3a3d44;border-radius:999px;padding:8px 14px;cursor:pointer">Close ✕</button>
+      </div>
+      <div style="font-family:'Newsreader',serif;font-size:16px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;overflow-wrap:anywhere">{{ fnText }}</div>
+      <button type="button" onClick="{{ fnAll }}" style="align-self:flex-start;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#efcf98;background:none;border:0;padding:8px 0;cursor:pointer">All notes ↓</button>
+    </div>
+  </sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, fs: 0, bd: 0, ct: 0, ad: 0, wp: 0, tt: 0, an: 0, fn: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
+
+  componentDidMount() {
+    try { this.setState({ notes: JSON.parse(localStorage.getItem('ch19-notes') || '{}') }); } catch (e) {}
+    fetch('Clark_Textbook_Ch19_text.txt').then(r => r.text()).then(t => this.setState({ data: this.parse(t) }, this.onScroll));
+    this.onScroll = this.onScroll.bind(this);
+    this.lInit();
+    this.onResize = () => this.setState({ wide: window.innerWidth > 1100 });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onPastHero = () => { const p = window.scrollY > window.innerHeight * 0.7; if (p !== this.state.pastHero) this.setState({ pastHero: p }); };
+    window.addEventListener('scroll', this.onPastHero, { passive: true }); this.onPastHero();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onPastHero); this.lStop(); }
+
+  // ---------- Listen: narration ----------
+  // Each passage plays the author's recording when audio/ch19/manifest.json names one for it,
+  // and falls back to the browser's built-in voice when it does not.
+  lInit() {
+    this.lSeq = 0;
+    this.lAudio = new Audio();
+    this.lAudio.addEventListener('timeupdate', () => { const a = this.lAudio; if (a.duration) this.setState({ lAudioPct: a.currentTime / a.duration }); });
+    this.lAudio.addEventListener('ended', () => this.lPlay(this.state.lIdx + 1, 0));
+    fetch('listen-chapter-19.json').then(r => r.ok ? r.json() : {}).then(m => this.setState({ lOwn: (m && m.recorded) || {} })).catch(() => {});
+    const pick = () => {
+      const vs = (window.speechSynthesis ? speechSynthesis.getVoices() : []).filter(v => /^en/i.test(v.lang));
+      // Best voice first: Edge's natural voices, Apple's premium and enhanced voices, then the usual built-ins.
+      const older = ['samantha', 'google us english', 'microsoft aria', 'daniel', 'alex'];
+      const score = v => {
+        const n = (v.name + ' ' + (v.voiceURI || '')).toLowerCase(); let sc = 0;
+        if (/natural/.test(n)) sc = 100; else if (/premium/.test(n)) sc = 90; else if (/enhanced/.test(n)) sc = 80;
+        else { const i = older.findIndex(w => n.indexOf(w) >= 0); if (i >= 0) sc = 50 - i; }
+        if (sc && /\b(ava|andrew|emma|brian|jenny|zoe|evan|nathan)\b/.test(n)) sc += 5;
+        if (sc && /en[-_]us/i.test(v.lang)) sc += 3;
+        return sc;
+      };
+      const best = vs.slice().sort((a, b) => score(b) - score(a))[0];
+      this.lVoice = (best && score(best) > 0 ? best : null) || vs.find(v => v.default) || vs[0] || null;
+    };
+    if (window.speechSynthesis) { pick(); speechSynthesis.onvoiceschanged = pick; }
+  }
+  lTrackList() {
+    const d = this.state.data; if (!d) return [];
+    const slug = x => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const joinPrev = {};
+    const list = [{ id: 'intro', title: 'Introduction', text: d.head.slice(3).join(' ') }];
+    this.lMap = [];
+    d.sections.forEach(sec => {
+      const text = sec.title + '. ' + sec.paras.join(' ');
+      if (joinPrev[sec.title] && list.length > 1) list[list.length - 1].text += ' ' + text;
+      else list.push({ id: slug(sec.title), title: sec.title, text });
+      this.lMap.push(list.length - 1);
+    });
+    return list;
+  }
+  lTrackOf(i) { this.lTrackList(); return (this.lMap || [])[i] || i + 1; }
+  lChunks(text) {
+    const parts = text.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [text];
+    const out = []; let cur = '';
+    parts.forEach(p => { cur += p; if (cur.length > 140) { out.push(cur.trim()); cur = ''; } });
+    if (cur.trim()) out.push(cur.trim());
+    return out;
+  }
+  lHalt() { this.hlClear(); this.lSeq++; if (window.speechSynthesis) speechSynthesis.cancel(); if (this.lAudio) this.lAudio.pause(); }
+  lStop() { this.lHalt(); this.setState({ lIdx: -1, lPlaying: false, lPos: 0, lAudioPct: 0 }); }
+  lPlay(i, from) {
+    const list = this.lTrackList(), tr = list[i];
+    this.lHalt();
+    if (!tr) { this.setState({ lIdx: -1, lPlaying: false }); return; }
+    const own = this.state.lOwn[tr.id];
+    if (own) {
+      const url = '' + own;
+      if (this.lAudioSrc !== url) { this.lAudio.src = url; this.lAudioSrc = url; this.setState({ lAudioPct: 0 }); }
+      this.lAudio.playbackRate = this.state.lRate;
+      this.lAudio.play().catch(() => this.setState({ lPlaying: false }));
+      this.setState({ lIdx: i, lPlaying: true, lPos: 0, lTotal: 1 });
+      return;
+    }
+    if (!window.speechSynthesis) { this.setState({ lIdx: i, lPlaying: false, lPos: 0, lTotal: 1 }); return; }
+    const chunks = this.lChunks(tr.text), seq = this.lSeq;
+    let pp = 0; const starts = chunks.map(c => { const j = tr.text.indexOf(c, pp); const st = j < 0 ? pp : j; pp = st + c.length; return st; });
+    this.hlBegin(tr.id, starts[from || 0] || 0);
+    this.setState({ lIdx: i, lPlaying: true, lPos: from || 0, lTotal: chunks.length });
+    const step = k => {
+      if (seq !== this.lSeq) return;
+      if (k >= chunks.length) { this.lPlay(i + 1, 0); return; }
+      this.setState({ lPos: k });
+      const u = new SpeechSynthesisUtterance(chunks[k]);
+      u.rate = this.state.lRate; u.lang = 'en-US'; if (this.lVoice) u.voice = this.lVoice;
+      u.onend = () => step(k + 1);
+      u.onboundary = e => { if (e.name && e.name !== 'word') return; const c = chunks[k]; const w = e.charLength ? c.substr(e.charIndex, e.charLength) : (c.slice(e.charIndex).match(/^\S+/) || [''])[0]; this.hlWord(starts[k] + e.charIndex, w); };
+      u.onerror = e => { if (e.error !== 'canceled' && e.error !== 'interrupted') step(k + 1); };
+      this.lUtter = u;
+      speechSynthesis.speak(u);
+    };
+    step(from || 0);
+  }
+  hlBegin(id, pos) {
+    this.hlClear();
+    const els = [...document.querySelectorAll('[data-read]')];
+    const anchor = document.getElementById(id);
+    let i0 = 0;
+    if (anchor && id !== 'intro') { i0 = els.findIndex(el => anchor.contains(el) || (anchor.compareDocumentPosition(el) & 4)); if (i0 < 0) i0 = 0; }
+    const nodes = []; let g = '';
+    els.slice(i0).forEach(el => { const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) { if (!n.nodeValue.trim()) continue; nodes.push({ n, at: g.length }); g += n.nodeValue + ' '; } });
+    this.hl = { id, nodes, g, cur: Math.max(0, pos - 40), range: null, lastVis: undefined };
+  }
+  hlWord(pos, word, again) {
+    const h = this.hl; if (!h || !window.CSS || !CSS.highlights || typeof Highlight === 'undefined') return;
+    const core = (word || '').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''); if (!core) return;
+    if (h.nodes.length && !h.nodes[0].n.isConnected && !again) { const keep = h.cur, lv = h.lastVis; this.hlBegin(h.id, 0); this.hl.cur = keep; this.hl.lastVis = lv; this.hlWord(pos, word, true); return; }
+    let from = h.cur > pos + 200 ? Math.max(0, pos - 80) : Math.max(h.cur, pos - 80), idx = -1;
+    for (let t = 0; t < 8; t++) {
+      const j = h.g.indexOf(core, from); if (j < 0 || j > from + 600) break;
+      if (!/[\p{L}\p{N}]/u.test(h.g[j - 1] || ' ') && !/[\p{L}\p{N}]/u.test(h.g[j + core.length] || ' ')) { idx = j; break; }
+      from = j + 1;
+    }
+    if (idx < 0) return;
+    let k = h.nodes.length - 1; while (k > 0 && h.nodes[k].at > idx) k--;
+    const nd = h.nodes[k], off = idx - nd.at; if (off + core.length > nd.n.nodeValue.length) return;
+    const r = document.createRange(); r.setStart(nd.n, off); r.setEnd(nd.n, off + core.length);
+    CSS.highlights.set('lread', new Highlight(r)); h.cur = idx + core.length; h.range = r;
+    const rc = r.getBoundingClientRect(), vh = window.innerHeight;
+    if (h.lastVis === undefined) h.lastVis = rc.top >= 0 && rc.bottom <= vh;
+    if (h.lastVis && (rc.top < 60 || rc.bottom > vh - 130)) { window.scrollBy({ top: rc.top - vh * 0.35, behavior: 'smooth' }); h.lastVis = true; }
+    else h.lastVis = rc.top >= 0 && rc.bottom <= vh;
+  }
+  hlClear() { if (window.CSS && CSS.highlights) CSS.highlights.delete('lread'); }
+  hlGo(e) {
+    const h = this.hl; if (!h || !h.range || !h.range.startContainer.isConnected) return;
+    if (e && e.preventDefault) e.preventDefault();
+    const rc = h.range.getBoundingClientRect(); window.scrollBy({ top: rc.top - window.innerHeight * 0.35, behavior: 'smooth' }); h.lastVis = true;
+  }
+  lToggle(i) {
+    const s = this.state;
+    if (i !== undefined && i !== s.lIdx) { this.lPlay(i, 0); return; }
+    if (s.lIdx < 0) { this.lPlay(0, 0); return; }
+    if (s.lPlaying) { this.lHalt(); this.setState({ lPlaying: false }); return; }
+    const tr = this.lTrackList()[s.lIdx];
+    if (tr && s.lOwn[tr.id]) { this.lAudio.play(); this.setState({ lPlaying: true }); }
+    else this.lPlay(s.lIdx, s.lPos);
+  }
+  lRateCycle() {
+    const rates = [1, 1.25, 1.5, 0.85], s = this.state;
+    const r = rates[(rates.indexOf(s.lRate) + 1) % rates.length];
+    this.setState({ lRate: r }, () => {
+      if (this.lAudio) this.lAudio.playbackRate = r;
+      const tr = this.lTrackList()[s.lIdx];
+      if (s.lPlaying && tr && !s.lOwn[tr.id]) this.lPlay(s.lIdx, s.lPos);
+    });
+  }
+
+  onScroll() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    let active = 'intro';
+    document.querySelectorAll('[data-sec]').forEach(el => { if (el.getBoundingClientRect().top < 200) active = el.id; });
+    const progress = h > 0 ? window.scrollY / h : 0;
+    if (active !== this.state.active || Math.abs(progress - this.state.progress) > 0.002) this.setState({ active, progress });
+  }
+
+  parse(t) {
+    let notes = []; const cutAt = t.search(/^## Notes\s*$/m);
+    if (cutAt >= 0) { notes = t.slice(cutAt).split(/\r?\n/).slice(1).map(l => l.trim()).filter(Boolean).map(l => { const m = l.match(/^(\d+)\.\s+(.*)$/); return m ? { n: +m[1], text: m[2] } : null; }).filter(Boolean); t = t.slice(0, cutAt); }
+    const lines = t.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    const out = { head: [], sections: [], questions: [], thenNow: [], words: t.split(/\s+/).length };
+    let cur = null, mode = 'head', part = '';
+    for (const l of lines) {
+      if (l.startsWith('### ')) { cur = { title: l.slice(4).trim(), sub: '', paras: [], part: part }; part = ''; out.sections.push(cur); mode = 'sec'; continue; }
+      if (l.startsWith('## ')) {
+        const h = l.slice(3).trim();
+        if (/^Part /.test(h)) { part = h; continue; }
+        if (/question/i.test(h)) { mode = 'q'; continue; }
+        if (/^then and now/i.test(h)) { mode = 'tn'; continue; }
+        cur = { title: h, sub: '', paras: [], part: part }; part = ''; out.sections.push(cur); mode = 'sec'; continue;
+      }
+      if (mode === 'head') out.head.push(l);
+      else if (mode === 'sec') {
+        let p = l; const pre = cur.title + ':';
+        if (!cur.paras.length && p.startsWith(pre)) {
+          p = p.slice(pre.length).trim();
+          const m = p.match(/^([A-Z][A-Za-z, ]{2,30}): /);
+          if (m) { cur.sub = m[1]; p = p.slice(m[0].length); }
+        }
+        cur.paras.push(p);
+      }
+      else (mode === 'q' ? out.questions : out.thenNow).push(l.replace(/^\d+\.\s*/, ''));
+    }
+    const fn = {};
+    const strip = p => { if (p.indexOf('[[') < 0) return p; const mk = []; let o = '', last = 0, m; const re = /\[\[(\d+)\]\]/g; while ((m = re.exec(p))) { o += p.slice(last, m.index); mk.push([o.length, +m[1]]); last = m.index + m[0].length; } o += p.slice(last); fn[o] = mk; return o; };
+    out.head = out.head.map(strip); out.sections.forEach(s => { s.paras = s.paras.map(strip); }); out.questions = out.questions.map(strip); out.thenNow = out.thenNow.map(strip);
+    out.fn = fn; out.notes = notes;
+    return out;
+  }
+
+  setNote(k, v) { const notes = { ...this.state.notes, [k]: v }; this.setState({ notes }); try { localStorage.setItem('ch19-notes', JSON.stringify(notes)); } catch (e) {} }
+
+  renderVals() {
+    const s = this.state, d = s.data;
+    const slug = x => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const G = '#efcf98', R = '#c2653f', B = '#8ea4bb';
+    const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
+    const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c19-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
+    const F = {
+      states: img("states-1861", "1400/980", "820px", "Figure 19.1 · The states in 1861. Seven Deep South states formed the Confederacy before Lincoln’s inauguration, four more left after Fort Sumter, and four slave states stayed in the Union.", ""),
+      sumter: img("bombardment-fort-sumter", "1400/1040", "760px", "Figure 19.2 · Bombardment of Fort Sumter, Charleston Harbor, 12th & 13th of April, 1861, a Currier & Ives lithograph published in New York the year of the attack. Confederate batteries at Fort Moultrie, left, and Cummings Point, right, fire on the fort.", "Library of Congress"),
+      monroe: img("fort-monroe-doctrine", "1400/924", "760px", "Figure 19.3 · The (Fort) Monroe Doctrine, a Northern cartoon of 1861. A man who has escaped slavery runs for Fort Monroe, calling back “Dis chile’s contraban,” while his enslaver, whip raised, orders him to return. The cartoon cheers Butler’s policy in the racist caricature of its day.", "Library of Congress, Prints and Photographs Division"),
+      waud: img("waud-contrabands-1861", "1400/1107", "520px", "Figure 19.4 · Contrabands, Newport News, 1861, Alfred R. Waud’s pencil sketch of people who had escaped slavery, gathered at a fire beside brush shelters near the Union camp on the Virginia peninsula. Waud wrote the title above and below the drawing.", "Library of Congress, Prints and Photographs Division, Morgan Collection of Civil War Drawings"),
+      advantages: img("advantages-1861", "1400/754", "820px", "Figure 19.5 · The Union’s advantages in 1861: more than twice the South’s population and about six times its manufacturing establishments. The Confederate count of about nine million included three and a half million enslaved people. Sources: 1860 census; William E. Gienapp, ed., The Civil War and Reconstruction (2001).", ""),
+      snake: img("scotts-great-snake", "1400/1061", "760px", "Figure 19.6 · Scott’s Great Snake, J. B. Elliott’s 1861 cartoon map of General Winfield Scott’s plan to crush the Confederacy: a naval blockade of the Southern coast and a drive down the Mississippi, drawn as a snake coiling around the seceded states. Several of its small scenes are racist caricatures of the enslaved.", "Library of Congress, Geography and Map Division"),
+      minie: img("minie-ball", "782/1100", "300px", "Figure 19.7 · A Minié ball, a soft lead bullet about three centimeters long, shown enlarged. Its hollow base, out of view, expanded when fired and gripped the rifling of the barrel.", "Library of Congress, Prints and Photographs Division, Liljenquist Family Collection"),
+      tent: img("lincoln-mcclellan-antietam", "843/1044", "460px", "Figure 19.8 · President Lincoln and General George B. McClellan in the general’s tent near Antietam, October 3, 1862, photographed by Alexander Gardner. In November Lincoln removed McClellan from command.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
+      dead: img("antietam-dead-hagerstown-road", "1024/824", "760px", "Figure 19.9 · Confederate dead by a fence on the Hagerstown road, Antietam, Maryland, photographed by Alexander Gardner in September 1862. The cracked edges and the blank white sky come from Gardner’s glass negative itself.", "Library of Congress, Prints and Photographs Division, Civil War Photographs")
+    };
+    const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
+    const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
+    const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
+    const introFig = { 1: F.states };
+    const inserts = {
+      "Seventy-Five Thousand for Ninety Days": { 0: [F.sumter], 3: [{ isSumter: true }] },
+      "The Whole Game": { 1: [{ isBorder: true }] },
+      "Contraband": { 3: [F.monroe], 4: [F.waud, { isContraband: true }] },
+      "Advantages, Objectives, and Strategy": { 0: [F.advantages, { isAdvantages: true }], 2: [F.snake] },
+      "The First Modern War": { 1: [F.minie], 3: [{ isWeapons: true }] },
+      "Two Theaters": { 3: [{ isTheaters: true }] },
+      "Antietam": { 2: [F.tent], 3: [F.dead], 4: [{ isAntietam: true }] }
+    };
+    const sections = d ? d.sections.map((sec, i) => {
+      const blocks = [];
+      ((inserts[sec.title] || {}).pre || []).forEach(w => blocks.push(w));
+      sec.paras.forEach((p, j) => {
+        const last = blocks[blocks.length - 1];
+        if (p.startsWith('— ') && last && last.isP) blocks[blocks.length - 1] = { isQuote: true, text: last.text, by: p.slice(2) };
+        else blocks.push({ isP: true, text: p });
+        ((inserts[sec.title] || {})[j] || []).forEach(w => blocks.push(w));
+      });
+      blocks.forEach(b => { if (b.isP) b.segs = segsOf(b.text); });
+      if (sec.title === 'Contraband') blocks.push(lmp3('lmp-', 'Contraband'));
+      const ti = this.lTrackOf(i);
+      const pp = (sec.part || '').split(' · ');
+      const full = sec.sub ? sec.title + ': ' + sec.sub : sec.title, isCC = full.startsWith('Complex Characters: ');
+      const ccDates = { 'Harriet Tubman': 'c. 1822–1913' };
+      const dates = isCC ? (ccDates[full.slice(20)] || '') : '';
+      const ccAsks = {"Harriet Tubman": "In 1862 Tubman went south to serve a Union army that initially sent runaways back to their owners and possible death, while federal law still labeled her a fugitive. If the government you served still treated you as property, would you have served it anyway, and what would you have demanded in return?"}, ask = isCC ? (ccAsks[full.slice(20)] || '') : '';
+      return { isCC, head: isCC ? full.slice(20) : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
+        ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
+        ccTop: isCC ? '0' : '28px', ccRule: isCC ? 'transparent' : '#2c2f36', ccSize: isCC ? 'clamp(40px,5.4vw,64px)' : 'clamp(32px,4vw,48px)',
+        id: slug(sec.title), num: '19.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks,
+        hasPart: !!sec.part, partNum: pp[0] || '', partTitle: pp[1] || '',
+        listen: () => this.lToggle(ti), listenLabel: s.lIdx === ti ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen to this section' };
+    }) : [];
+    const tocRaw = [{ id: 'intro', num: '—', title: 'Introduction' }, { id: 'listen', num: '♪', title: 'Listen' }, ...sections.map(x => ({ id: x.id, num: x.num, title: x.title, mark: x.isCC ? '◆\u00a0' : '' })), { id: 'questions', num: 'Q', title: 'Questions for Consideration' }, { id: 'then-and-now', num: '↔', title: 'Then and Now' }, ...(d && d.notes && d.notes.length ? [{ id: 'notes', num: 'N', title: 'Notes' }] : [])];
+    const toc = tocRaw.map(t => ({ ...t, mark: t.mark || '', close: () => this.setState({ tocOpen: false }), color: t.id === s.active ? '#f2efe9' : '#8c9198', bar: t.id === s.active ? G : '#2c2f36' }));
+
+    const barRows = (rows, max) => rows.map((r, i) => ({ label: r[0], value: r[2], width: (r[1] / (max || rows[0][1]) * 100) + '%', color: r[3] || (i ? R : G) }));
+    const tlTabs = (data, key) => data.map((c, i) => ({ label: c[0], onClick: () => this.setState({ [key]: i }), ...tab(i === s[key]) }));
+    const sel = (data, key) => ({ date: data[s[key]][0], text: data[s[key]][1] });
+    const fsData = [["April 6", "On April 6, 1861, he notified South Carolina’s governor that “an attempt will be made to supply Fort Sumter with provisions only” — food for hungry soldiers, not reinforcements — which placed the decision to fire squarely on the Confederacy."], ["April 12", "At 4:30 in the morning on April 12, Confederate batteries under General P. G. T. Beauregard opened fire on the fort."], ["April 14", "After thirty-four hours of bombardment, Anderson surrendered, and on April 14 he marched his men out with the flag he would carry home."], ["April 15", "On April 15, Lincoln called 75,000 state militiamen into federal service for ninety days to suppress an insurrection “too powerful to be suppressed by the ordinary course of judicial proceedings,” and he proclaimed a naval blockade of the Southern coast."], ["April 17", "Its convention voted for secession on April 17, 1861, though many of its northwestern counties stood with the Union."]];
+    const bdData = [["Kentucky", "Kentucky, the most divided of them and the birthplace of both Lincoln and Davis, held the Ohio River, a line far easier to defend than the mountains of Tennessee."], ["Missouri", "Missouri mattered almost as much, because whoever held it could command the Mississippi River valley."], ["Maryland", "Maryland posed the most immediate problem of all, for if Maryland seceded, the national capital would be surrounded by the Confederacy."], ["West Virginia", "The Unionist counties of northwestern Virginia organized a loyal government of their own at Wheeling in June 1861, and that government supplied the consent the Constitution requires for dividing a state."]];
+    const ctData = [["May 23", "On the night of May 23, 1861, three enslaved men — Frank Baker, Shepard Mallory, and James Townsend — rowed to Fort Monroe, the Union stronghold at the tip of the Virginia peninsula, near Point Comfort, where “20 and odd” Africans had been brought ashore in 1619."], ["Butler", "When a Confederate officer arrived under a flag of truce to demand their return, Butler answered that the Fugitive Slave Law did not apply to a state that claimed to be a foreign country, and that slaves used to build enemy works were property that could be seized like any other military asset: “contraband of war.”"], ["Aug. 6", "On August 6, Lincoln reluctantly signed the First Confiscation Act, which authorized the seizure of any slaves used to aid the Confederate war effort."], ["The generals", "In August 1861 John C. Frémont declared free the slaves of rebels in Missouri, and in May 1862 David Hunter declared free all the enslaved in South Carolina, Georgia, and Florida; Lincoln revoked both orders."], ["July 17", "It made confiscation a punishment for treason and declared the slaves of anyone in rebellion “captives of war” who would be “forever free.”"]];
+    const adData = [["People", "The eleven Confederate states held about nine million people, three and a half million of them enslaved; the Union states held more than twenty-two million."], ["Industry", "The North held a four-to-one advantage in white men of military age, about 110,000 manufacturing establishments to the South’s 18,000, more than twice the South’s railroad mileage, twice its draft animals, and a standing army and navy."], ["Survival", "Like Washington’s Continental Army, it needed only to survive, defending its own ground and wearing down its opponent’s will to fight."], ["Ground", "Its territory — three-quarters of a million square miles and thousands of miles of coastline — was a daunting space to invade and occupy."], ["Europe", "Both armies were led by West Point men who had learned their trade together in Mexico, and on the question of Britain and France, the war’s wild card, the South rested many of its hopes."]];
+    const wpData = [["Musket", "Even a skilled soldier could fire only about three rounds a minute, and after a volley troops often charged with the bayonet into gruesome hand-to-hand fighting."], ["Rifling", "Rifling — spiral grooves cut inside the barrel — spun the bullet for distance and accuracy, as frontier riflemen had shown during the Revolution."], ["Minié ball", "In 1849 a French officer, Claude-Étienne Minié, designed a soft lead bullet with a hollow base that expanded into the rifling when fired, so that a rifle could be loaded as quickly as a musket."], ["Artillery", "Cannon fired solid shot that ripped through advancing ranks, exploding shells, and canisters of iron balls that turned a field piece into a giant shotgun at close range."], ["Telegraph", "The telegraph let a president follow a battle almost as it happened."]];
+    const ttData = [["February", "In February 1862, Ulysses S. Grant captured Forts Henry and Donelson on the Tennessee and Cumberland rivers, and on February 25 Nashville became the first Confederate state capital to fall."], ["April 6", "On April 6, 1862, Johnston’s army struck Grant’s camps at Pittsburg Landing, Tennessee, near a log meetinghouse called Shiloh Church."], ["June 1", "On June 1, 1862, Robert E. Lee took command of the force he would name the Army of Northern Virginia, and the course of the war changed."], ["June 25", "In a week of battles beginning June 25 — the Seven Days — he drove McClellan away from Richmond."], ["August", "Late in August Lee followed with a second victory at Bull Run, and he prepared to carry the war north."]];
+    const anData = [["Sept. 13", "But two days earlier, around noon on September 13, at a campsite near Frederick the Confederates had just left, Corporal Barton W. Mitchell of the 27th Indiana found three cigars wrapped in a sheet of paper."], ["Sept. 15", "On September 15 the garrison surrendered — some 12,500 prisoners, 73 cannon, 13,000 small arms, and 200 wagons."], ["Sept. 17", "By nightfall the two armies had suffered 22,717 casualties, including 3,654 killed."], ["Sept. 18", "The next day McClellan, holding fresh reserves and the knowledge that Lee’s army was spent, let the Confederates withdraw across the Potomac without a fight."], ["Sept. 22", "On September 22, 1862, just five days after Antietam, Lincoln issued a preliminary Emancipation Proclamation."]];
+
+    const qmap = (arr, p) => (arr || []).map((text, i) => ({ n: i + 1, text, segs: segsOf(text), val: s.notes[p + i] || '', onChange: e => this.setNote(p + i, e.target.value) }));
+    const hd = d ? d.head : [];
+    const hasBy = !!(hd[4] && hd[4].startsWith('—'));
+
+    const lList = this.lTrackList();
+    const lMin = tx => Math.max(1, Math.round(tx.split(/\s+/).length / 155));
+    const lHasVoice = !!window.speechSynthesis;
+    const lTracks = lList.map((tr, i) => {
+      const cur = s.lIdx === i, own = !!s.lOwn[tr.id];
+      return { id: tr.id, num: String(i).padStart(2, '0'), title: tr.title,
+        meta: lMin(tr.text) + ' min · ' + (own ? 'Read by the author' : 'Computer voice'),
+        titleColor: cur ? '#efcf98' : '#f2efe9',
+        btnLabel: cur ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen',
+        btnBg: cur ? '#efcf98' : 'transparent', btnColor: cur ? '#16171a' : '#efcf98',
+        onListen: () => this.lToggle(i) };
+    });
+    const lNow = lList[s.lIdx] || null;
+    const lNowOwn = !!(lNow && s.lOwn[lNow.id]);
+    const lTotalMin = lList.reduce((a, tr) => a + lMin(tr.text), 0);
+    return {
+      tocBtnShow: !s.wide && !!s.pastHero && !s.tocOpen, tocPanelShow: !s.wide && !!s.tocOpen, tocHeading: 'Chapter 19 · Contents',
+      tocOpenFn: () => this.setState({ tocOpen: true }), tocCloseFn: () => this.setState({ tocOpen: false }),
+      tocBtnBottom: s.lIdx >= 0 ? 'calc(150px + env(safe-area-inset-bottom, 0px))' : 'calc(18px + env(safe-area-inset-bottom, 0px))',
+      lTracks: (s.lAll || lTracks.length <= 5) ? lTracks : lTracks.slice(0, 4), lMoreShow: lTracks.length > 5,
+      lMoreLabel: s.lAll ? 'Show fewer passages' : 'Show all ' + lTracks.length + ' passages', lMoreToggle: () => this.setState({ lAll: !s.lAll }),
+      lOpen: s.lIdx >= 0,
+      lSummary: lList.length ? lList.length + ' passages · about ' + (lTotalMin >= 60 ? Math.floor(lTotalMin / 60) + ' h ' + (lTotalMin % 60) + ' min' : lTotalMin + ' min') + ' in all' : '',
+      lBegin: () => this.lPlay(0, 0), lBeginTitle: 'Begin',
+      lBeginSub: lList.length ? 'Introduction (' + lMin(lList[0].text) + ' min), then section 1' : '',
+      lVoiceNote: lHasVoice ? 'Narration uses this device’s built-in voice. Passages recorded by the author are marked “Read by the author” and play the recording instead.' : 'This browser has no built-in voice, so only passages recorded by the author can play.',
+      lToggle: () => this.lToggle(), lToggleIcon: s.lPlaying ? '❚❚' : '▶', lToggleLabel: s.lPlaying ? 'Pause' : 'Play',
+      lPrev: () => this.lPlay(Math.max(0, s.lIdx - 1), 0), lNext: () => this.lPlay(s.lIdx + 1, 0), lClose: () => this.lStop(),
+      lRateCycle: () => this.lRateCycle(), lGoText: e => this.hlGo(e), lRateLabel: s.lRate + '×',
+      lNowTitle: lNow ? lNow.title : '', lNowId: lNow ? lNow.id : 'listen',
+      lNowMeta: lNow ? (s.lIdx ? 'Passage ' + s.lIdx + ' of ' + (lList.length - 1) : 'Introduction') + ' · ' + (lNowOwn ? 'Read by the author' : 'Computer voice') : '',
+      lPct: ((lNowOwn ? s.lAudioPct : (s.lTotal ? s.lPos / s.lTotal : 0)) * 100) + '%',
+      progressPct: (s.progress * 100) + '%',
+      hasData: false,
+      chapterLabel: d ? hd[0] : 'Chapter 19', title: d ? hd[1] : '', subtitle: d ? hd[2] : '',
+      epigraph: d ? hd[3] : '', epigraphBy: hasBy ? hd[4].slice(2) : '', introParas: d ? hd.slice(hasBy ? 5 : 4).map((t, i) => ({ segs: segsOf(t), isImage: false, ...(introFig[i] || {}) })) : [],
+      minutes: d ? Math.round(d.words / 230) : '—', sectionCount: sections.length || '—',
+      gridCols: s.wide ? '240px minmax(0,1fr)' : 'minmax(0,1fr)', tocDisplay: s.wide ? 'block' : 'none',
+      toc, sections,
+      fsTabs: tlTabs(fsData, 'fs'), fsSel: sel(fsData, 'fs'),
+      bdTabs: tlTabs(bdData, 'bd'), bdSel: sel(bdData, 'bd'),
+      ctTabs: tlTabs(ctData, 'ct'), ctSel: sel(ctData, 'ct'),
+      adTabs: tlTabs(adData, 'ad'), adSel: sel(adData, 'ad'),
+      wpTabs: tlTabs(wpData, 'wp'), wpSel: sel(wpData, 'wp'),
+      ttTabs: tlTabs(ttData, 'tt'), ttSel: sel(ttData, 'tt'),
+      anTabs: tlTabs(anData, 'an'), anSel: sel(anData, 'an'),
+      hasNotes: !!(d && d.notes && d.notes.length),
+      notesList: ((d && d.notes) || []).map(x => ({ n: String(x.n), id: 'note-' + x.n, text: x.text, aria: 'Back to note ' + x.n + ' in the chapter', back: () => { const e = document.getElementById('fnref-' + x.n); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); } })),
+      fnShow: s.fn > 0, fnN: String(s.fn || ''), fnAria: 'Note ' + (s.fn || ''), fnText: (((d && d.notes) || []).find(x => x.n === s.fn) || { text: '' }).text,
+      fnClose: () => this.setState({ fn: 0 }), fnAll: () => { const k = s.fn; this.setState({ fn: 0 }); const e = document.getElementById('note-' + k); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); },
+      ...(() => { const mk = (d && hasBy && d.fn && d.fn[hd[4]]) || []; const k = mk.length ? mk[0][1] : 0; return { epiHasN: !!k, epiN: String(k || ''), epiId: 'fnref-' + k, epiAria: 'Note ' + k, epiOpen: () => this.setState({ fn: k }) }; })(),
+      questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
+      nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
+      nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
