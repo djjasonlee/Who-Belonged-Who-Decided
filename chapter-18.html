@@ -832,5 +832,23 @@ class Component extends DCLogic {
 })();
 </script>
 <!-- fig-zoom:end -->
+<!-- toc-hide:start -->
+<style>
+button[aria-label="Open the contents"]{transition:transform .25s ease,opacity .25s ease}
+html.toc-away button[aria-label="Open the contents"]{transform:translateY(160%);opacity:0;pointer-events:none}
+html.toc-away button[aria-label="Open the contents"]:focus-visible{transform:none;opacity:1;pointer-events:auto}
+@media (max-width:1100px){main{padding-bottom:88px}}
+</style>
+<script>
+(function () {
+  var last = window.scrollY, root = document.documentElement;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY, d = y - last; if (Math.abs(d) < 8) return; last = y;
+    var atEnd = window.innerHeight + y >= root.scrollHeight - 60;
+    root.classList.toggle('toc-away', d > 0 && !atEnd);
+  }, { passive: true });
+})();
+</script>
+<!-- toc-hide:end -->
 </body>
 </html>
