@@ -64,7 +64,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -661,7 +661,8 @@ class Component extends DCLogic {
       snake: img("scotts-great-snake", "1400/1061", "760px", "Figure 19.6 · Scott’s Great Snake, J. B. Elliott’s 1861 cartoon map of General Winfield Scott’s plan to crush the Confederacy: a naval blockade of the Southern coast and a drive down the Mississippi, drawn as a snake coiling around the seceded states. Several of its small scenes are racist caricatures of the enslaved.", "Library of Congress, Geography and Map Division"),
       minie: img("minie-ball", "782/1100", "300px", "Figure 19.7 · A Minié ball, a soft lead bullet about three centimeters long, shown enlarged. Its hollow base, out of view, expanded when fired and gripped the rifling of the barrel.", "Library of Congress, Prints and Photographs Division, Liljenquist Family Collection"),
       tent: img("lincoln-mcclellan-antietam", "843/1044", "460px", "Figure 19.8 · President Lincoln and General George B. McClellan in the general’s tent near Antietam, October 3, 1862, photographed by Alexander Gardner. In November Lincoln removed McClellan from command.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
-      dead: img("antietam-dead-hagerstown-road", "1024/824", "760px", "Figure 19.9 · Confederate dead by a fence on the Hagerstown road, Antietam, Maryland, photographed by Alexander Gardner in September 1862. The cracked edges and the blank white sky come from Gardner’s glass negative itself.", "Library of Congress, Prints and Photographs Division, Civil War Photographs")
+      dead: img("antietam-dead-hagerstown-road", "1024/824", "760px", "Figure 19.9 · Confederate dead by a fence on the Hagerstown road, Antietam, Maryland, photographed by Alexander Gardner in September 1862. The cracked edges and the blank white sky come from Gardner’s glass negative itself.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
+      tubman: img("harriet-tubman-portrait", "1000/919", "380px", "Harriet Tubman, photographed about 1860–1880. Photographer unknown.", "Harriet Tubman Home. Public domain")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -674,7 +675,8 @@ class Component extends DCLogic {
       "Advantages, Objectives, and Strategy": { 0: [F.advantages, { isAdvantages: true }], 2: [F.snake] },
       "The First Modern War": { 1: [F.minie], 3: [{ isWeapons: true }] },
       "Two Theaters": { 3: [{ isTheaters: true }] },
-      "Antietam": { 2: [F.tent], 3: [F.dead], 4: [{ isAntietam: true }] }
+      "Antietam": { 2: [F.tent], 3: [F.dead], 4: [{ isAntietam: true }] },
+      'Complex Characters: Harriet Tubman': { pre: [F.tubman] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];

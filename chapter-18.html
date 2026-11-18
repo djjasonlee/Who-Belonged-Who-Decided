@@ -64,7 +64,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -661,7 +661,8 @@ class Component extends DCLogic {
       leslies: img("leslies-dred-scott-1857", "1400/2059", "440px", "Figure 18.7 · Frank Leslie’s Illustrated Newspaper, June 27, 1857: the Scotts’ daughters, Eliza and Lizzie, above; Dred and Harriet Scott below, engraved after photographs by John H. Fitzgibbon of St. Louis. The issue appeared less than four months after the Court’s decision.", "Library of Congress, Prints and Photographs Division, LC-DIG-ds-12470"),
       harpers: img("harpers-ferry-engine-house", "1400/888", "760px", "Figure 18.8 · “Harper’s Ferry Insurrection: Interior of the Engine-House, just before the gate is broken down by the storming party,” Frank Leslie’s Illustrated Newspaper, November 5, 1859.", "Library of Congress, Prints and Photographs Division, LC-USZ62-132541"),
       election: img("election-1860", "1400/862", "760px", "Figure 18.9 · The electoral vote of 1860: Lincoln’s 180 cleared the 152 needed to win.", ""),
-      timeline: img("secession-timeline", "1400/711", "820px", "Figure 18.10 · The secession crisis, from the Democrats’ split at Charleston in April 1860 to Stephens’s speech at Savannah in March 1861.", "")
+      timeline: img("secession-timeline", "1400/711", "820px", "Figure 18.10 · The secession crisis, from the Democrats’ split at Charleston in April 1860 to Stephens’s speech at Savannah in March 1861.", ""),
+      taney: img("taney-bep-engraving", "1000/1316", "380px", "Roger B. Taney, engraved portrait by the Bureau of Engraving and Printing.", "Bureau of Engraving and Printing. Public domain")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -678,7 +679,8 @@ class Component extends DCLogic {
       'The Dred Scott Decision': { 1: [F.leslies], 2: [{ isDred: true }] },
       'Harpers Ferry': { 1: [F.harpers] },
       'The Election of 1860': { 1: [F.election, { isElection: true }] },
-      'Secession': { 2: [F.timeline, { isSecession: true }] }
+      'Secession': { 2: [F.timeline, { isSecession: true }] },
+      'Complex Characters: Roger B. Taney': { pre: [F.taney] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
