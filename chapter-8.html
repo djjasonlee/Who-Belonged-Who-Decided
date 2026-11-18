@@ -756,19 +756,18 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c8-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      massacre: img('bloody-massacre', '1400/1642', '640px', 'Figure 8.1 · The Bloody Massacre perpetrated in King Street, Boston, on March 5th, 1770, by a party of the 29th Regiment. Engraved by Paul Revere after a design by Henry Pelham.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-01657'),
-      tea: img('tea-party-currier', '1400/1069', '820px', 'Figure 8.2 · The Destruction of Tea at Boston Harbor. Lithograph by N. Currier, 1846 — made seventy-three years after the event; not an eyewitness image.', 'Library of Congress, Prints and Photographs Division, LC-DIG-pga-08593'),
-      dunmore: img('dunmore-proclamation', '1400/2183', '520px', 'Figure 8.3 · Lord Dunmore’s proclamation of November 7, 1775, dated from a ship off Norfolk, offered freedom to the “indented Servants, Negroes, or others” of rebel masters who would bear arms for the king. This printing is attributed to Williamsburg.', 'Library of Congress, Rare Book and Special Collections Division'),
-      paine: img('common-sense', '1400/2412', '480px', 'Figure 8.4 · Common Sense; Addressed to the Inhabitants of America. Title page, Philadelphia: printed and sold by R. Bell, 1776.', 'Courtesy of the John Carter Brown Library. Cropped.'),
-      draft: img('jefferson-draft', '1400/2046', '560px', 'Figure 8.5 · Jefferson’s rough draft of the Declaration of Independence, page 3. In the slave-trade paragraph he underlined “Christian” and wrote MEN in capitals.', 'Library of Congress, Manuscript Division'),
-      pyle: img('bunker-hill-pyle', '1400/928', '820px', 'Howard Pyle, The Battle of Bunker Hill, 1897, published in Scribner’s Magazine, February 1898. Painted more than a century after the battle.', 'Wikimedia Commons, public domain'),
-      timeline: img('timeline-1763-1776', '1400/657', '820px', 'Figure 8.6 · Thirteen years, 1763–1776 (timeline). Crimson: measures of Parliament or the Crown. Navy: colonial actions. Gold: the pamphlet.', '')
+      massacre: img('bloody-massacre', '1400/1642', '640px', 'Figure 8.1 · The Bloody Massacre perpetrated in King Street, engraved by Paul Revere after a design by Henry Pelham, Boston, 1770. Revere’s print appeared on or about March 28, 1770, three weeks after the shooting.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-01657'),
+      tea: img('tea-party-currier', '1400/1069', '820px', 'Figure 8.2 · The Destruction of Tea at Boston Harbor, lithograph by Nathaniel Currier, 1846. Made seventy-three years after the event, the print shows the raiders as costumed Indians and the crowd cheering from the wharf.', 'Library of Congress, Prints and Photographs Division, LC-DIG-pga-08593'),
+      dunmore: img('dunmore-proclamation', '1400/2183', '520px', 'Figure 8.3 · Lord Dunmore’s proclamation, issued from the ship William off Norfolk on November 7, 1775. It declared free the “Servants, Negroes, or others (appertaining to Rebels)” who would bear arms for the king.', 'Library of Congress, Rare Book and Special Collections Division'),
+      paine: img('common-sense', '1400/2412', '480px', 'Figure 8.6 · Title page of Common Sense (Philadelphia: R. Bell, 1776), first edition, first issue. The pamphlet appeared without Paine’s name.', 'Courtesy of the John Carter Brown Library. Cropped from the original image; CC BY 4.0'),
+      draft: img('jefferson-draft', '1400/2046', '560px', 'Figure 8.7 · Page 3 of Jefferson’s rough draft of the Declaration, 1776, with the slavery clause Congress struck. Jefferson underlined “Christian” and wrote MEN in capitals.', 'Library of Congress, Manuscript Division'),
+      pyle: img('bunker-hill-pyle', '1400/928', '820px', 'Figure 8.4 · Howard Pyle, The Battle of Bunker Hill, about 1897, painted for Scribner’s Magazine (February 1898). Pyle imagined the British lines climbing Breed’s Hill more than a century after the battle.', 'Painting formerly in the Delaware Art Museum; image via Wikimedia Commons, public domain'),
+      timeline: img('timeline-1763-1776', '1400/657', '820px', 'Figure 8.5 · Thirteen years from the Proclamation line to the Declaration.', '')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const three = (key, conflict) => ({ isThree: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
-      'The Proclamation of 1763': { 0: [F.timeline] },
       'The Sugar Act': { 0: [{ isSugar: true }] },
       'The Stamp Act': { 3: [{ isCycle: true }] },
       'The Townshend Acts': { 1: [{ isBoston: true }] },
@@ -778,6 +777,7 @@ class Component extends DCLogic {
       'The Intolerable Acts': { 0: [{ isIntolerable: true }] },
       'Lexington and Concord': { pre: [{ isWitL: true }], 3: [F.dunmore] },
       'Breed’s and Bunker Hill': { 0: [F.pyle, { isBunker: true }] },
+      'The Last Argument for the King': { pre: [F.timeline] },
       'Common Sense': { 0: [F.paine] },
       'Independence': { 1: [{ isDecl: true }] },
       'The clause that was cut': { 0: [F.draft] },
