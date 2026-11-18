@@ -652,8 +652,10 @@ class Component extends DCLogic {
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c7-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
       wheel: img('wheel', '1400/895', '760px', 'Figure 7.1 · The Atlantic economy as the chapter describes it: textiles, iron tools, and guns out to Africa; enslaved Africans across to the Americas; raw materials and a few finished goods home to Europe, with the plantation at the hub.', ''),
-      timeline: img('timeline', '1400/672', '820px', 'Figure 7.10 · Fifteen years from Washington’s errand to Fort Le Boeuf to the Treaty of Fort Stanwix.', ''),
+      timeline: img('timeline', '1400/672', '820px', 'Figure 7.10 · Fifteen years from Washington’s errand to Fort Le Bœuf to the Treaty of Fort Stanwix.', ''),
       sites: img('ohio-sites', '1400/687', '820px', 'Figure 7.2 · The ground the chapter covers, from Quebec and Louisbourg to the forks of the Ohio and Fort Stanwix. Site locations approximate.', ''),
+      pop: img('pop-1750', '1400/910', '760px', 'Figure 7.3 · The French claimed more territory than England; the British colonies had about twenty times the people.', ''),
+      defeat: img('defeat-braddock', '1400/914', '820px', 'Figure 7.5 · “Defeat of General Braddock,” wood engraving by John Andrew after Billings, Ballou’s Pictorial, July 7, 1855. Made a century after the battle, the scene imagines the fight from behind the Native line.', 'Library of Congress, Prints and Photographs Division, LC-USZ62-1473'),
       join: img('join-or-die', '1400/993', '620px', 'Figure 7.4 · Benjamin Franklin’s Pennsylvania Gazette printed this woodcut on May 9, 1754, as the French threatened the Ohio country. The pieces stand for the colonies, New England counted as one.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-5315'),
       field: img('field-sketch', '1400/940', '820px', 'Figure 7.6 · An anonymous plan of the Monongahela battlefield, July 9, 1755, showing the British column strung out along the road before the French and their Native allies closed on both flanks. The map labels its own ground plan “only Conjectural.”', 'Library of Congress, Geography and Map Division, G3824.P6S26 1755 .S5'),
       washington: img('washington-monongahela', '1400/1046', '820px', 'Figure 7.7 · Life of George Washington: The Soldier, lithograph by Régnier after a painting by Junius Brutus Stearns, Paris, about 1854. A century on, the print sets Washington on a white horse at the center of the Monongahela, the hero the battle would later make of him.', 'Library of Congress, Prints and Photographs Division, LC-DIG-pga-02418'),
@@ -671,10 +673,11 @@ class Component extends DCLogic {
       'Becoming American — and More British': { 0: [{ isBridge: true }] },
       'British North America, 1750': { 0: [{ isPop: true }] },
       'New France, 1754': { 0: [F.sites] },
+      'The Native Ground': { 0: [F.pop] },
       'Albany': { 0: [F.join] },
-      'Braddock': { 0: [F.field, F.washington, { isMonon: true }] },
+      'Braddock': { 0: [F.defeat, F.field, { isMonon: true }, F.washington] },
       '1763 — The Price of Everything': { 0: [{ isTreaty: true }] },
-      'Pontiac’s War and the Proclamation': { 0: [F.pontiac], 1: [F.narrative, { isLines: true }], 2: [F.timeline] }
+      'Pontiac’s War and the Proclamation': { 0: [F.pontiac], 1: [F.narrative, { isLines: true }, F.timeline] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
