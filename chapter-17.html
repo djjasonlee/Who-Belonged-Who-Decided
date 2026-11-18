@@ -63,7 +63,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:10px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -627,14 +627,17 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c17-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      progress: img("american-progress", "1400/1050", "760px", "American Progress, chromolithograph published by George A. Crofutt in 1873, after John Gast’s painting of 1872.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-09855"),
-      drummer: img("mexican-war-drummer", "1400/1570", "420px", "A drummer of the war with Mexico, in a hand-colored daguerreotype.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-38362"),
-      treaty: img("guadalupe-hidalgo-p1", "1400/2202", "440px", "Page 1 of the Treaty of Guadalupe Hidalgo, February 1848, with the English and Spanish texts side by side.", "National Archives, NAID 124072879"),
-      cession: img("mexican-cession-states", "1400/1486", "640px", "The Mexican Cession, by today’s states.", "Base map data: Natural Earth"),
-      map: img("fremont-preuss-map", "1400/810", "820px", "Topographical Map of the Road from Missouri to Oregon, Section I, compiled by Charles Preuss in 1846 from the field notes and journal of Capt. J. C. Frémont.", "Library of Congress"),
-      trails: img("trails-numbers", "1400/775", "760px", "Overland emigrants, 1840–1860, and violence on the trails, by Unruh’s count.", ""),
-      calpop: img("california-population", "1400/775", "760px", "California on the eve of the gold rush, and California’s Native population.", ""),
-      marshall: img("marshall-sutters-mill", "1400/1108", "640px", "James Marshall at Sutter’s Mill.", "Library of Congress, Prints and Photographs Division, LC-USZ62-137164")
+      progress: img("american-progress", "1400/1020", "760px", "Figure 17.1 · American Progress, the chromolithograph George A. Crofutt issued in 1873 after John Gast’s painting of 1872. The canvas itself hangs at the Autry Museum of the American West.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-09855"),
+      catlin: img("catlin-comanche-war-party", "1400/1007", "720px", "Figure 17.2 · George Catlin, Comanche War Party on the March, Fully Equipped, 1846–1848, oil on canvas.", "Smithsonian American Art Museum, Gift of Mrs. Joseph Harrison, Jr., 1985.66.596"),
+      alamo: img("fall-of-the-alamo", "1400/933", "760px", "Figure 17.3 · Robert Jenkins Onderdonk’s The Fall of the Alamo, painted in 1903, nearly seventy years after the battle, shows David Crockett swinging his rifle in the last fight. One Mexican officer’s account has him captured and executed instead.", "Texas Governor’s Mansion, Austin; Friends of the Governor’s Mansion"),
+      drummer: img("mexican-war-drummer", "1400/1570", "420px", "Figure 17.4 · A drummer in uniform, photographed about 1846, during the time of the Mexican War. Sixth-plate daguerreotype in its case; neither the sitter nor the photographer is identified.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-38362"),
+      cession: img("mexican-cession-states", "1400/1486", "640px", "Figure 17.5 · The lands Mexico gave up in the Treaty of Guadalupe Hidalgo, 1848, shown by today’s states. California, Nevada, and Utah lie wholly within the cession; most of Arizona and parts of New Mexico, Colorado, and Wyoming do. The treaty line ran up the Rio Grande and along the Gila River; the northern edge, the 42nd parallel, had been Mexico’s border with the United States since 1819. The treaty also confirmed the Rio Grande as Texas’s border.", ""),
+      treaty: img("guadalupe-hidalgo-secret-article", "1400/2186", "440px", "Figure 17.6 · A working copy of the Treaty of Guadalupe Hidalgo’s Additional and Secret Article, in English and Spanish. It would have let the exchange of ratifications run up to eight months; the Senate struck it out. Nicholas Trist negotiated the treaty after Polk had recalled him.", "National Archives and Records Administration, Record Group 11, General Records of the United States Government, National Archives Identifier 125849569"),
+      map: img("fremont-preuss-map", "1400/810", "820px", "Figure 17.7 · Section I of the Topographical Map of the Road from Missouri to Oregon, compiled by Charles Preuss in 1846, by order of the Senate, from the field notes and journal of John C. Frémont. The map ran to seven sections at ten miles to the inch, with daily readings of weather and altitude and notes on the country along the way.", "Library of Congress, Geography and Map Division, G4127.O7 1846 .F7"),
+      trails: img("trails-numbers", "1400/775", "760px", "Figure 17.8 · Emigrants on the overland trails by destination, 1840 to 1860, and the killings on both sides that John D. Unruh Jr. counted in The Plains Across (1979).", ""),
+      marshall: img("marshall-sutters-mill", "1400/1080", "640px", "Figure 17.9 · James W. Marshall in front of Sutter’s sawmill at Coloma. The picture reproduces, by a photomechanical process in 1948, a daguerreotype R. H. Vance made about 1850.", "Library of Congress, Prints and Photographs Division, LC-USZ62-137164"),
+      auburn: img("auburn-ravine-1852", "889/669", "640px", "Figure 17.10 · Miners at Auburn Ravine, California, 1852: three white miners at the sluice box and four Chinese miners beside it. Photographer unknown.", "The Huntington Library, Art Museum, and Botanical Gardens"),
+      calpop: img("california-population", "1400/775", "760px", "Figure 17.11 · California on the eve of the gold rush, and its Native population then and about twenty years later, in the figures this chapter gives.", "")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -642,12 +645,13 @@ class Component extends DCLogic {
     const inserts = {
       'The Line at 36°30′': { 3: [{ isMissouri: true }] },
       'A Manifest Destiny': { 5: [F.progress] },
-      'Texas': { 6: [{ isTexas: true }] },
+      'The Mexican Frontier': { 1: [F.catlin] },
+      'Texas': { 5: [F.alamo], 6: [{ isTexas: true }] },
       'American Blood upon the American Soil': { 5: [{ isReason: true }] },
       'To the Halls of the Montezumas': { 0: [F.drummer], 3: [{ isFronts: true }] },
-      'The Forbidden Fruit': { 5: [F.treaty, F.cession], 6: [{ isTreaty: true }] },
+      'The Forbidden Fruit': { 5: [F.cession, F.treaty], 6: [{ isTreaty: true }] },
       'The Trails West': { 0: [F.map], 2: [F.trails] },
-      'Gold': { 0: [F.calpop], 1: [F.marshall], 2: [{ isPrices: true }] }
+      'Gold': { 1: [F.marshall], 2: [{ isPrices: true }], 3: [F.auburn], 4: [F.calpop] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
