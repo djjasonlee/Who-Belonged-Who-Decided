@@ -113,7 +113,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ ib.src }}') center/contain no-repeat"></div>
           </div>
           <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ ib.caption }}</figcaption>
-          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ ib.credit }}</div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ ib.credit }}<sc-if value="{{ ib.hasLink }}" hint-placeholder-val="{{ false }}"> · <a href="{{ ib.link }}" target="_blank" rel="noopener" style="color:#efcf98;text-decoration:underline;text-underline-offset:2px">View at NYPL Digital Collections</a></sc-if></div>
         </figure>
         </sc-if>
       </sc-for>
@@ -428,7 +428,7 @@ class Component extends DCLogic {
     const hasEp = !!(hd[3] && hd[3] !== '~');
     const hasBy = !!(hd[4] && hd[4].startsWith('—'));
     const introParas = d ? hd.slice(hasBy ? 5 : 4) : [];
-    const introFigs = { 1: [{ isImage: true, slot: 'u2-merian-1622', src: 'merian-1622.jpg', ratio: '1400/1186', maxW: '680px', caption: 'Matthäus Merian, engraving of the attack of March 22, 1622. Frankfurt, 1628.', credit: 'Credit: From Theodor de Bry’s America, part 13. Public domain. Sharpened and toned for this edition' }] };
+    const introFigs = { 0: [{ isImage: true, slot: 'u2-dutch-traders', src: 'dutch-traders-manhattan.jpg', ratio: '1640/1131', maxW: '680px', caption: 'William Ludwell Sheppard, Dutch Traders at Manhattan, wood engraving, 1876.', credit: 'Credit: From The New York Public Library. Public domain. Sharpened and toned for this edition', hasLink: true, link: 'https://digitalcollections.nypl.org/items/67057e30-c52f-012f-fdc1-58d385a7bc34' }], 1: [{ isImage: true, slot: 'u2-merian-1622', src: 'merian-1622.jpg', ratio: '1400/1186', maxW: '680px', caption: 'Matthäus Merian, engraving of the attack of March 22, 1622. Frankfurt, 1628.', credit: 'Credit: From Theodor de Bry’s America, part 13. Public domain. Sharpened and toned for this edition' }] };
     const introBlocks = []; introParas.forEach((p, i) => { introBlocks.push({ isP: true, text: p }); (introFigs[i] || []).forEach(w => introBlocks.push(w)); });
     const hasIntro = !d || hasEp || introParas.length > 0;
     const sections = d ? d.sections.map((sec, i) => {
