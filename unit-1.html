@@ -177,6 +177,13 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </figure>
           </sc-if>
 
+          <sc-if value="{{ b.isPrompt }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:8px 0 44px;max-width:680px;box-sizing:border-box;border-radius:16px;background:rgba(239,207,152,.07);border:1px solid rgba(239,207,152,.45);padding:22px 26px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#efcf98">{{ b.label }}</div>
+              <p data-read="1" style="margin:0;font-family:'Newsreader',serif;font-size:19px;line-height:1.65;color:#dcd8d1">{{ b.text }}</p>
+            </div>
+          </sc-if>
+
         </sc-for>
       </section>
     </sc-for>
@@ -423,8 +430,13 @@ class Component extends DCLogic {
       const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'u1-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
       const figs = {
         'Feudal Europe, the Crusades, and the Reconquista': { 0: [img('berruguete-auto-da-fe', '1100/1805', '440px', 'Pedro Berruguete, Saint Dominic Presiding over an Auto-da-fé, about 1491–1499.', 'Museo del Prado. Public domain')] },
-        'New Routes to Asia': { 1: [img('da-gama-abreu', '1100/1631', '440px', 'Vasco da Gama, from the Livro de Lisuarte de Abreu, about 1565.', 'The Morgan Library & Museum, MS M.525. Public domain')] },
-        'The Black Death': { 0: [img('caffa-siege', '927/1152', '560px', 'The siege of Caffa, 1346. Modern illustration, not a period image.', 'AI-generated illustration')] }
+        'New Routes to Asia': { 1: [img('da-gama-abreu', '1100/1631', '440px', 'Vasco da Gama, from the Livro de Lisuarte de Abreu, between 1558 and 1565.', 'The Morgan Library & Museum, MS M.525. Public domain')] },
+        'The Black Death': {
+          0: [img('rashid-trebuchet', '1485/751', '680px', 'A siege with a counterweight trebuchet, painted in Tabriz about 1314 for Rashid al-Din’s Jami al-Tawarikh, three decades before Caffa.', 'Edinburgh University Library, Or.Ms 20. Public domain, via Wikimedia Commons'),
+              img('caffa-siege', '927/1152', '560px', 'The siege of Caffa, 1346. Modern illustration, not a period image.', 'AI-generated illustration'),
+              { isPrompt: true, label: 'Compare these two', text: 'One of these images comes from the Mongol world thirty years before Caffa. The other was made by an AI tool from a written prompt. Pick three details in the AI image, such as the burning sky, the siege machine, the soldiers’ armor, or the city walls. For each one, ask what source could back it up. What did the AI invent, and why might its version feel more real than the painting?' }],
+          1: [img('tournai-burial', '801/482', '680px', 'The people of Tournai bury their plague dead, 1349. Miniature by Pierart dou Tielt in the chronicle of Gilles Li Muisis, about 1353.', 'Royal Library of Belgium, MS 13076-77, fol. 24v. Public domain, via Wikimedia Commons')]
+        }
       };
       let pi = 0;
       sec.paras.forEach(p => {
