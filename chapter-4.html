@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -655,6 +655,7 @@ class Component extends DCLogic {
       pocahontas: img('pocahontas', '1265/1800', '440px', 'Figure 4.2 · Pocahontas, Matoaka als Rebecca; Simon van de Passe', 'National Portrait Gallery, Smithsonian Institution'),
       tobacco: img('tobacco-chart', '1400/849', '820px', 'Figure 4.3 · Tobacco output chart', ''),
       compact: img('compact', '1278/1800', '460px', 'Figure 4.5 · Mayflower Compact', 'not yet confirmed'),
+      captivity: img('smith-captivity', '1640/1417', '680px', 'John Smith’s captivity among the Powhatan, 1607, in an engraving of about 1628.', 'not yet confirmed. Sharpened and toned for this edition'),
       winslow: img('winslow-letter', '1278/1800', '460px', 'Figure 4.6 · Winslow’s letter, Mourt’s Relation, pp. 60-61', 'Boston Public Library, via Internet Archive'),
       massasoit: img('massasoit-dallin', '1271/1600', '440px', 'Massasoit, by Cyrus Dallin. Photograph, c. 1920.', 'Library of Congress, cph 3b10384'),
       balance: img('balance-timeline', '1400/644', '820px', 'Figure 4.9 · The Balance, Broken Early (timeline)', '')
@@ -663,7 +664,7 @@ class Component extends DCLogic {
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
-      'Jamestown, 1607': { 0: [F.smithmap], 1: [F.pocahontas] },
+      'Jamestown, 1607': { 0: [F.smithmap, F.captivity], 1: [F.pocahontas] },
       'Tobacco': { 0: [F.tobacco], 1: [{ isHeadright: true }] },
       'The Powhatan Wars': { 1: [{ isCompany: true }], 2: [{ isPowTl: true }] },
       'Plymouth, 1620': { 1: [F.compact], 2: [{ isCollapse: true }], 3: [F.winslow] },
