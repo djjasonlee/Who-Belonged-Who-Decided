@@ -434,6 +434,8 @@ class Component extends DCLogic {
     const hasBy = !!(hd[4] && hd[4].startsWith('—'));
     const introParas = d ? hd.slice(hasBy ? 5 : 4) : [];
     const introFigs = {
+      2: [{ isImage: true, slot: 'u5-jefferson', src: 'peale-jefferson-1800.jpg', ratio: '1375/1640', maxW: '440px', caption: 'Rembrandt Peale, Thomas Jefferson, 1800.', credit: 'Credit: White House Collection. Public domain' }],
+      3: [{ isImage: true, slot: 'u5-burning', src: 'burning-washington-1814.jpg', ratio: '900/626', maxW: '680px', caption: 'British troops burning Washington, August 1814.', credit: 'Credit: not yet confirmed' }],
       1: [
         { isImage: true, slot: 'u5-stearns', src: 'stearns-convention-1856.jpg', ratio: '800/523', maxW: '680px', caption: 'Junius Brutus Stearns, Washington as Statesman at the Constitutional Convention, 1856. Painted sixty-nine years after a convention that met in secret, with faces copied from published portrait engravings.', credit: 'Credit: Virginia Museum of Fine Arts, Gift of Edgar William and Bernice Chrysler Garbisch. Public domain' },
         { isImage: true, slot: 'u5-convention-ai', src: 'convention-ai.jpg', ratio: '1376/768', maxW: '680px', caption: 'The Constitutional Convention, 1787. Modern illustration, not a period image.', credit: 'Credit: AI-generated illustration' },
