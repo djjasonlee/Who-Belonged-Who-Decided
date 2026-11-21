@@ -676,8 +676,9 @@ class Component extends DCLogic {
       caning: img("magee-sumner-caning", "1400/865", "760px", "Figure 18.8 · Southern Chivalry: Argument versus Club’s, John L. Magee’s 1856 print of Congressman Preston Brooks of South Carolina beating Senator Charles Sumner of Massachusetts on the Senate floor, May 22, 1856, days after Sumner’s “Crime Against Kansas” speech condemned proslavery tactics in the territory. Sumner holds a pen; Brooks holds a cane.", "Boston Public Library"),
       leslies: img("leslies-dred-scott-1857", "1400/2059", "440px", "Figure 18.9 · Frank Leslie’s Illustrated Newspaper, June 27, 1857: the Scotts’ daughters, Eliza and Lizzie, above; Dred and Harriet Scott below, engraved after photographs by John H. Fitzgibbon of St. Louis. The issue appeared less than four months after the Court’s decision.", "Library of Congress, Prints and Photographs Division, LC-DIG-ds-12470"),
       harpers: img("harpers-ferry-engine-house", "1400/888", "760px", "Figure 18.10 · “Harper’s Ferry Insurrection: Interior of the Engine-House, just before the gate is broken down by the storming party,” Frank Leslie’s Illustrated Newspaper, November 5, 1859.", "Library of Congress, Prints and Photographs Division, LC-USZ62-132541"),
-      election: img("election-1860", "1400/862", "760px", "Figure 18.11 · The electoral vote of 1860: Lincoln’s 180 cleared the 152 needed to win.", 'Figure by the author'),
-      timeline: img("secession-timeline", "1400/711", "820px", "Figure 18.12 · The secession crisis, from the Democrats’ split at Charleston in April 1860 to Stephens’s speech at Savannah in March 1861.", 'Figure by the author'),
+      brown: img("hovenden-john-brown", "1400/1720", "560px", "Figure 18.11 · The Last Moments of John Brown, an oil painting by Thomas Hovenden, 1882–84. Brown, condemned for treason, goes to the scaffold on December 2, 1859, pausing to kiss a Black child. A sensational newspaper account reported the moment, and Hovenden, himself an abolitionist, painted it two decades later at a patron’s request.", "The Metropolitan Museum of Art, Gift of Mr. and Mrs. Carl Stoeckel, 1897 (97.5). Public domain"),
+      election: img("election-1860", "1400/862", "760px", "Figure 18.12 · The electoral vote of 1860: Lincoln’s 180 cleared the 152 needed to win.", 'Figure by the author'),
+      timeline: img("secession-timeline", "1400/711", "820px", "Figure 18.13 · The secession crisis, from the Democrats’ split at Charleston in April 1860 to Stephens’s speech at Savannah in March 1861.", 'Figure by the author'),
       taney: img("taney-bep-engraving", "1000/1316", "380px", "Roger B. Taney, engraved portrait by the Bureau of Engraving and Printing.", "Bureau of Engraving and Printing. Public domain")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -693,7 +694,7 @@ class Component extends DCLogic {
       'Bleeding Kansas': { 1: [F.liberty], 2: [{ isKansas: true }] },
       'The Caning of Charles Sumner': { 0: [F.caning] },
       'The Dred Scott Decision': { 1: [F.leslies], 2: [{ isDred: true }] },
-      'Harpers Ferry': { 1: [F.harpers] },
+      'Harpers Ferry': { 1: [F.harpers], 2: [F.brown] },
       'The Election of 1860': { 1: [F.election, { isElection: true }] },
       'Secession': { 2: [F.timeline, { isSecession: true }] },
       'Complex Characters: Roger B. Taney': { pre: [F.taney] }
