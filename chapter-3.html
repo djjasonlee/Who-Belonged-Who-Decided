@@ -665,7 +665,7 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c3-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      places: img('spanish-places', '1400/934', '820px', 'Figure 3.1 · Spanish expeditions into the borderlands: places named in Chapter 3', ''),
+      places: img('spanish-places', '1400/934', '820px', 'Figure 3.1 · Spanish expeditions into the borderlands: places named in Chapter 3', 'Figure by the author'),
       jogues: img('jogues', '1182/1800', '460px', 'Figure 3.x · Martyrdom of Father Isaac Jogues, Adriaen Millaert after Abraham van Diepenbeeck', 'Wellcome Collection'),
       armada: img('armada', '1400/1076', '820px', 'Figure 3.7 · Armada', 'Philip James de Loutherbourg, 1796. Royal Museums Greenwich, BHC0264. Public domain'),
       flagroad: img('flagroad', '1400/1050', '820px', 'Figure 3.6 · Flag Road, Oceti Sakowin camp, Standing Rock', 'Becker1999, ‘Flag Road,’ Oceti Sakowin camp, Standing Rock, November 24, 2016. CC BY 2.0, via Wikimedia Commons.')

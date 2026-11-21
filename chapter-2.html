@@ -654,7 +654,7 @@ class Component extends DCLogic {
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c2-' + key, src: key === 'columbus' ? 'columbus.jpg' : '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
       smallpox: img('smallpox', '1400/1033', '680px', 'Figure 2.3 · Florentine Codex Book XII, smallpox panel; Sahagun', 'Biblioteca Medicea Laurenziana, Florence, via the World Digital Library, Library of Congress'),
-      demarcation: img('demarcation', '1400/1358', '620px', 'Figure 2.10 · Line of Demarcation', ''),
+      demarcation: img('demarcation', '1400/1358', '620px', 'Figure 2.10 · Line of Demarcation', 'Figure by the author'),
       tenochtitlan: img('tenochtitlan', '1400/887', '820px', 'Figure 2.2 · Tenochtitlan, Nuremberg', 'Newberry Library, via the Library of Congress, World Digital Library'),
       malintzin: img('malintzin', '1400/994', '820px', 'Figure 2.x · Xicotencatl and Tlaxcaltec nobles present gifts and maidens to Hernan Cortes and his men while Malintzin translates. Reino de Tlaxcala, c. 1530-1540.', 'Ex-Stendahl Collection, Nettie Lee Benson Latin American Collection, University of Texas Libraries, The University of Texas at Austin'),
       debry: img('debry', '1400/1795', '480px', 'Figure 2.5 · de Bry plate 10, Narratio regionum Indicarum. Engraving by Flemish Protestant artist Theodor de Bry.', 'Library of Congress, Jay I. Kislak Collection'),

@@ -776,7 +776,7 @@ class Component extends DCLogic {
       paine: img('common-sense', '1400/2412', '480px', 'Figure 8.6 · Title page of Common Sense (Philadelphia: R. Bell, 1776), first edition, first issue. The pamphlet appeared without Paine’s name.', 'Courtesy of the John Carter Brown Library. Cropped from the original image; CC BY 4.0'),
       draft: img('jefferson-draft', '1400/2046', '560px', 'Figure 8.7 · Page 3 of Jefferson’s rough draft of the Declaration, 1776, with the slavery clause Congress struck. Jefferson underlined “Christian” and wrote MEN in capitals.', 'Library of Congress, Manuscript Division'),
       pyle: img('bunker-hill-pyle', '1400/928', '820px', 'Figure 8.4 · Howard Pyle, The Battle of Bunker Hill, about 1897, painted for Scribner’s Magazine (February 1898). Pyle imagined the British lines climbing Breed’s Hill more than a century after the battle.', 'Painting formerly in the Delaware Art Museum; image via Wikimedia Commons, public domain'),
-      timeline: img('timeline-1763-1776', '1400/657', '820px', 'Figure 8.5 · Thirteen years from the Proclamation line to the Declaration.', '')
+      timeline: img('timeline-1763-1776', '1400/657', '820px', 'Figure 8.5 · Thirteen years from the Proclamation line to the Declaration.', 'Figure by the author')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const three = (key, conflict) => ({ isThree: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });

@@ -673,7 +673,7 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c20-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      ladder: img("identity-ladder", "1400/840", "820px", "Figure 20.1 · The identity ladder, from representation to power. The Confederacy rested on the claim that some Americans could never climb past the first rung.", ""),
+      ladder: img("identity-ladder", "1400/840", "820px", "Figure 20.1 · The identity ladder, from representation to power. The Confederacy rested on the claim that some Americans could never climb past the first rung.", 'Figure by the author'),
       wagner: img("storming-fort-wagner", "1400/967", "760px", "Figure 20.3 · Storming Fort Wagner, a Kurz & Allison chromolithograph published in Chicago in 1890, a generation after the assault of July 18, 1863. The 54th Massachusetts climbs the parapet under the national flag.", "Library of Congress, Prints and Photographs Division"),
       harvest: img("harvest-of-death", "1400/1123", "760px", "Figure 20.4 · A Harvest of Death, Gettysburg, Pennsylvania, Timothy H. O’Sullivan’s photograph of July 1863, which Alexander Gardner published in his Photographic Sketch Book of the War. The dead lie where they fell.", "Library of Congress, Prints and Photographs Division"),
       lincoln: img("lincoln-gardner-1865", "804/946", "380px", "Abraham Lincoln, photographed by Alexander Gardner, February 5, 1865.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
