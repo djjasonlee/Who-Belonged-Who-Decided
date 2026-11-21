@@ -431,7 +431,7 @@ class Component extends DCLogic {
     const introFigs = {
       0: [ufig('west-death-of-wolfe', '1640/1093', '680px', 'Benjamin West, The Death of General Wolfe, 1770.', 'National Gallery of Canada. Public domain')],
       1: [ufig('war-dance-mcnevin', '1200/839', '680px', 'John McNevin, artist, and John Rogers, engraver, Washington and Fairfax at a War-Dance, 1857.', 'From The New York Public Library. Public domain. Sharpened and toned for this edition', 'https://digitalcollections.nypl.org/items/871e2110-0104-0135-df9f-091c9fbf31f0'), ufig('ferris-putnam-1905', '542/398', '542px', 'Jean Leon Gerome Ferris, Rescue of Major Israel Putnam near Glens Falls, 1758. Chromolithograph, 1905.', 'From The New York Public Library', 'https://digitalcollections.nypl.org/items/fad6a060-c52f-012f-f9f2-58d385a7bc34')],
-      2: [ufig('fatal-stamp-1765', '234/300', '234px', '“O! the fatal Stamp,” from the Pennsylvania Journal, October 1765.', 'not yet confirmed')],
+      2: [ufig('fatal-stamp-1765', '234/300', '234px', '“O! the fatal Stamp,” from the Pennsylvania Journal, October 1765.', 'Pennsylvania Journal, 31 Oct. 1765. Library of Congress, LC-USZ62-21637. No known restrictions on publication')],
       4: [ufig('trumbull-cornwallis', '1640/1081', '680px', 'John Trumbull, Surrender of Lord Cornwallis, 1820.', 'Architect of the Capitol. Public domain')]
     };
     const introBlocks = []; introParas.forEach((p, i) => { introBlocks.push({ isP: true, text: p }); (introFigs[i] || []).forEach(w => introBlocks.push(w)); });
