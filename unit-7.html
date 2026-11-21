@@ -464,7 +464,7 @@ class Component extends DCLogic {
     const introParas = d ? hd.slice(hasBy ? 5 : 4) : [];
     const ufig = (key, ratio, maxW, caption, credit, link) => ({ isImage: true, slot: 'u7-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: 'Credit: ' + credit, hasLink: !!link, link: link || '' });
     const introFigs = {
-      1: [ufig('camp-meeting-eastham', '1600/1047', '680px', 'Methodist camp meeting at Eastham, Massachusetts, hand-colored woodcut, about 1850.', '© North Wind Picture Archives')],
+      1: [ufig('camp-meeting-eastham', '705/535', '680px', 'Camp meeting of the Methodists in North America. Hand-colored aquatint after Jacques Gérard Milbert, engraved by M. Dubourg, about 1819.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-772. No known restrictions on publication. Cropped for this edition')],
       2: [ufig('separation-of-a-family', '1105/1060', '560px', '“The separation of a family of Slaves after being seized & sold upon a Warrant of destraint for their Master’s debts.” Engraving from the album of the Female Society for the Relief of British Negro Slaves, Birmingham, England, 1823–1829.', 'From The New York Public Library. Public domain. Sharpened and toned for this edition', 'https://digitalcollections.nypl.org/items/04e04070-c62c-012f-9d31-58d385a7bc34')]
     };
     const hasIntro = !d || hasEp || introParas.length > 0;
