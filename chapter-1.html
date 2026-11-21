@@ -186,10 +186,11 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
           <sc-if value="{{ b.isImage }}" hint-placeholder-val="{{ false }}">
             <figure style="margin:44px 0;display:flex;flex-direction:column;gap:12px">
-              <div role="img" aria-label="{{ b.caption }}" style="width:100%;aspect-ratio:16/9;background:rgba(255,255,255,.05)">
+              <div role="img" aria-label="{{ b.caption }}" style="width:100%;aspect-ratio:{{ b.ratio }};background:rgba(255,255,255,.05)">
                 <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ b.src }}') center/{{ b.fit }} no-repeat"></div>
               </div>
               <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#a3a7ae;line-height:1.6">{{ b.caption }}</figcaption>
+              <sc-if value="{{ b.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ b.credit }}</div></sc-if>
             </figure>
           </sc-if>
 
@@ -714,11 +715,11 @@ class Component extends DCLogic {
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
-      'The First Americans': { 2: [{ isTimeline: true }], 3: [{ isImage: true, slot: 'naia', src: 'naia.jpg', fit: 'cover', placeholder: 'Image: Naia’s skull in Hoyo Negro', caption: 'Naia, Hoyo Negro, Yucatán. The most complete early-American skeleton yet found.' }] },
+      'The First Americans': { 2: [{ isTimeline: true }], 3: [{ isImage: true, ratio: '1162/1048', slot: 'naia', src: 'naia.jpg', fit: 'cover', placeholder: 'Image: Naia’s skull in Hoyo Negro', caption: 'Naia, Hoyo Negro, Yucatán. The most complete early-American skeleton yet found.' }] },
       'Diverse Geography, Diverse Peoples': { 0: [{ isRegions: true }] },
-      'Cahokia': { 0: [{ isImage: true, slot: 'cahokia', src: 'cahokia.jpg', fit: 'cover', placeholder: 'Image: Cahokia / Monks Mound', caption: 'Cahokia, near present-day St. Louis.' }] },
+      'Cahokia': { 0: [{ isImage: true, ratio: '1162/439', hasCredit: true, credit: 'Credit: Painting by Michael Hampshire. Cahokia Mounds State Historic Site. Rights not yet confirmed', slot: 'cahokia', src: 'cahokia.jpg', fit: 'cover', placeholder: 'Image: Cahokia / Monks Mound', caption: 'Cahokia, near present-day St. Louis.' }] },
       'Water and Sky': { 1: [{ isTrep: true }] },
-      'The Natchez': { 3: [{ isImage: true, slot: 'great-sun', src: 'great-sun.jpg', fit: 'contain', placeholder: 'Image: Le Page du Pratz engraving of the Great Sun', caption: 'The Great Sun carried on a litter. Antoine-Simon Le Page du Pratz, Histoire de la Louisiane (Paris, 1758).' }, { isNatchez: true }] },
+      'The Natchez': { 3: [{ isImage: true, ratio: '16/9', hasCredit: true, credit: 'Credit: Le Page du Pratz, Histoire de la Louisiane (Paris, 1758)', slot: 'great-sun', src: 'great-sun.jpg', fit: 'contain', placeholder: 'Image: Le Page du Pratz engraving of the Great Sun', caption: 'The Great Sun carried on a litter. Antoine-Simon Le Page du Pratz, Histoire de la Louisiane (Paris, 1758).' }, { isNatchez: true }] },
       'The First Democracy': { 0: [{ isArrows: true }] },
       'Collapse and Reorganization': { 1: [{ isCollapse: true }] }
     };
