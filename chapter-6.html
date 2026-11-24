@@ -672,6 +672,7 @@ class Component extends DCLogic {
       bishop: img('bishop-warrant', '1400/2229', '460px', 'Figure 6.2 · Warrant for the execution of Bridget Bishop', 'Property of the Massachusetts Supreme Judicial Court, Division of Archives and Records Preservation. Digital image courtesy of Phillips Library, Peabody Essex Museum, Rowley, MA.'),
       maryland: img('maryland-act', '837/1337', '460px', 'Figure 6.4 · An Act Concerning Religion, 1649 (f. 354). The act both protected Christian worship and prescribed death for blasphemy', 'General Assembly, Upper House (Proceedings), Liber MC, f. 354. MSA S 977-1, MdHR 3860. Maryland State Archives.'),
       locke: img('locke', '814/1450', '400px', 'Figure 6.7 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'Library of Congress'),
+      contention: img('land-of-contention', '2048/1558', '820px', 'Land of Contention: Northampton County Before the Revolution, a map by Peter Maxwell. The path of the Walking Purchase runs from lower right, marked “from sunrise, Sept. 19, to noon, Sept. 20, 1737.” Lenape villages, forts, land purchase boundaries, and old trails appear together.', 'From Northampton Heritage: The Story of an American County (1953). Copyright not renewed; public domain'),
       walking: img('walking-purchase', '1400/1099', '820px', 'Figure 6.5 · Walking Purchase deed copy (c. 1757 copy of the 1686 instrument)', 'Walking Purchase collection, The Huntington Library, San Marino, California')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -681,7 +682,7 @@ class Component extends DCLogic {
       'Dissent: Roger Williams and Anne Hutchinson': { 8: [{ isDissent: true }] },
       'Salem, 1692': { 0: [F.trial, { isSalem: true }, F.bishop] },
       'Puritans and Indians': { 0: [F.rowlandson] },
-      'Pennsylvania': { 1: [F.walking] },
+      'Pennsylvania': { 1: [F.walking, F.contention] },
       'The Chesapeake': { 0: [{ isServant: true }] },
       'Maryland': { 0: [{ isMaryland: true }, F.maryland] },
       'The British West Indies': { 0: [{ isIsland: true }] },
