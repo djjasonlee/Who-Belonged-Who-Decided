@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -665,16 +665,17 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c7-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      wheel: img('wheel', '1400/895', '760px', 'Figure 7.1 · The Atlantic economy as the chapter describes it: textiles, iron tools, and guns out to Africa; enslaved Africans across to the Americas; raw materials and a few finished goods home to Europe, with the plantation at the hub.', 'Figure by the author'),
-      timeline: img('timeline', '1400/672', '820px', 'Figure 7.10 · Fifteen years from Washington’s errand to Fort Le Bœuf to the Treaty of Fort Stanwix.', 'Figure by the author'),
-      sites: img('ohio-sites', '1400/687', '820px', 'Figure 7.2 · The ground the chapter covers, from Quebec and Louisbourg to the forks of the Ohio and Fort Stanwix. Site locations approximate.', 'Figure by the author'),
-      pop: img('pop-1750', '1400/910', '760px', 'Figure 7.3 · The French claimed more territory than England; the British colonies had about twenty times the people.', 'Figure by the author'),
-      defeat: img('defeat-braddock', '1400/914', '820px', 'Figure 7.5 · “Defeat of General Braddock,” wood engraving by John Andrew after Billings, Ballou’s Pictorial, July 7, 1855. Made a century after the battle, the scene imagines the fight from behind the Native line.', 'Library of Congress, Prints and Photographs Division, LC-USZ62-1473'),
-      join: img('join-or-die', '1400/993', '620px', 'Figure 7.4 · Benjamin Franklin’s Pennsylvania Gazette printed this woodcut on May 9, 1754, as the French threatened the Ohio country. The pieces stand for the colonies, New England counted as one.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-5315'),
-      field: img('field-sketch', '1400/940', '820px', 'Figure 7.6 · An anonymous plan of the Monongahela battlefield, July 9, 1755, showing the British column strung out along the road before the French and their Native allies closed on both flanks. The map labels its own ground plan “only Conjectural.”', 'Library of Congress, Geography and Map Division, G3824.P6S26 1755 .S5'),
-      washington: img('washington-monongahela', '1400/1046', '820px', 'Figure 7.7 · Life of George Washington: The Soldier, lithograph by Régnier after a painting by Junius Brutus Stearns, Paris, about 1854. A century on, the print sets Washington on a white horse at the center of the Monongahela, the hero the battle would later make of him.', 'Library of Congress, Prints and Photographs Division, LC-DIG-pga-02418'),
-      narrative: img('narrative', '1400/2293', '440px', 'Figure 7.9 · Title page of A Narrative of the Late Massacres (Philadelphia, 1764), the pamphlet generally attributed to Benjamin Franklin, which condemned the killing of the Conestoga Indians by “Persons Unknown.”', 'Library of Congress, Rare Book and Special Collections Division'),
-      pontiac: img('melchers-pontiac', '1400/1764', '560px', 'Figure 7.8 · Gari Melchers, Conspiracy of Pontiac, 1921, painted for the Detroit Public Library. Melchers imagined the council at Detroit a century and a half later; no portrait of Pontiac made from life is known.', 'Library of Congress, Prints and Photographs Division, Detroit Publishing Company Collection, LC-DIG-det-4a26367')
+      wheel: img('wheel', '1400/896', '760px', 'Figure 7.1 · The Atlantic economy as the chapter describes it: textiles, iron tools, and guns out to Africa; enslaved Africans across to the Americas; raw materials and a few finished goods home to Europe, with the plantation at the hub.', ''),
+      andros: img('andros-prisoner', '1400/2059', '440px', 'Figure 7.2 · “Andros a Prisoner in Boston,” wood engraving from William A. Crafts, Pioneers in the Settlement of America, vol. 1 (Boston: Samuel Walker & Company, 1876), p. 442, drawn nearly two centuries after the 1689 revolt.', 'Wikimedia Commons, File:AndrosaPrisonerInBoston (cropped).png. Public domain. Toned for this edition'),
+      castle: img('castle-william', '1400/1327', '620px', 'Figure 7.3 · A View of Castle William by Boston in New England, etching and engraving attributed to William Burgis, early eighteenth century. A warship flying the British ensign fires its guns in Boston Harbor below the island fort.', 'The Metropolitan Museum of Art, Bequest of Charles Allen Munn, 1924. Public domain. Toned for this edition'),
+      sites: img('ohio-sites', '1400/687', '820px', 'Figure 7.4 · The ground the chapter covers, from Quebec and Louisbourg to the forks of the Ohio and Fort Stanwix. Site locations approximate.', ''),
+      pop: img('pop-1750', '1400/910', '760px', 'Figure 7.5 · The French claimed more territory than England; the British colonies had about twenty times the people.', ''),
+      join: img('join-or-die', '1400/993', '620px', 'Figure 7.6 · Benjamin Franklin’s Pennsylvania Gazette printed this woodcut on May 9, 1754, as the French threatened the Ohio country. The pieces stand for the colonies, New England counted as one.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-5315'),
+      deming: img('deming-braddock', '903/571', '760px', 'Figure 7.7 · Edwin Willard Deming, Braddock’s Defeat, 1903. Deming pictured the wounding of General Edward Braddock at the Monongahela in July 1755, nearly a century and a half after the battle.', 'Wisconsin Historical Society, via Wikimedia Commons. CC BY 4.0'),
+      pyle: img('pyle-death-of-braddock', '861/784', '620px', 'Figure 7.8 · Howard Pyle, “The Death of Braddock,” wood engraving, Scribner’s Magazine, May 1893. Pyle drew the mortally wounded general lifted at a baggage wagon, nearly 140 years after the battle.', 'Wikimedia Commons, File:The Death of Braddock.jpg. Public domain. Toned for this edition'),
+      pontiac: img('melchers-pontiac', '1400/1764', '560px', 'Figure 7.9 · Gari Melchers, Conspiracy of Pontiac, 1921, painted for the Detroit Public Library. Melchers imagined the council at Detroit a century and a half later; no portrait of Pontiac made from life is known.', 'Library of Congress, Prints and Photographs Division, Detroit Publishing Company Collection, LC-DIG-det-4a26367'),
+      narrative: img('narrative', '1400/2293', '440px', 'Figure 7.10 · Title page of A Narrative of the Late Massacres (Philadelphia, 1764), the pamphlet generally attributed to Benjamin Franklin, which condemned the killing of the Conestoga Indians by “Persons Unknown.”', 'Library of Congress, Rare Book and Special Collections Division'),
+      timeline: img('timeline', '1400/672', '820px', 'Figure 7.11 · Fifteen years from Washington’s errand to Fort Le Bœuf to the Treaty of Fort Stanwix.', '')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -682,6 +683,8 @@ class Component extends DCLogic {
     const inserts = {
       'The Wheel of the Atlantic': { 0: [F.wheel] },
       'Mercantilism': { 0: [{ isFour: true }] },
+      'The Glorious Revolution in America': { 0: [F.andros] },
+      'The Fiscal-Military State': { pre: [F.castle] },
       'Three Regions of One Empire': { 0: [{ isThree: true }] },
       'Allies and Enemies': { 1: [{ isCarolina: true }] },
       'Becoming American — and More British': { 0: [{ isBridge: true }] },
@@ -689,12 +692,13 @@ class Component extends DCLogic {
       'New France, 1754': { 0: [F.sites] },
       'The Native Ground': { 0: [F.pop] },
       'Albany': { 0: [F.join] },
-      'Braddock': { 0: [F.defeat, F.field, { isMonon: true }, F.washington] },
+      'Braddock': { 0: [F.deming, { isMonon: true }, F.pyle] },
       '1763 — The Price of Everything': { 0: [{ isTreaty: true }] },
       'Pontiac’s War and the Proclamation': { 0: [F.pontiac], 1: [F.narrative, { isLines: true }, F.timeline] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
+      ((inserts[sec.title] || {}).pre || []).forEach(w => blocks.push(w));
       sec.paras.forEach((p, j) => {
         const last = blocks[blocks.length - 1];
         if (p.startsWith('— ') && last && last.isP) blocks[blocks.length - 1] = { isQuote: true, text: last.text, by: p.slice(2) };
