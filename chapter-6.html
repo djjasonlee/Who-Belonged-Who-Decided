@@ -669,6 +669,7 @@ class Component extends DCLogic {
       bishop: img('bishop-warrant', '1400/2229', '460px', 'Figure 6.2 · Warrant for the execution of Bridget Bishop', 'Property of the Massachusetts Supreme Judicial Court, Division of Archives and Records Preservation. Digital image courtesy of Phillips Library, Peabody Essex Museum, Rowley, MA.'),
       herrman: img('herrman-map-1673', '1920/1530', '900px', 'Virginia and Maryland as it is Planted and Inhabited this present Year 1670, surveyed and exactly drawn by Augustine Herrman, engraved by William Faithorne, published in London in 1673. The map was printed on four sheets. The title cartouche is held up by two Native figures, and a key marks “Indian Houses and Plantations” alongside English ones.', 'Library of Congress, Geography and Map Division, G3880 1670 .H4 Vault; digital copy via Wikimedia Commons. Public domain'),
       maryland: img('maryland-act', '837/1337', '460px', 'Figure 6.6 · An Act Concerning Religion, 1649 (f. 354). The act both protected Christian worship and prescribed death for blasphemy', 'General Assembly, Upper House (Proceedings), Liber MC, f. 354. MSA S 977-1, MdHR 3860. Maryland State Archives.'),
+      whitefield: img('whitefield-1769', '1500/2119', '460px', 'Figure 6.10 · The Reverend Mr. George Whitefield, A.M., Chaplain to the Countess of Huntingdon, mezzotint by John Greenwood after Nathaniel Hone, London, 1769', 'National Portrait Gallery, Smithsonian Institution, NPG.75.77. CC0. Toned for this edition.'),
       locke: img('locke', '814/1450', '400px', 'Figure 6.7 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'Library of Congress'),
       contention: img('land-of-contention', '1600/1217', '820px', 'Figure 6.4 · Land of Contention: Northampton County before the Revolution, map by Peter Maxwell from E. Gordon Alderfer, Northampton Heritage: The Story of an American County (1953). At lower right, the path of the Walking Purchase runs “from sunrise, Sept. 19, to noon, Sept. 20, 1737.”', 'Public domain; copyright not renewed. Toned for this edition.'),
       walking: img('walking-purchase', '1400/1099', '820px', 'Figure 6.5 · Walking Purchase deed copy (c. 1757 copy of the 1686 instrument)', 'Walking Purchase collection, The Huntington Library, San Marino, California')
@@ -686,7 +687,7 @@ class Component extends DCLogic {
       'The British West Indies': { 0: [{ isIsland: true }] },
       'Four Regions, One Crown': { 0: [{ isRegions: true }] },
       'The Enlightenment': { 2: [F.locke], 3: [{ isThinkers: true }] },
-      'The Great Awakening': { 2: [{ isAndover: true }], 6: [{ isLights: true }] }
+      'The Great Awakening': { 2: [{ isAndover: true }], 4: [F.whitefield], 6: [{ isLights: true }] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
