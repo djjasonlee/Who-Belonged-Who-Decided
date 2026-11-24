@@ -151,7 +151,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
-      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px;box-sizing:border-box;background:{{ sec.ccBg }};border-left:{{ sec.ccLeft }};border-radius:{{ sec.ccRad }};padding:{{ sec.ccPad }}">
+      <section id="{{ sec.id }}" data-sec="1" style="max-width:820px;margin-bottom:104px;scroll-margin-top:24px;box-sizing:border-box;background:{{ sec.ccBg }};border:{{ sec.ccLeft }};border-radius:{{ sec.ccRad }};padding:{{ sec.ccPad }}">
         <div style="display:flex;flex-direction:column;gap:14px;padding-top:{{ sec.ccTop }};border-top:1px solid {{ sec.ccRule }};margin-bottom:32px;max-width:680px">
           <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;color:#efcf98">{{ sec.num }}</div>
           <sc-if value="{{ sec.isCC }}" hint-placeholder-val="{{ false }}">
@@ -653,12 +653,13 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c2-' + key, src: key === 'columbus' ? 'columbus.jpg' : '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      smallpox: img('smallpox', '1400/1033', '680px', 'Figure 2.3 · Florentine Codex Book XII, smallpox panel; Sahagun', 'Biblioteca Medicea Laurenziana, Florence, via the World Digital Library, Library of Congress'),
-      demarcation: img('demarcation', '1400/1358', '620px', 'Figure 2.10 · Line of Demarcation', 'Figure by the author'),
-      tenochtitlan: img('tenochtitlan', '1400/887', '820px', 'Figure 2.2 · Tenochtitlan, Nuremberg', 'Newberry Library, via the Library of Congress, World Digital Library'),
-      malintzin: img('malintzin', '1400/994', '820px', 'Figure 2.x · Xicotencatl and Tlaxcaltec nobles present gifts and maidens to Hernan Cortes and his men while Malintzin translates. Reino de Tlaxcala, c. 1530-1540.', 'Ex-Stendahl Collection, Nettie Lee Benson Latin American Collection, University of Texas Libraries, The University of Texas at Austin'),
+      smallpox: img('smallpox', '1400/1033', '680px', 'Figure 2.1 · Smallpox at Tenochtitlán, from Book XII of the Florentine Codex, the Nahua account of the conquest compiled under Bernardino de Sahagún, 1577.', 'Biblioteca Medicea Laurenziana, Florence, via the World Digital Library, Library of Congress'),
+      newcrops: img("fuchs-gerard-maize-potato", "1326/1000", "820px", "Figures 2.7 and 2.8 · Left: Maize, woodcut from Leonhart Fuchs, De historia stirpium (Basel, 1542), p. 825. Fuchs labels the plant Turcicum frumentum and Türckisch Korn, “Turkish grain”; maize came from Mesoamerica. Right: “Potatoes of Virginia,” woodcut from John Gerard, The Herball, or Generall Historie of Plantes (London, 1597), p. 781. Gerard writes that the plant “groweth naturally in America” and that he received its roots from Virginia; the potato itself came from the Andes.", "Left: Smithsonian Libraries, via the Internet Archive. Right: Missouri Botanical Garden, via the Internet Archive. Both public domain. Cropped for this edition"),
+      demarcation: img('demarcation', '1400/1358', '620px', 'Figure 2.2 · The line of demarcation. Inter Caetera (1493) set it one hundred leagues west of the Azores and Cape Verde Islands; the Treaty of Tordesillas (1494) moved it to 370 leagues west of the Cape Verde Islands.', 'Figure by the author'),
+      tenochtitlan: img('tenochtitlan', '1400/887', '820px', 'Figure 2.3 · The first published plan of Tenochtitlán, printed at Nuremberg in 1524 with the first Latin edition of Cortés’s second letter to Charles V. West is at the top; the temple precinct sits at the center.', 'Newberry Library, via the Library of Congress, World Digital Library'),
+      malintzin: img('malintzin', '1400/994', '820px', 'Figure 2.4 · Xicotencatl and Tlaxcaltec nobles present gifts and maidens to Hernan Cortes and his men while Malintzin translates. Reino de Tlaxcala, c. 1530-1540.', 'Ex-Stendahl Collection, Nettie Lee Benson Latin American Collection, University of Texas Libraries, The University of Texas at Austin'),
       debry: img('debry', '1400/1795', '480px', 'Figure 2.5 · de Bry plate 10, Narratio regionum Indicarum. Engraving by Flemish Protestant artist Theodor de Bry.', 'Library of Congress, Jay I. Kislak Collection'),
-      lascasas: img('lascasas', '1280/1733', '420px', 'Figure 2.4 · Las Casas portrait', 'Anonymous painter, 16th century. Oil on canvas. Via Wikimedia Commons. Public domain'),
+      lascasas: img('lascasas', '1280/1733', '420px', 'Figure 2.6 · Fray Bartolomé de las Casas. Portrait by an unidentified painter, inscribed with his name and the year of his death, 1566.', 'Wikimedia Commons, File:Fray Bartolomé de las Casas.jpg. Public domain'),
       columbus: img('columbus', '1000/1246', '420px', 'Christopher Columbus. AI-generated portrait; no portrait painted from life is known to survive.', '')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -671,7 +672,7 @@ class Component extends DCLogic {
       'The Encomienda, the Requerimiento, and Las Casas': { 1: [F.debry] },
       'The Valladolid Debate': { 1: [{ isValladolid: true }], 2: [F.lascasas] },
       'New Spain and the Caste System': { 1: [{ isCaste: true }] },
-      'Biological Impact': { 1: [{ isExchange: true }] },
+      'Biological Impact': { 1: [F.newcrops, { isExchange: true }] },
       'Complex Characters': { 0: [F.columbus], 4: [{ isColumbus: true }] }
     };
     const sections = d ? d.sections.map((sec, i) => {
@@ -688,7 +689,7 @@ class Component extends DCLogic {
       const ccNames = {}, ccDates = {"Christopher Columbus": "1451–1506"}, ccAsks = {"Christopher Columbus": "When he praised the Taíno in a journal meant for the Crown, did he describe what he saw or what his sponsors wanted to hear?"};
       const who = isCC ? (ccNames[full] || full.slice(20)) : '', dates = ccDates[who] || '', ask = ccAsks[who] || '';
       return { isCC, head: isCC ? who : full, dates, hasDates: !!dates, ask, hasAsk: !!ask,
-        ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '0 20px 20px 0' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
+        ccBg: isCC ? 'linear-gradient(180deg,rgba(239,207,152,.09),rgba(239,207,152,.025))' : 'transparent', ccLeft: isCC ? '3px solid #efcf98' : '0 solid transparent', ccRad: isCC ? '20px' : '0', ccPad: isCC ? 'clamp(22px,3.4vw,40px)' : '0',
         ccTop: isCC ? '0' : '28px', ccRule: isCC ? 'transparent' : '#2c2f36', ccSize: isCC ? 'clamp(40px,5.4vw,64px)' : 'clamp(32px,4vw,48px)',
         id: slug(sec.title), num: '2.' + String(i + 1).padStart(2, '0'), title: sec.sub ? sec.title + ': ' + sec.sub : sec.title, blocks, listen: () => this.lToggle(i + 1), listenLabel: s.lIdx === i + 1 ? (s.lPlaying ? '❚❚ Pause' : '▶ Resume') : '▶ Listen to this section' };
     }) : [];
