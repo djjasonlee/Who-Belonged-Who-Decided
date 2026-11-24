@@ -670,7 +670,7 @@ class Component extends DCLogic {
       herrman: img('herrman-map-1673', '1920/1530', '900px', 'Virginia and Maryland as it is Planted and Inhabited this present Year 1670, surveyed and exactly drawn by Augustine Herrman, engraved by William Faithorne, published in London in 1673. The map was printed on four sheets. The title cartouche is held up by two Native figures, and a key marks “Indian Houses and Plantations” alongside English ones.', 'Library of Congress, Geography and Map Division, G3880 1670 .H4 Vault; digital copy via Wikimedia Commons. Public domain'),
       maryland: img('maryland-act', '837/1337', '460px', 'Figure 6.6 · An Act Concerning Religion, 1649 (f. 354). The act both protected Christian worship and prescribed death for blasphemy', 'General Assembly, Upper House (Proceedings), Liber MC, f. 354. MSA S 977-1, MdHR 3860. Maryland State Archives.'),
       locke: img('locke', '814/1450', '400px', 'Figure 6.7 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'Library of Congress'),
-      contention: img('land-of-contention', '2048/1558', '820px', 'Figure 6.4 · Land of Contention: Northampton County before the Revolution, map by Peter Maxwell from E. Gordon Alderfer, Northampton Heritage: The Story of an American County (1953). At lower right, the path of the Walking Purchase runs “from sunrise, Sept. 19, to noon, Sept. 20, 1737.”', 'Public domain; copyright not renewed'),
+      contention: img('land-of-contention', '1600/1217', '820px', 'Figure 6.4 · Land of Contention: Northampton County before the Revolution, map by Peter Maxwell from E. Gordon Alderfer, Northampton Heritage: The Story of an American County (1953). At lower right, the path of the Walking Purchase runs “from sunrise, Sept. 19, to noon, Sept. 20, 1737.”', 'Public domain; copyright not renewed. Toned for this edition.'),
       walking: img('walking-purchase', '1400/1099', '820px', 'Figure 6.5 · Walking Purchase deed copy (c. 1757 copy of the 1686 instrument)', 'Walking Purchase collection, The Huntington Library, San Marino, California')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -678,7 +678,7 @@ class Component extends DCLogic {
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
       'Dissent: Roger Williams and Anne Hutchinson': { 8: [{ isDissent: true }] },
-      'Salem, 1692': { 0: [F.trial, { isSalem: true }, F.bishop] },
+      'Salem, 1692': { 0: [F.trial, { isSalem: true }] },
       'Puritans and Indians': { 0: [F.rowlandson] },
       'Pennsylvania': { 1: [F.contention] },
       'The Chesapeake': { 0: [{ isServant: true }] },
