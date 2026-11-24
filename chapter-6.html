@@ -251,7 +251,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
           <sc-if value="{{ b.isIsland }}" hint-placeholder-val="{{ false }}">
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
-              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · Barbados, 1684</div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Figure 6.7 · Barbados, 1684</div>
               <sc-for list="{{ biRows }}" as="bw" hint-placeholder-count="2">
                 <div style="display:flex;flex-direction:column;gap:10px">
                   <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
@@ -267,7 +267,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
           <sc-if value="{{ b.isRegions }}" hint-placeholder-val="{{ false }}">
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
-              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Four regions, four social orders</div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Figure 6.8 · Four regions, four social orders</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ rgTabs }}" as="gt" hint-placeholder-count="3">
                   <button type="button" onClick="{{ gt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ gt.border }};background:{{ gt.bg }};color:{{ gt.color }}">{{ gt.label }}</button>
@@ -664,13 +664,13 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c6-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      rowlandson: img('rowlandson', '1106/1800', '440px', 'Figure 6.1 · Mary Rowlandson, The Soveraignty & Goodness of God, title page (second edition)', 'Boston Public Library, via Internet Archive'),
-      trial: img('salem-trial', '1400/998', '820px', 'T. H. Matteson, Examination of a Witch, 1853', 'Public domain'),
+      rowlandson: img('rowlandson', '1106/1800', '440px', 'Figure 6.3 · Mary Rowlandson, The Soveraignty & Goodness of God, title page (second edition)', 'Boston Public Library, via Internet Archive'),
+      trial: img('salem-jacobs', '2000/1269', '820px', 'Figure 6.1 · Tompkins H. Matteson, Trial of George Jacobs, August 5, 1692, oil on canvas, 1855. Matteson painted the courtroom 163 years after the trial, with the afflicted girls collapsing on the floor and the accused man on his knees at right. The scene shows how the nineteenth century pictured Salem, not a record of the hearing', 'Peabody Essex Museum, Gift of R. W. Ropes, 1859'),
       bishop: img('bishop-warrant', '1400/2229', '460px', 'Figure 6.2 · Warrant for the execution of Bridget Bishop', 'Property of the Massachusetts Supreme Judicial Court, Division of Archives and Records Preservation. Digital image courtesy of Phillips Library, Peabody Essex Museum, Rowley, MA.'),
-      herrman: img('herrman-map-1673', '1920/1530', '900px', 'Virginia and Maryland as it is Planted and Inhabited this present Year 1670, surveyed and exactly drawn by Augustine Herrman, engraved by William Faithorne, published in London in 1673. The map was printed on four sheets. The title cartouche is held up by two Native figures, and a key marks “Indian Houses and Plantations” alongside English ones.', 'Library of Congress, Geography and Map Division, G3880 1670 .H4 Vault; digital copy via Wikimedia Commons. Public domain'),
+      moll: img('moll-virginia-maryland-1736', '1190/1645', '500px', 'Figure 6.6 · Herman Moll, Virginia and Maryland, from his Atlas Minor (London: Thomas and John Bowles, 1736). The key at upper left separates “English Plantations” from “Indian Plantations and Houses.”', 'David Rumsey Map Collection, Cartography Associates'),
       maryland: img('maryland-act', '837/1337', '460px', 'Figure 6.6 · An Act Concerning Religion, 1649 (f. 354). The act both protected Christian worship and prescribed death for blasphemy', 'General Assembly, Upper House (Proceedings), Liber MC, f. 354. MSA S 977-1, MdHR 3860. Maryland State Archives.'),
       whitefield: img('whitefield-1769', '1500/2119', '460px', 'Figure 6.10 · The Reverend Mr. George Whitefield, A.M., Chaplain to the Countess of Huntingdon, mezzotint by John Greenwood after Nathaniel Hone, London, 1769', 'National Portrait Gallery, Smithsonian Institution, NPG.75.77. CC0. Toned for this edition.'),
-      locke: img('locke', '814/1450', '400px', 'Figure 6.7 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'Library of Congress'),
+      locke: img('locke', '814/1450', '400px', 'Figure 6.9 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'University of Illinois, via Internet Archive'),
       contention: img('land-of-contention', '1600/1217', '820px', 'Figure 6.4 · Land of Contention: Northampton County before the Revolution, map by Peter Maxwell from E. Gordon Alderfer, Northampton Heritage: The Story of an American County (1953). At lower right, the path of the Walking Purchase runs “from sunrise, Sept. 19, to noon, Sept. 20, 1737.”', 'Public domain; copyright not renewed. Toned for this edition.'),
       walking: img('walking-purchase', '1400/1099', '820px', 'Figure 6.5 · Walking Purchase deed copy (c. 1757 copy of the 1686 instrument)', 'Walking Purchase collection, The Huntington Library, San Marino, California')
     };
@@ -683,7 +683,7 @@ class Component extends DCLogic {
       'Puritans and Indians': { 0: [F.rowlandson] },
       'Pennsylvania': { 1: [F.contention] },
       'The Chesapeake': { 0: [{ isServant: true }] },
-      'Maryland': { 0: [{ isMaryland: true }, F.maryland, F.herrman] },
+      'Maryland': { 0: [{ isMaryland: true }, F.moll] },
       'The British West Indies': { 0: [{ isIsland: true }] },
       'Four Regions, One Crown': { 0: [{ isRegions: true }] },
       'The Enlightenment': { 2: [F.locke], 3: [{ isThinkers: true }] },
