@@ -222,17 +222,14 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
           <sc-if value="{{ b.isServant }}" hint-placeholder-val="{{ false }}">
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
-              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · What became of the Chesapeake servant</div>
-              <sc-for list="{{ svRows }}" as="vw" hint-placeholder-count="2">
-                <div style="display:flex;flex-direction:column;gap:10px">
-                  <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap">
-                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#dcd8d1">{{ vw.label }}</div>
-                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:28px;color:{{ vw.color }}">{{ vw.value }}</div>
-                  </div>
-                  <div style="position:relative;height:14px;background:rgba(255,255,255,.07)"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ vw.width }};min-width:3px;background:{{ vw.color }};transition:width .5s ease"></div></div>
-                </div>
-              </sc-for>
-              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Landless servants made up three-quarters of the population, and few servants escaped poverty.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Figure 6.5 · What became of the Chesapeake servant</div>
+              <div style="display:flex;gap:3px;min-height:150px">
+                <sc-for list="{{ svSegs }}" as="sg" hint-placeholder-count="3">
+                  <div style="flex:{{ sg.grow }} 1 0;min-width:0;background:{{ sg.bg }};color:{{ sg.fg }};display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 3px;font-family:'Newsreader',serif;font-weight:600;font-size:clamp(10.5px,2vw,22px);line-height:1.3;text-wrap:balance">{{ sg.text }}</div>
+                </sc-for>
+              </div>
+              <div style="font-family:'Newsreader',serif;font-style:italic;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Landless servants and laborers made up three-quarters of the population.</div>
+              <div style="font-family:'Inter',sans-serif;font-size:12px;color:#a9a59d">Fractions from Chapter 6, “The Chesapeake.” Bar drawn to scale.</div>
             </div>
           </sc-if>
 
@@ -670,6 +667,7 @@ class Component extends DCLogic {
       rowlandson: img('rowlandson', '1106/1800', '440px', 'Figure 6.1 · Mary Rowlandson, The Soveraignty & Goodness of God, title page (second edition)', 'Boston Public Library, via Internet Archive'),
       trial: img('salem-trial', '1400/998', '820px', 'T. H. Matteson, Examination of a Witch, 1853', 'Public domain'),
       bishop: img('bishop-warrant', '1400/2229', '460px', 'Figure 6.2 · Warrant for the execution of Bridget Bishop', 'Property of the Massachusetts Supreme Judicial Court, Division of Archives and Records Preservation. Digital image courtesy of Phillips Library, Peabody Essex Museum, Rowley, MA.'),
+      herrman: img('herrman-map-1673', '1920/1530', '900px', 'Virginia and Maryland as it is Planted and Inhabited this present Year 1670, surveyed and exactly drawn by Augustine Herrman, engraved by William Faithorne, published in London in 1673. The map was printed on four sheets. The title cartouche is held up by two Native figures, and a key marks “Indian Houses and Plantations” alongside English ones.', 'Library of Congress, Geography and Map Division, G3880 1670 .H4 Vault; digital copy via Wikimedia Commons. Public domain'),
       maryland: img('maryland-act', '837/1337', '460px', 'Figure 6.4 · An Act Concerning Religion, 1649 (f. 354). The act both protected Christian worship and prescribed death for blasphemy', 'General Assembly, Upper House (Proceedings), Liber MC, f. 354. MSA S 977-1, MdHR 3860. Maryland State Archives.'),
       locke: img('locke', '814/1450', '400px', 'Figure 6.7 · Two Treatises of Government, title page; imprint dated 1690. The book names no author', 'Library of Congress'),
       contention: img('land-of-contention', '2048/1558', '820px', 'Land of Contention: Northampton County Before the Revolution, a map by Peter Maxwell. The path of the Walking Purchase runs from lower right, marked “from sunrise, Sept. 19, to noon, Sept. 20, 1737.” Lenape villages, forts, land purchase boundaries, and old trails appear together.', 'From Northampton Heritage: The Story of an American County (1953). Copyright not renewed; public domain'),
@@ -684,7 +682,7 @@ class Component extends DCLogic {
       'Puritans and Indians': { 0: [F.rowlandson] },
       'Pennsylvania': { 1: [F.walking, F.contention] },
       'The Chesapeake': { 0: [{ isServant: true }] },
-      'Maryland': { 0: [{ isMaryland: true }, F.maryland] },
+      'Maryland': { 0: [{ isMaryland: true }, F.herrman] },
       'The British West Indies': { 0: [{ isIsland: true }] },
       'Four Regions, One Crown': { 0: [{ isRegions: true }] },
       'The Enlightenment': { 2: [F.locke], 3: [{ isThinkers: true }] },
@@ -708,6 +706,7 @@ class Component extends DCLogic {
     const barRows = (rows, max) => rows.map((r, i) => ({ label: r[0], value: r[2], width: (r[1] / (max || rows[0][1]) * 100) + '%', color: r[3] || (i ? R : G) }));
     const slRows = barRows([['New Englanders accused of witchcraft, 1620–1725', 344, '344', G], ['Accused in the single year of 1692', 200, 'nearly 200', B], ['Charged by midsummer 1692', 150, 'nearly 150', B], ['Hanged', 19, 'nineteen', R]]);
     const svRows = barRows([['Died before completing their contracts', 50, 'half the men', R], ['Remained landless', 25, 'another quarter', B], ['Achieved property and respectability', 25, 'only a quarter', G]], 100);
+    const svSegs = [{ grow: 50, bg: '#771C1C', fg: '#fff', text: 'half the men died before completing their contracts' }, { grow: 25, bg: '#D4A820', fg: '#1F3A64', text: 'a quarter remained landless' }, { grow: 25, bg: '#1F3A64', fg: '#fff', text: 'a quarter achieved property and respectability' }];
     const mdRows = barRows([['Marriages in one county that ended within eight years with the death of a husband or wife', 50, 'half', B], ['Men who did not live to fifty', 70, 'nearly 70 percent', R], ['Children born in Maryland who reached adulthood', 50, 'only half', G]], 100);
     const biRows = barRows([['Enslaved Africans', 46502, '46,502', R], ['White settlers', 19568, '19,568', G]]);
 
@@ -792,7 +791,7 @@ class Component extends DCLogic {
       minutes: d ? Math.round(d.words / 230) : '—', sectionCount: sections.length || '—',
       gridCols: s.wide ? '240px minmax(0,1fr)' : 'minmax(0,1fr)', tocDisplay: s.wide ? 'block' : 'none',
       toc, sections,
-      slRows, svRows, mdRows, biRows,
+      slRows, svRows, svSegs, mdRows, biRows,
       dsTabs: tlTabs(dsData, 'ds'), dsSel: sel(dsData, 'ds'),
       rgTabs, rgSel: rgData[s.rg],
       thTabs, thSel: { date: thData[s.th][0], who: thData[s.th][1], text: thData[s.th][2] },
