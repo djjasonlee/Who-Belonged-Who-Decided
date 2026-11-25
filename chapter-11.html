@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -677,19 +677,25 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c11-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      pinckney: img("pinckney-treaty-map", "1400/1375", "600px", "Figure 11.4 · Pinckney’s Treaty with Spain, the Treaty of San Lorenzo, opened the lower Mississippi to American boats and encouraged trade through the port of New Orleans.", "Base map data: Natural Earth"),
-      farewell: img("farewell-address-p1", "1400/1733", "480px", "Figure 11.5 · The first page of Washington’s manuscript of the Farewell Address, drafted with Hamilton and dated September 19, 1796. It opens “Friends & Fellow-Citizens,” with Washington’s corrections in place.", "From The New York Public Library"),
-      rivals: img("rivals-hamilton-jefferson", "1600/1003", "820px", "Figure 11.1 · The rivals. Left: Alexander Hamilton, the first secretary of the Treasury, by John Trumbull, oil on canvas, 1804–6. Right: Thomas Jefferson, by Mather Brown, oil on canvas, 1786.", "Left: The Metropolitan Museum of Art, Gift of Henry G. Marquand, 1881. Right: National Portrait Gallery, Smithsonian Institution; bequest of Charles Francis Adams; frame conserved with funds from the Smithsonian Women’s Committee"),
-      gazettes: img("gazettes-1792-pair", "1600/755", "820px", "Figure 11.2 · Two pages from the newspaper war of 1792. Left: the Gazette of the United States, July 25, page 3, where a writer signing “T. L.” charges that the editor of the National Gazette “receives a salary from government.” Right: the National Gazette, August 15, page 2, where a reply names the salary for translating at the State Department and answers that John Fenno, the Gazette’s printer, holds a federal post too: “printer to the Senate.”", "Library of Congress, Chronicling America"),
-      whiskey: img("whiskey-kemmelmeyer", "1400/892", "820px", "Figure 11.3 · Frederick Kemmelmeyer, Washington Reviewing the Western Army at Fort Cumberland, Maryland, painted after 1795. The president rides at the head of the militia he led west against the whiskey rebels in 1794.", "The Metropolitan Museum of Art, Gift of Edgar William and Bernice Chrysler Garbisch, 1963"),
-      pugilists: img("congressional-pugilists", "1400/1057", "760px", "Figure 11.7 · Congressional Pugilists, an etching that dates itself “Congress Hall in Philada. Feb. 15, 1798.” Cane meets fire tongs on the floor of the House while members look on. The verse beneath tells the printmaker’s version; the sources disagree on what provoked the fight.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-15707"),
+      inaugural: img("matteson-sadd-inaugural-1849", "1024/836", "820px", "Figure 11.1 · T. H. Matteson (painter) and H. S. Sadd (engraver), Washington Delivering His Inaugural Address, April 1789, in the Old City Hall, New-York, mezzotint, published by John Neale, 1849. The scene was imagined sixty years after the event.", "Library of Congress, Prints and Photographs Division, LC-DIG-pga-03236"),
+      pinckney: img("pinckney-treaty-map", "1400/1375", "600px", "Figure 11.5 · Pinckney’s Treaty with Spain, the Treaty of San Lorenzo, opened the lower Mississippi to American boats and encouraged trade through the port of New Orleans.", "Base map data: Natural Earth"),
+      farewell: img("farewell-address-p1", "1400/1733", "480px", "Figure 11.6 · The first page of Washington’s manuscript of the Farewell Address, drafted with Hamilton and dated September 19, 1796. It opens “Friends & Fellow-Citizens,” with Washington’s corrections in place.", "From The New York Public Library"),
+      rivals: img("rivals-hamilton-jefferson", "1600/1003", "820px", "Figure 11.2 · The rivals. Left: Alexander Hamilton, the first secretary of the Treasury, by John Trumbull, oil on canvas, 1804–6. Right: Thomas Jefferson, by Mather Brown, oil on canvas, 1786.", "Left: The Metropolitan Museum of Art, Gift of Henry G. Marquand, 1881. Right: National Portrait Gallery, Smithsonian Institution; bequest of Charles Francis Adams; frame conserved with funds from the Smithsonian Women’s Committee"),
+      gazettes: img("gazettes-1792-pair", "1600/755", "820px", "Figure 11.3 · Two pages from the newspaper war of 1792. Left: the Gazette of the United States, July 25, page 3, where a writer signing “T. L.” charges that the editor of the National Gazette “receives a salary from government.” Right: the National Gazette, August 15, page 2, where a reply names the salary for translating at the State Department and answers that John Fenno, the Gazette’s printer, holds a federal post too: “printer to the Senate.”", "Library of Congress, Chronicling America"),
+      whiskey: img("whiskey-kemmelmeyer", "1400/892", "820px", "Figure 11.4 · Frederick Kemmelmeyer, Washington Reviewing the Western Army at Fort Cumberland, Maryland, painted after 1795. The president rides at the head of the militia he led west against the whiskey rebels in 1794.", "The Metropolitan Museum of Art, Gift of Edgar William and Bernice Chrysler Garbisch, 1963"),
+      pugilists: img("congressional-pugilists", "1400/1057", "760px", "Figure 11.10 · Congressional Pugilists, an etching that dates itself “Congress Hall in Philada. Feb. 15, 1798.” Cane meets fire tongs on the floor of the House while members look on. The verse beneath tells the printmaker’s version; the sources disagree on what provoked the fight.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-15707"),
       lee: img('washington-william-lee', '1400/1797', '520px', 'John Trumbull, George Washington and William Lee, 1780. William Lee, at right, was enslaved by Washington.', 'The Metropolitan Museum of Art, Bequest of Charles Allen Munn, 1924, 24.109.88'),
-      xyz: img("property-protected", "1400/867", "820px", "Figure 11.6 · Property Protected à la Françoise, a British satire published in London by S. W. Fores on June 1, 1798. Plumed Frenchmen court and strip “Madame Amerique” while a soldier fills a sack labeled “Diplomatic Perquisites.” John Bull looks on from Shakespeare’s Cliff.", "Library of Congress, Prints and Photographs Division")
+      graham: img("adams-graham-mezzotint", "1342/1800", "520px", "Figure 11.7 · George Graham, John Adams, President of the United States of America, engraving, published in Philadelphia by Dr. John Berkeanhead, c. 1797–1800. Adams holds the “Federal Constitution,” a sword at his hip, with the Temple of Fame on a hilltop behind him. It may have been made in the wake of the XYZ Affair or ahead of his 1800 reelection bid.", "Courtesy of the American Antiquarian Society"),
+      recruit: img("army-recruiting-notice-1799", "1800/1366", "820px", "Figure 11.9 · Army recruiting notice from the Quasi-War with France, 1799, engraved by B. Jones. “Take Notice” offers young men a bounty of twelve dollars and sixty dollars a year in gold and silver, with a drill manual in sixteen figures along the way.", "B. Jones, Photograph of Army Recruiting Notice, National Archives at College Park. Public domain, via Wikimedia Commons"),
+      song: img("sedition-act-song-coverly-1811", "1526/1800", "640px", "Figure 11.11 · The Sedition Act, a song sheet sold by Nathaniel Coverly, Boston, 1811. A veteran of Quebec and Yorktown sings of what he expected from the republic and what the Sedition Act of 1798 gave him.", "Courtesy of the American Antiquarian Society"),
+      houston: img("adams-houston-engraving", "1271/1800", "560px", "Figure 11.12 · H. H. Houston, His Excellency John Adams President of the United States of America, engraving, published by D. Kennedy, Philadelphia, 1797?. The legend dedicates it “to the Lovers of their Country and Firm Supporters of its Constitution.”", "Courtesy of the American Antiquarian Society"),
+      xyz: img("property-protected", "1400/867", "820px", "Figure 11.8 · Property Protected à la Françoise, a British satire published in London by S. W. Fores on June 1, 1798. Plumed Frenchmen court and strip “Madame Amerique” while a soldier fills a sack labeled “Diplomatic Perquisites.” John Bull looks on from Shakespeare’s Cliff.", "Library of Congress, Prints and Photographs Division")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
+      'Everything a Precedent': { 0: [F.inaugural] },
       'The First Cabinet': { 0: [{ isCabinet: true }] },
       'Two Men, Two Americas': { 2: [F.rivals, { isTwoMen: true }] },
       'The Debt and the Defector': { 1: [{ isBonds: true }] },
@@ -700,8 +706,10 @@ class Component extends DCLogic {
       'The Farewell': { 0: [F.farewell] },
       'Complex Characters': { 0: [F.lee] },
       'Democracy’s First Test': { 1: [{ isVote: true }] },
-      'The XYZ Affair and the Quasi-War': { 2: [F.xyz] },
-      'The Alien and Sedition Acts': { 2: [F.pugilists, { isAlien: true }] },
+      'Adams Alone': { 0: [F.graham] },
+      'The XYZ Affair and the Quasi-War': { 2: [F.xyz, F.recruit] },
+      'The Alien and Sedition Acts': { 2: [F.pugilists, { isAlien: true }], 3: [F.song] },
+      'The Federalists Fall': { 0: [F.houston] },
       'The Midnight Appointments': { 1: [{ isJudiciary: true }] }
     };
     const sections = d ? d.sections.map((sec, i) => {
