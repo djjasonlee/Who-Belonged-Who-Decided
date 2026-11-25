@@ -75,7 +75,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div data-cue="scroll" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">12</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
@@ -262,6 +262,64 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-if>
 
+          <sc-if value="{{ b.isVote }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The vote on July 16, 1787</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ vtTabs }}" as="nt" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ nt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ nt.border }};background:{{ nt.bg }};color:{{ nt.color }}">{{ nt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px">
+                <sc-for list="{{ vtTiles }}" as="vs" hint-placeholder-count="13">
+                  <div style="padding:12px 12px 10px;border-radius:12px;border:1px {{ vs.bstyle }} {{ vs.border }};background:{{ vs.bg }};opacity:{{ vs.op }};transition:opacity .3s ease;display:flex;flex-direction:column;gap:2px">
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:17px;line-height:1.15;color:{{ vs.color }}">{{ vs.name }}</div>
+                    <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:{{ vs.color }};opacity:.8">{{ vs.word }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">{{ vtSel.who }}</div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ vtSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ vtSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Source: James Madison’s notes for July 16, 1787. Each state cast one vote, decided by a majority of its delegates present.</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ b.isSeats }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · What the clause did to the House</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ sfTabs }}" as="nt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ nt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ nt.border }};background:{{ nt.bg }};color:{{ nt.color }}">{{ nt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:32px">
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:44px;line-height:1;color:#c2653f">{{ sfSouth }}</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">House seats, Delaware and south</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:44px;line-height:1;color:#8ea4bb">{{ sfNorth }}</div>
+                  <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a7ae">House seats, all other states</div>
+                </div>
+              </div>
+              <sc-for list="{{ sfRows }}" as="sw" hint-placeholder-count="7">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+                    <div style="font-family:'Newsreader',serif;font-size:17px;color:#dcd8d1">{{ sw.label }}</div>
+                    <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:#c2653f">{{ sw.value }}</div>
+                  </div>
+                  <div style="position:relative;height:12px;background:rgba(255,255,255,.07)"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ sw.width }};min-width:3px;background:#c2653f;transition:width .5s ease"></div></div>
+                </div>
+              </sc-for>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:26px;line-height:1.15;color:#efcf98">{{ sfSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ sfSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">Seats figured from the 1790 census at the 1792 ratio of one seat per 33,000 people, dropping each state’s remainder; Maine counts with Massachusetts, as it did then. The three-fifths view reproduces the first apportionment of 105 seats.</div>
+            </div>
+          </sc-if>
           <sc-if value="{{ b.isEmancip }}" hint-placeholder-val="{{ false }}">
             <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Emancipation, 1777–1804</div>
@@ -481,7 +539,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, ac: 0, pn: 2, em: 0, cl: 0, wt: 0, rt: 0, fn: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
+  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, ac: 0, pn: 2, vt: 0, sf: 1, em: 0, cl: 0, wt: 0, rt: 0, fn: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
 
   componentDidMount() {
     try { this.setState({ notes: JSON.parse(localStorage.getItem('ch10-notes') || '{}') }); } catch (e) {}
@@ -708,8 +766,8 @@ class Component extends DCLogic {
       'The Road to Philadelphia': { 0: [F.road] },
       'Philadelphia, May 1787': { 4: [F.crest] },
       'New Men': { 0: [{ isDelegates: true }] },
-      'The Great Compromise': { 0: [{ isPlans: true }], 1: [F.electoral] },
-      'Three-Fifths': { 0: [F.threefifths], 1: [F.fifthsChart, F.census] },
+      'The Great Compromise': { 0: [{ isPlans: true }, { isVote: true }], 1: [F.electoral] },
+      'Three-Fifths': { 0: [F.threefifths], 1: [F.fifthsChart, { isSeats: true }, F.census] },
       'Emancipation': { 0: [{ isEmancip: true }] },
       'The Warning Shot': { 0: [F.ordinance] },
       'The Word That Isn’t There': { 0: [F.constitution, { isClauses: true }], 2: [{ isWitness: true }] },
@@ -740,6 +798,33 @@ class Component extends DCLogic {
     const dbRows = barRows([['National government, domestic debt', 42, 'about $42 million', R], ['State governments, mostly war debts', 25, 'about $25 million', B], ['National government, foreign debt', 12, 'about $12 million', G]], 42);
     const dlRows = barRows([['Took part in the convention', 55, 'fifty-five', G], ['Signed the Constitution', 39, 'thirty-nine', G], ['Attended every session', 33, 'thirty-three', B], ['Owned enslaved people', 25, 'twenty-five', R], ['Had served in the War for Independence', 22, 'twenty-two', B], ['Had signed the Declaration of Independence', 8, 'eight', B]], 55);
     const prRows = barRows([['Newspapers in circulation', 100, 'near 100', B], ['Sided with ratification', 88, '88', G]], 100);
+    const vtList = [['Massachusetts', 'split'], ['Connecticut', 'yes'], ['New Jersey', 'yes'], ['Pennsylvania', 'no'], ['Delaware', 'yes'], ['Maryland', 'yes'], ['Virginia', 'no'], ['North Carolina', 'yes'], ['South Carolina', 'no'], ['Georgia', 'no'], ['New York', 'out'], ['New Hampshire', 'out'], ['Rhode Island', 'out']];
+    const vtData = [
+      ['The count', 'Madison’s notes, July 16', 'Five states voted yes, four voted no, and one was divided. The convention adopted the Connecticut Compromise by a single state. Three states were not in the room to vote.'],
+      ['Yes · 5', 'Connecticut, New Jersey, Delaware, Maryland, North Carolina', 'The plan gave every state an equal vote in the second house. North Carolina’s delegation carried its vote for the compromise over Richard Dobbs Spaight’s no.'],
+      ['No · 4', 'Pennsylvania, Virginia, South Carolina, Georgia', 'These four states voted against equal votes in the second house. The compromise passed anyway.'],
+      ['Divided · 1', 'Massachusetts', 'Caleb Strong voted yes, but the delegation split, and a divided state counted for neither side.'],
+      ['Not voting · 3', 'New York, New Hampshire, Rhode Island', 'New York’s delegation lost its majority when Robert Yates and John Lansing left on July 10. New Hampshire’s delegates did not arrive until July 23. Rhode Island never sent anyone.']
+    ];
+    const vtKind = [null, 'yes', 'no', 'split', 'out'];
+    const vtTiles = vtList.map(([n, k]) => {
+      const on = !vtKind[s.vt] || vtKind[s.vt] === k;
+      const st = { yes: { bg: 'rgba(239,207,152,.22)', border: '#efcf98', color: '#efcf98', word: 'Yes' }, no: { bg: 'rgba(194,101,63,.22)', border: '#c2653f', color: '#e59b7d', word: 'No' }, split: { bg: 'linear-gradient(90deg,rgba(239,207,152,.22) 50%,rgba(194,101,63,.22) 50%)', border: '#a3a7ae', color: '#dcd8d1', word: 'Divided' }, out: { bg: 'transparent', border: '#4a4e56', color: '#80858d', word: 'Not voting' } }[k];
+      return { name: n, word: st.word, bg: st.bg, border: st.border, color: st.color, bstyle: k === 'out' ? 'dashed' : 'solid', op: on ? 1 : 0.28 };
+    });
+    const sfCen = { 'Delaware': [46310, 3899, 8887], 'Maryland': [208649, 8043, 103036], 'Virginia': [442117, 12866, 292627], 'Kentucky': [61133, 114, 12430], 'North Carolina': [288204, 4975, 100572], 'South Carolina': [140178, 1801, 107094], 'Georgia': [52886, 398, 29264] };
+    const sfNorthCen = [[85268, 255, 16], [141097, 630, 158], [469326, 6001, 0], [64470, 3407, 948], [232374, 2808, 2764], [314142, 4654, 21324], [169954, 2762, 11423], [424099, 6537, 3737]];
+    const sfData = [
+      ['Not counted', 'If no enslaved person had counted', 'Virginia would have held 13 seats, not 19. The southern states together would have held 34 of 90.'],
+      ['Three-fifths', 'The compromise the Constitution adopted', 'Virginia held 19 seats. The southern states held 48 of 105, 14 more than if the enslaved had not counted. New York gained one seat from its own 21,324 enslaved people.'],
+      ['Counted in full', 'What southern delegates first argued for', 'Virginia would have held 22 seats, and the southern states 54 of 111.']
+    ];
+    const sfFac = [0, 0.6, 1];
+    const sfSeats = (c) => Math.floor((c[0] + c[1] + sfFac[s.sf] * c[2]) / 33000);
+    const sfRowsRaw = Object.keys(sfCen).map(n => [n, sfSeats(sfCen[n])]).sort((a, b) => b[1] - a[1]);
+    const sfSouthN = sfRowsRaw.reduce((t, r) => t + r[1], 0);
+    const sfNorthN = sfNorthCen.reduce((t, c) => t + sfSeats(c), 0);
+    const sfRows = sfRowsRaw.map(r => ({ label: r[0], value: r[1], width: (r[1] / 22 * 100) + '%' }));
     const tlTabs = (data, key) => data.map((c, i) => ({ label: c[0], onClick: () => this.setState({ [key]: i }), ...tab(i === s[key]) }));
     const sel = (data, key) => ({ date: data[s[key]][0], text: data[s[key]][1] });
     const selW = (data, key) => ({ date: data[s[key]][0], who: data[s[key]][1], text: data[s[key]][2] });
@@ -825,6 +910,8 @@ class Component extends DCLogic {
       dbRows, dlRows, prRows,
       acTabs: tlTabs(acData, 'ac'), acSel: sel(acData, 'ac'),
       pnTabs: tlTabs(pnData, 'pn'), pnSel: selW(pnData, 'pn'),
+      vtTabs: tlTabs(vtData, 'vt'), vtSel: selW(vtData, 'vt'), vtTiles,
+      sfTabs: tlTabs(sfData, 'sf'), sfSel: selW(sfData, 'sf'), sfRows, sfSouth: sfSouthN, sfNorth: sfNorthN,
       emTabs: tlTabs(emData, 'em'), emSel: sel(emData, 'em'),
       clTabs: tlTabs(clData, 'cl'), clSel: selW(clData, 'cl'),
       wtTabs: tlTabs(wtData, 'wt'), wtSel: sel(wtData, 'wt'),
