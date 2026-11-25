@@ -75,7 +75,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div data-cue="scroll" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
@@ -208,6 +208,22 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
                 <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ mfSel.text }}</div>
               </div>
               <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">According to mercantilist philosophy, wealth was a zero sum game: one country’s gain meant another nation’s loss.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ b.isNav }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+              <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The wall around the empire’s commerce</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ nvTabs }}" as="mt" hint-placeholder-count="3">
+                  <button type="button" onClick="{{ mt.onClick }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;padding:10px 14px;border-radius:999px;cursor:pointer;border:1px solid {{ mt.border }};background:{{ mt.bg }};color:{{ mt.color }}">{{ mt.label }}</button>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid #2c2f36;padding-top:20px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+                <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.1;color:#efcf98">{{ nvSel.date }}</div>
+                <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty">{{ nvSel.text }}</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.6">The Navigation Acts began in 1651 and tightened after the Restoration. Enforcement lagged a generation behind the law.</div>
             </div>
           </sc-if>
 
@@ -462,7 +478,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, mf: 0, tr: 0, ca: 0, tp: 0, ln: 0, fn: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
+  state = { data: null, wide: window.innerWidth > 1100, active: 'intro', progress: 0, mf: 0, nv: 0, tr: 0, ca: 0, tp: 0, ln: 0, fn: 0, notes: {}, lIdx: -1, lPlaying: false, lPos: 0, lTotal: 1, lRate: 1, lAudioPct: 0, lOwn: {} };
 
   componentDidMount() {
     try { this.setState({ notes: JSON.parse(localStorage.getItem('ch7-notes') || '{}') }); } catch (e) {}
@@ -683,6 +699,7 @@ class Component extends DCLogic {
     const inserts = {
       'The Wheel of the Atlantic': { 0: [F.wheel] },
       'Mercantilism': { 0: [{ isFour: true }] },
+      'The Navigation Acts': { 0: [{ isNav: true }] },
       'The Glorious Revolution in America': { 0: [F.andros] },
       'The Fiscal-Military State': { pre: [F.castle] },
       'Three Regions of One Empire': { 0: [{ isThree: true }] },
@@ -724,6 +741,12 @@ class Component extends DCLogic {
     const tlTabs = (data, key) => data.map((c, i) => ({ label: c[0], onClick: () => this.setState({ [key]: i }), ...tab(i === s[key]) }));
     const sel = (data, key) => ({ date: data[s[key]][0], text: data[s[key]][1] });
 
+    const navData = [
+      ['English ships only', 'Only English ships with English crews could trade with the English colonies. The success of the Dutch trading companies taught the English the importance of quality ships and sailors, and the added revenue paid for better ships and more sailors.'],
+      ['English ports only', 'Commodities could enter and leave the colonies only through English customs or ports.'],
+      ['Protected goods', 'British authorities enumerated a set of protected goods that could be sold only to British merchants: sugar, tobacco, cotton, indigo, furs, and iron.'],
+      ['A guaranteed market', 'Other stipulations were designed to make the colonies more dependent on manufactured products from Great Britain, which guaranteed that British manufacturers would always have customers in the colonies.']
+    ];
     const mfData = [
       ['Hard coin', 'Create financial reserves in real money (hard coin), usually gold and silver.'],
       ['Manufactured goods', 'Regulate the nation’s economy by producing manufactured goods that other nations would pay for in trade.'],
@@ -799,7 +822,7 @@ class Component extends DCLogic {
       gridCols: s.wide ? '240px minmax(0,1fr)' : 'minmax(0,1fr)', tocDisplay: s.wide ? 'block' : 'none',
       toc, sections,
       brRows, ppRows, moRows,
-      mfTabs: tlTabs(mfData, 'mf'), mfSel: sel(mfData, 'mf'),
+      mfTabs: tlTabs(mfData, 'mf'), mfSel: sel(mfData, 'mf'), nvTabs: tlTabs(navData, 'nv'), nvSel: sel(navData, 'nv'),
       trTabs, trSel: trData[s.tr],
       caTabs: tlTabs(caData, 'ca'), caSel: sel(caData, 'ca'),
       tpTabs: tlTabs(tpData, 'tp'), tpSel: sel(tpData, 'tp'),
