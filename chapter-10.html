@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">12</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -742,18 +742,16 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c10-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      electoral: img("electoral-arithmetic", "1400/447", "760px", "Figure 10.4 · The arithmetic of July 16, still counting: 435 House seats, 100 senators, and three electors for the District of Columbia make 538 electoral votes, and 270 win.", 'Figure by the author'),
       newburgh: img("sterner-newburgh-saam", "2218/1536", "820px", "Figure 10.1 · Albert Sterner, Washington Prevents a Military Dictatorship, etching, 1932, from the portfolio The Bicentennial Pageant of George Washington. Sterner imagined Washington addressing his officers at Newburgh, New York, in March 1783, a century and a half after the event.", "Smithsonian American Art Museum, Gift of Herbert Brook, 1983.75.16. Public domain. Cropped for this edition"),
-      census: img("banneker-almanack-census-1793", "1830/1410", "760px", "Figure 10.6 · Benjamin Banneker, Almanack and Ephemeris for 1793 (Philadelphia: Joseph Crukshank). Below Banneker’s initials, “B. B.,” at the end of his eclipse calculations, the almanac prints the first census returns by state; starred figures are estimates for states that had not yet reported. Virginia’s 747,610 includes 292,627 enslaved people, counted here in full. For seats in the House, the Constitution counted only three fifths of them.", "National Museum of African American History and Culture, 2014.63.31. CC0"),
+      census: img("banneker-almanack-census-1793", "1830/1410", "760px", "Figure 10.4 · Benjamin Banneker, Almanack and Ephemeris for 1793 (Philadelphia: Joseph Crukshank). Below Banneker’s initials, “B. B.,” at the end of his eclipse calculations, the almanac prints the first census returns by state; starred figures are estimates for states that had not yet reported. Virginia’s 747,610 includes 292,627 enslaved people, counted here in full. For seats in the House, the Constitution counted only three fifths of them.", "National Museum of African American History and Culture, 2014.63.31. CC0"),
       fifthsChart: img("three-fifths-chart", "1400/525", "760px", "Figure 10.5 · What each side wanted counted toward a state’s seats in the House. Sixty percent measured political power, not human worth.", 'Figure by the author'),
-      bill: img("bill-of-rights-1789", "1400/1489", "600px", "Figure 10.10 · The enrolled joint resolution Congress passed on September 25, 1789, proposing twelve amendments to the states. The states ratified ten by December 15, 1791, and those ten became the Bill of Rights.", "National Archives"),
+      bill: img("bill-of-rights-1789", "1400/1489", "600px", "Figure 10.7 · The enrolled joint resolution Congress passed on September 25, 1789, proposing twelve amendments to the states. The states ratified ten by December 15, 1791, and those ten became the Bill of Rights.", "National Archives"),
       articles: img("articles-confederation", "1400/1260", "640px", "Articles of Confederation, sheet 1 (detail): “To all to whom these Presents shall come.”", "National Archives, NAID 301687"),
       shays: img("shays-shattuck", "1400/1556", "600px", "Figure 10.2 · Daniel Shays and Job Shattuck in a woodcut by an unknown artist, 1787. The print names him “Gen.,” a rank his followers gave him and the army never did; Shays left the Continental Army a captain.", "National Portrait Gallery, Smithsonian Institution"),
       road: img("road-to-philadelphia", "1400/796", "760px", "The road to Philadelphia, 1785–1787: states represented at Mount Vernon, Annapolis, and Philadelphia (chart)", 'Figure by the author'),
-      constitution: img("constitution-p1", "1400/1695", "600px", "Figure 10.8 · The first of the Constitution’s four parchment pages, containing Article I. Its census clause counts the enslaved as “three fifths of all other Persons.”", "National Archives"),
+      constitution: img("constitution-p1", "1400/1695", "600px", "Figure 10.5 · The first of the Constitution’s four parchment pages, containing Article I. Its census clause counts the enslaved as “three fifths of all other Persons.”", "National Archives"),
       threefifths: img("three-fifths-clause", "1600/210", "820px", "Article I, Section 2, from page 1 of the Constitution: “three fifths of all other Persons.”", "National Archives, NAID 1667751"),
-      ordinance: img("northwest-ordinance-sixth", "1600/406", "820px", "Figure 10.7 · Article the Sixth, in the printed Northwest Ordinance the Confederation Congress passed on July 13, 1787, signed by its secretary, Charles Thomson. The article bans slavery in the territory with two exceptions: punishment for crime, and fugitives claimed from the original states. The underlining appears in this copy.", "Library of Congress, Rare Book and Special Collections Division, Continental Congress Broadside Collection"),
-      pillars: img("federal-pillars", "1400/964", "720px", "Figure 10.9 · The Massachusetts Centinel tracked ratification as a colonnade raised one state at a time: five pillars on January 16, 1788, with Massachusetts going up; eight on June 11; eleven on August 2, with North Carolina rising and Rhode Island’s pillar broken. Beside it: “The foundation good—it may yet be SAVED.”", "Library of Congress, Serial and Government Publications Division"),
+      pillars: img("federal-pillars", "1400/964", "720px", "Figure 10.6 · The Massachusetts Centinel tracked ratification as a colonnade raised one state at a time: five pillars on January 16, 1788, with Massachusetts going up; eight on June 11; eleven on August 2, with North Carolina rising and Rhode Island’s pillar broken. Beside it: “The foundation good—it may yet be SAVED.”", "Library of Congress, Serial and Government Publications Division"),
       chair: img("rising-sun-chair", "1400/2503", "440px", "Armchair, 1779, made by John Folwell, now called the Rising Sun Chair; the name came into use later.", "Independence National Historical Park, INDE 11826. NPS photo, public domain."),
       crest: img("rising-sun-crest", "1400/1050", "640px", "Figure 10.3 · The crest of the chair Washington used as president of the convention in 1787, carved with a half-sun, a liberty pole, and a liberty cap. Madison’s notes record Franklin’s verdict on the sun: rising, not setting. The name “Rising Sun Chair” came into use later.", "NPS photo, Independence National Historical Park")
     };
@@ -768,10 +766,9 @@ class Component extends DCLogic {
       'The Road to Philadelphia': { 0: [F.road] },
       'Philadelphia, May 1787': { 4: [F.crest] },
       'New Men': { 0: [{ isDelegates: true }] },
-      'The Great Compromise': { 0: [{ isPlans: true }, { isVote: true }], 1: [F.electoral] },
-      'Three-Fifths': { 0: [F.threefifths], 1: [F.fifthsChart, { isSeats: true }, F.census] },
+      'The Great Compromise': { 0: [{ isPlans: true }, { isVote: true }] },
+      'Three-Fifths': { 0: [F.threefifths], 1: [{ isSeats: true }, F.census] },
       'Emancipation': { 0: [{ isEmancip: true }] },
-      'The Warning Shot': { 0: [F.ordinance] },
       'The Word That Isn’t There': { 0: [F.constitution, { isClauses: true }], 2: [{ isWitness: true }] },
       'The Campaign': { 0: [{ isRatify: true }] },
       'The Case Against': { 7: [F.pillars, { isPress: true }] },
