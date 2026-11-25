@@ -26,6 +26,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500;1,700&amp;family=Inter+Tight:wght@300;400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth;color-scheme:dark}
+.skip-link{position:absolute;left:12px;top:-64px;z-index:2000;background:#efcf98;color:#16171a !important;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:12px 18px;border-radius:999px;text-decoration:none}
+.skip-link:focus{top:12px;outline:2px solid #16171a;outline-offset:2px}
+main:focus{outline:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto !important}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 body{margin:0;background:#16171a linear-gradient(180deg,#16171a 0%,#121a26 40%,#0a121c 100%) fixed;color:#f2efe9;-webkit-font-smoothing:antialiased}
 a{color:#efcf98;text-decoration:none}
 a:hover{color:#fff1d2}
@@ -34,9 +38,10 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 </style>
 </helmet>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header style="padding:16px clamp(12px,2vw,24px) 0">
   <div style="position:relative;min-height:92vh;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:28px clamp(20px,4vw,56px) 32px;isolation:isolate;background:linear-gradient(180deg,#707e92 0%,#707e92 34%,#d9a55c 50%,#3a3029 72%,#16171a 100%)">
-    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,244,222,.34) 0%,rgba(255,244,222,.12) 48%,rgba(22,23,26,0) 62%,rgba(22,23,26,.82) 100%)"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,244,222,.34) 0%,rgba(255,244,222,.12) 48%,rgba(22,23,26,0) 52%,rgba(22,23,26,.9) 100%)"></div>
 
     <div style="position:relative;display:flex;justify-content:flex-end;align-items:center;gap:16px;flex-wrap:wrap">
       <a href="#chapters" style="font-family:'Inter',sans-serif;font-size:13px;color:#fff;background:#16171a;padding:11px 20px;border-radius:999px">Chapters ↓</a>
@@ -51,19 +56,19 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px">
         <a href="chapter-1.html" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border-radius:999px">Begin with Chapter 1 →</a>
-        <a href="preface.html" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">Read the Preface</a>
+        <a href="preface.html" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.85);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">Read the Preface</a>
       </div>
     </div>
 
     <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:10vh">
-      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">20</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Chapters so far</div></div>
-      <div data-cue="scroll" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#c8c4bc">Scroll ↓</div>
+      <div style="color:#f2efe9"><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">20</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Chapters so far</div></div>
+      <div data-cue="scroll" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#e8e4dc">Scroll ↓</div>
       <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f2efe9">Jason L. Clark, Ph.D.</div>
     </div>
   </div>
 </header>
 
-<main style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px) 72px;display:flex;flex-direction:column;gap:clamp(64px,8vw,104px)">
+<main id="main-content" tabindex="-1" style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px) 72px;display:flex;flex-direction:column;gap:clamp(64px,8vw,104px)">
   <section id="chapters" style="scroll-margin-top:24px;display:flex;flex-direction:column;gap:48px">
     <div style="display:flex;flex-direction:column;gap:10px">
       <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Contents</div>
