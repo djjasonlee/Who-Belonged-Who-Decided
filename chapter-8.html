@@ -77,7 +77,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">12</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#c8c4bc">Images</div></div>
       </div>
     </div>
   </div>
@@ -773,6 +773,7 @@ class Component extends DCLogic {
       massacre: img('bloody-massacre', '1400/1642', '640px', 'Figure 8.1 · The Bloody Massacre perpetrated in King Street, engraved by Paul Revere after a design by Henry Pelham, Boston, 1770. Revere’s print appeared on or about March 28, 1770, three weeks after the shooting.', 'Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-01657'),
       tea: img('tea-party-currier', '1400/1069', '820px', 'Figure 8.2 · The Destruction of Tea at Boston Harbor, lithograph by Nathaniel Currier, 1846. Made seventy-three years after the event, the print shows the raiders as costumed Indians and the crowd cheering from the wharf.', 'Library of Congress, Prints and Photographs Division, LC-DIG-pga-08593'),
       dunmore: img('dunmore-proclamation', '1400/2183', '520px', 'Figure 8.3 · Lord Dunmore’s proclamation, issued from the ship William off Norfolk on November 7, 1775. It declared free the “Servants, Negroes, or others (appertaining to Rebels)” who would bear arms for the king.', 'Library of Congress, Rare Book and Special Collections Division'),
+      jamaica: img('jamaica-1760-david', '1550/1920', '560px', 'Soulèvement des Nègres à la Jamaïque en 1759, drawn by Nicolas Lejeune and engraved by François-Anne David for David’s Histoire d’Angleterre représentée par figures, vol. 3 (Paris, 1800), plate V. Despite the date in its title, the plate most likely depicts the Jamaican rising of 1760, imagined forty years later in Paris. Risings like this one, and Stono in 1739 (Chapter 5), stood behind the alarm with which slaveholding Patriots met Dunmore’s offer.', 'Courtesy of the John Carter Brown Library. CC BY 4.0'),
       paine: img('common-sense', '1400/2412', '480px', 'Figure 8.6 · Title page of Common Sense (Philadelphia: R. Bell, 1776), first edition, first issue. The pamphlet appeared without Paine’s name.', 'Courtesy of the John Carter Brown Library. Cropped from the original image; CC BY 4.0'),
       draft: img('jefferson-draft', '1400/2046', '560px', 'Figure 8.7 · Page 3 of Jefferson’s rough draft of the Declaration, 1776, with the slavery clause Congress struck. Jefferson underlined “Christian” and wrote MEN in capitals.', 'Library of Congress, Manuscript Division'),
       pyle: img('bunker-hill-pyle', '1400/928', '820px', 'Figure 8.4 · Howard Pyle, The Battle of Bunker Hill, about 1897, painted for Scribner’s Magazine (February 1898). Pyle imagined the British lines climbing Breed’s Hill more than a century after the battle.', 'Painting formerly in the Delaware Art Museum; image via Wikimedia Commons, public domain'),
@@ -789,7 +790,7 @@ class Component extends DCLogic {
       'The Tea Act': { 0: [{ isTea: true }] },
       'The Boston Tea Party': { 0: [F.tea] },
       'The Intolerable Acts': { 0: [{ isIntolerable: true }] },
-      'Lexington and Concord': { pre: [{ isWitL: true }], 3: [F.dunmore] },
+      'Lexington and Concord': { pre: [{ isWitL: true }], 3: [F.dunmore], 4: [F.jamaica] },
       'Breed’s and Bunker Hill': { 0: [F.pyle, { isBunker: true }] },
       'The Last Argument for the King': { pre: [F.timeline] },
       'Common Sense': { 0: [F.paine] },
