@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">15</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -333,6 +333,13 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Past to present</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
       </div>
+      <figure style="margin:0 0 36px;display:flex;flex-direction:column;gap:12px;max-width:{{ nowFig.maxW }}">
+        <div role="img" aria-label="{{ nowFig.caption }}" style="width:100%;aspect-ratio:{{ nowFig.ratio }};background:rgba(255,255,255,.05)">
+          <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ nowFig.src }}') center/contain no-repeat"></div>
+        </div>
+        <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ nowFig.caption }}</figcaption>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ nowFig.credit }}</div>
+      </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
         <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
           <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
@@ -648,12 +655,13 @@ class Component extends DCLogic {
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c15-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
       timeline: img("reform-timeline", "1400/668", "760px", "Figure 15.1 · Reform and its opponents, 1829–1851, by the dates this chapter gives.", 'Figure by the author'),
-      eighth: img("one-in-eight", "1400/429", "640px", "Figure 15.15 · More than five million immigrants came between 1820 and 1860; by the Civil War about one American in eight had been born abroad.", 'Figure by the author'),
-      printing: img("press-destruction-1833", "1800/1305", "720px", "Figure 15.2 · The destruction of the Mormon printing office at Independence, Missouri, July 1833, in a painted photograph made for Rinehart & Co.’s Parlor Photo Car. The mount names C. B. Hancock as designer and executor; Wikimedia Commons lists the work as C. C. A. Christensen’s, c. 1882.", "Wikimedia Commons (public domain)"),
-      boggs: img("boggs-hawkins-letter", "500/628", "380px", "Figure 15.3 · Governor Lilburn W. Boggs to Col. Joseph Hawkins, October 26, 1838, ordering two thousand militia raised on reports that Latter-day Saints had burned Gallatin and driven settlers from Daviess County. Boggs issued the Extermination Order the next day.", "L. Tom Perry Special Collections, Brigham Young University, Joseph Hawkins papers, Vault MSS 724 (public domain)"),
-      order: img("extermination-order-1838", "1753/1313", "860px", "Figure 15.4 · The Extermination Order: Governor Lilburn W. Boggs to Maj. Gen. John B. Clark, October 27, 1838, both pages. The sentence ordering that the Latter-day Saints be “exterminated or driven from the State” begins in the middle of the first page.", "Missouri State Archives, Governors’ Records (public domain)"),
+      eighth: img("one-in-eight", "1400/429", "640px", "Figure 15.16 · More than five million immigrants came between 1820 and 1860; by the Civil War about one American in eight had been born abroad.", 'Figure by the author'),
+      printing: img("press-destruction-1833", "1800/1305", "720px", "Figure 15.2 · The destruction of the Mormon printing office at Independence, Missouri, July 1833, painted by C. C. A. Christensen under the direction of Charles B. Hancock, circa 1882–1884, and shown here in a Rinehart & Co. photograph of the painting.", "Wikimedia Commons (public domain)"),
+      boggs: img("boggs-hawkins-letter", "1586/1993", "520px", "Figure 15.3 · Governor Lilburn W. Boggs to Col. Joseph Hawkins, October 26, 1838, ordering two thousand militia raised on reports that Latter-day Saints had burned Gallatin and driven settlers from Daviess County. Boggs issued the Extermination Order the next day.", "L. Tom Perry Special Collections, Brigham Young University, Joseph Hawkins papers, Vault MSS 724 (public domain)"),
+      order: img("extermination-order-1838", "884/1391", "560px", "Figure 15.4 · The Extermination Order: Governor Lilburn W. Boggs to Maj. Gen. John B. Clark, October 27, 1838 (first of two pages). The sentence ordering that the Latter-day Saints be “exterminated or driven from the State” falls in the middle of the page.", "Missouri State Archives, Governors’ Records (public domain)"),
       ticket: img("smith-rigdon-ticket-1844", "574/886", "420px", "Figure 15.6 · The head of the 1844 ticket: Joseph Smith “of Nauvoo, Illinois” for president and Sidney Rigdon for vice president, above the motto Super hanc petram aedificabo, “upon this rock I will build.” Reproduced from a printed campaign pamphlet.", "Wikimedia Commons (public domain)"),
       temple: img("nauvoo-temple-1890", "1428/2207", "520px", "Figure 15.5 · “Joseph Smith’s Original Temple, Nauvoo, Ills.,” a lithograph copyrighted in 1890 by Chester B. Dike, more than four decades after the building burned in November 1848.", "Library of Congress, Prints and Photographs Division, cph 3a09124 (public domain)"),
+      kingmx: img("king-malcolm-x-1964", "1800/1428", "640px", "Figure 15.15 · Martin Luther King Jr. and Malcolm X at the U.S. Capitol on March 26, 1964, after King’s press conference on the Senate debate over the Civil Rights Act. It was the only time the two men met. Photograph by Marion S. Trikosko.", "Marion S. Trikosko, U.S. News & World Report Magazine Photograph Collection, Library of Congress, LC-USZ6-1847 (no known restrictions on publication)"),
       alcohol: img("alcohol-1830", "1400/775", "600px", "Figure 15.7 · By 1830 the average American adult drank more than seven gallons of pure alcohol a year, more than three times today’s figure.", 'Figure by the author'),
       drunkard: img("drunkards-progress", "1310/1005", "720px", "Figure 15.8 · Nathaniel Currier’s The Drunkard’s Progress (1846): nine steps up to the glass with friends and down to “Death by suicide,” with a wife and child weeping beneath the arch. Currier sold it as a commercial print, adapted from a John Warner Barber engraving of 1826, to hang on a wall like a sermon.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-32719"),
       walker: img("walkers-appeal", "1400/1232", "640px", "Figure 15.9 · The title page and frontispiece of an 1848 edition of David Walker’s Appeal, published nearly two decades after the pamphlet of 1829 with a sketch of his life by Henry Highland Garnet.", "Library of Congress, LC-DIG-ds-17775"),
@@ -769,6 +777,7 @@ class Component extends DCLogic {
       fnShow: s.fn > 0, fnN: String(s.fn || ''), fnAria: 'Note ' + (s.fn || ''), fnText: (((d && d.notes) || []).find(x => x.n === s.fn) || { text: '' }).text,
       fnClose: () => this.setState({ fn: 0 }), fnAll: () => { const k = s.fn; this.setState({ fn: 0 }); const e = document.getElementById('note-' + k); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); },
       ...(() => { const mk = (d && hasBy && d.fn && d.fn[hd[4]]) || []; const k = mk.length ? mk[0][1] : 0; return { epiHasN: !!k, epiN: String(k || ''), epiId: 'fnref-' + k, epiAria: 'Note ' + k, epiOpen: () => this.setState({ fn: k }) }; })(),
+      nowFig: F.kingmx,
       questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
       nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
       nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
