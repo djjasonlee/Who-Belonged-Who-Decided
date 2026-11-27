@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -702,11 +702,11 @@ class Component extends DCLogic {
       deming: img('deming-braddock', '903/571', '760px', 'Figure 7.7 · Edwin Willard Deming, Braddock’s Defeat, 1903. Deming pictured the wounding of General Edward Braddock at the Monongahela in July 1755, nearly a century and a half after the battle.', 'Wisconsin Historical Society, via Wikimedia Commons. CC BY 4.0'),
       pyle: img('pyle-death-of-braddock', '861/784', '620px', 'Figure 7.8 · Howard Pyle, “The Death of Braddock,” wood engraving, Scribner’s Magazine, May 1893. Pyle drew the mortally wounded general lifted at a baggage wagon, nearly 140 years after the battle.', 'Wikimedia Commons, File:The Death of Braddock.jpg. Public domain. Toned for this edition'),
       pontiac: img('melchers-pontiac', '1400/1764', '560px', 'Figure 7.9 · Gari Melchers, Conspiracy of Pontiac, 1921, painted for the Detroit Public Library. Melchers imagined the council at Detroit a century and a half later; no portrait of Pontiac made from life is known.', 'Library of Congress, Prints and Photographs Division, Detroit Publishing Company Collection, LC-DIG-det-4a26367'),
-      baffled: img('remington-baffled-chiefs', '1315/872', '760px', 'Figure 7.10 · The Baffled Chiefs Leaving the Fort, a black-and-white oil painting by Frederic Remington, about 1897, made as an illustration for Charles Moore’s article “Henry Gladwin and the Siege of Pontiac” in Harper’s Monthly, June 1897. Remington imagined the scene more than a century after the siege of Detroit. The canvas measures about 26 by 39 inches.', 'Eiteljorg Museum of American Indians and Western Art, Indianapolis (Frederic Remington Catalogue Raisonné no. 02277; photograph of the painting on display)'),
-      blankets: img('blankets-card', '1400/1040', '680px', 'Figure 7.11 · Fort Pitt, 1763, in the words of the people involved. Trent’s journal records the gift made at the parley; Bouquet and Amherst discuss the plan in postscripts to their letters a few weeks later. The documents show intent. They do not show that the blankets caused the epidemic that followed.', 'Trent journal; Bouquet and Amherst letters of July 13 and 16, 1763, in the Library of Congress British Manuscript Project microfilm of the Amherst papers (transcriptions after the Library of Congress as presented by ExplorePAhistory.com; spelling as in the originals)'),
-      narrative: img('narrative', '1400/2293', '440px', 'Figure 7.12 · Title page of A Narrative of the Late Massacres (Philadelphia, 1764), the pamphlet generally attributed to Benjamin Franklin, which condemned the killing of the Conestoga Indians by “Persons Unknown.”', 'Library of Congress, Rare Book and Special Collections Division'),
-      bears: img('comb-ridge-bears-ears', '867/576', '640px', 'Figure 7.14 · Comb Ridge Overlook, Bears Ears National Monument, Utah, photographed by the Bureau of Land Management in 2007.', 'Bureau of Land Management, Utah, via Flickr. Public domain'),
-      timeline: img('timeline', '1400/672', '820px', 'Figure 7.13 · Fifteen years from Washington’s errand to Fort Le Bœuf to the Treaty of Fort Stanwix.', 'Figure by the author')
+      baffled: img('remington-baffled-chiefs', '1315/872', '760px', 'Figure 7.14 · The Baffled Chiefs Leaving the Fort, a black-and-white oil painting by Frederic Remington, about 1897, made as an illustration for Charles Moore’s article “Henry Gladwin and the Siege of Pontiac” in Harper’s Monthly, June 1897. Remington imagined the scene more than a century after the siege of Detroit. The canvas measures about 26 by 39 inches.', 'Eiteljorg Museum of American Indians and Western Art, Indianapolis (Frederic Remington Catalogue Raisonné no. 02277; photograph of the painting on display)'),
+      blankets: img('blankets-card', '1400/1040', '680px', 'Figure 7.10 · Fort Pitt, 1763, in the words of the people involved. Trent’s journal records the gift made at the parley; Bouquet and Amherst discuss the plan in postscripts to their letters a few weeks later. The documents show intent. They do not show that the blankets caused the epidemic that followed.', 'Trent journal; Bouquet and Amherst letters of July 13 and 16, 1763, in the Library of Congress British Manuscript Project microfilm of the Amherst papers (transcriptions after the Library of Congress as presented by ExplorePAhistory.com; spelling as in the originals)'),
+      narrative: img('narrative', '1400/2293', '440px', 'Figure 7.11 · Title page of A Narrative of the Late Massacres (Philadelphia, 1764), the pamphlet generally attributed to Benjamin Franklin, which condemned the killing of the Conestoga Indians by “Persons Unknown.”', 'Library of Congress, Rare Book and Special Collections Division'),
+      bears: img('comb-ridge-bears-ears', '867/576', '640px', 'Figure 7.13 · Comb Ridge Overlook, Bears Ears National Monument, Utah, photographed by the Bureau of Land Management in 2007.', 'Bureau of Land Management, Utah, via Flickr. Public domain'),
+      timeline: img('timeline', '1400/672', '820px', 'Figure 7.12 · Fifteen years from Washington’s errand to Fort Le Bœuf to the Treaty of Fort Stanwix.', 'Figure by the author')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -726,7 +726,7 @@ class Component extends DCLogic {
       'Albany': { 0: [F.join] },
       'Braddock': { 0: [F.deming, { isMonon: true }, F.pyle] },
       '1763 — The Price of Everything': { 0: [{ isTreaty: true }] },
-      'Pontiac’s War and the Proclamation': { 0: [F.pontiac, F.baffled, F.blankets], 1: [F.narrative, { isLines: true }, F.timeline] }
+      'Pontiac’s War and the Proclamation': { 0: [F.pontiac, F.blankets], 1: [F.narrative, { isLines: true }, F.timeline] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
