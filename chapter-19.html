@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">10</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">11</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -358,6 +358,13 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Past to present</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
       </div>
+      <figure style="margin:0 0 36px;display:flex;flex-direction:column;gap:12px;max-width:{{ nowFig.maxW }}">
+        <div role="img" aria-label="{{ nowFig.caption }}" style="width:100%;aspect-ratio:{{ nowFig.ratio }};background:rgba(255,255,255,.05)">
+          <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ nowFig.src }}') center/contain no-repeat"></div>
+        </div>
+        <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ nowFig.caption }}</figcaption>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ nowFig.credit }}</div>
+      </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
         <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
           <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
@@ -676,12 +683,13 @@ class Component extends DCLogic {
       sumter: img("bombardment-fort-sumter", "1400/1040", "760px", "Figure 19.2 · Bombardment of Fort Sumter, Charleston Harbor, 12th & 13th of April, 1861, a Currier & Ives lithograph published in New York the year of the attack. Confederate batteries at Fort Moultrie, left, and Cummings Point, right, fire on the fort.", "Library of Congress"),
       monroe: img("fort-monroe-doctrine", "1400/924", "760px", "Figure 19.3 · The (Fort) Monroe Doctrine, a Northern cartoon of 1861. A man who has escaped slavery runs for Fort Monroe, calling back “Dis chile’s contraban,” while his enslaver, whip raised, orders him to return. The cartoon cheers Butler’s policy in the racist caricature of its day.", "Library of Congress, Prints and Photographs Division"),
       waud: img("waud-contrabands-1861", "1400/1107", "520px", "Figure 19.4 · Contrabands, Newport News, 1861, Alfred R. Waud’s pencil sketch of people who had escaped slavery, gathered at a fire beside brush shelters near the Union camp on the Virginia peninsula. Waud wrote the title above and below the drawing.", "Library of Congress, Prints and Photographs Division, Morgan Collection of Civil War Drawings"),
-      advantages: img("advantages-1861", "1400/754", "820px", "Figure 19.5 · The Union’s advantages in 1861: more than twice the South’s population and about six times its manufacturing establishments. The Confederate count of about nine million included three and a half million enslaved people. Sources: 1860 census; William E. Gienapp, ed., The Civil War and Reconstruction (2001).", 'Figure by the author'),
-      snake: img("scotts-great-snake", "1400/1061", "760px", "Figure 19.6 · Scott’s Great Snake, J. B. Elliott’s 1861 cartoon map of General Winfield Scott’s plan to crush the Confederacy: a naval blockade of the Southern coast and a drive down the Mississippi, drawn as a snake coiling around the seceded states. Several of its small scenes are racist caricatures of the enslaved.", "Library of Congress, Geography and Map Division"),
-      minie: img("minie-ball", "782/1100", "300px", "Figure 19.7 · A Minié ball, a soft lead bullet about three centimeters long, shown enlarged. Its hollow base, out of view, expanded when fired and gripped the rifling of the barrel.", "Library of Congress, Prints and Photographs Division, Liljenquist Family Collection"),
-      tent: img("lincoln-mcclellan-antietam", "843/1044", "460px", "Figure 19.8 · President Lincoln and General George B. McClellan in the general’s tent near Antietam, October 3, 1862, photographed by Alexander Gardner. In November Lincoln removed McClellan from command.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
-      dead: img("antietam-dead-hagerstown-road", "1024/824", "760px", "Figure 19.9 · Confederate dead by a fence on the Hagerstown road, Antietam, Maryland, photographed by Alexander Gardner in September 1862. The cracked edges and the blank white sky come from Gardner’s glass negative itself.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
-      tubman: img("harriet-tubman-portrait", "1000/919", "380px", "Harriet Tubman, photographed about 1860–1880. Photographer unknown.", "Harriet Tubman Home. Public domain")
+      advantages: img("advantages-1861", "1400/754", "820px", "Figure 19.6 · The Union’s advantages in 1861: more than twice the South’s population and about six times its manufacturing establishments. The Confederate count of about nine million included three and a half million enslaved people. Sources: 1860 census; William E. Gienapp, ed., The Civil War and Reconstruction (2001).", 'Figure by the author'),
+      snake: img("scotts-great-snake", "1400/1061", "760px", "Figure 19.7 · Scott’s Great Snake, J. B. Elliott’s 1861 cartoon map of General Winfield Scott’s plan to crush the Confederacy: a naval blockade of the Southern coast and a drive down the Mississippi, drawn as a snake coiling around the seceded states. Several of its small scenes are racist caricatures of the enslaved.", "Library of Congress, Geography and Map Division"),
+      minie: img("minie-ball", "782/1100", "300px", "Figure 19.8 · A Minié ball, a soft lead bullet about three centimeters long, shown enlarged. Its hollow base, out of view, expanded when fired and gripped the rifling of the barrel.", "Library of Congress, Prints and Photographs Division, Liljenquist Family Collection"),
+      tent: img("lincoln-mcclellan-antietam", "843/1044", "460px", "Figure 19.9 · President Lincoln and General George B. McClellan in the general’s tent near Antietam, October 3, 1862, photographed by Alexander Gardner. In November Lincoln removed McClellan from command.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
+      dead: img("antietam-dead-hagerstown-road", "1024/824", "760px", "Figure 19.10 · Confederate dead by a fence on the Hagerstown road, Antietam, Maryland, photographed by Alexander Gardner in September 1862. The cracked edges and the blank white sky come from Gardner’s glass negative itself.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
+      mcallen: img("mcallen-station-2019", "1800/1200", "760px", "Figure 19.11 · Overcrowding of families observed by the Office of Inspector General on June 10, 2019, at Border Patrol’s McAllen, Texas, Station. Faces were digitally obscured by the OIG.", "Department of Homeland Security, Office of Inspector General, OIG-19-51 (July 2019). Public domain"),
+      tubman: img("harriet-tubman-portrait", "1000/919", "380px", "Figure 19.5 · Harriet Tubman, photographed about 1860–1880. Photographer unknown.", "Harriet Tubman Home. Public domain")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -790,6 +798,7 @@ class Component extends DCLogic {
       fnShow: s.fn > 0, fnN: String(s.fn || ''), fnAria: 'Note ' + (s.fn || ''), fnText: (((d && d.notes) || []).find(x => x.n === s.fn) || { text: '' }).text,
       fnClose: () => this.setState({ fn: 0 }), fnAll: () => { const k = s.fn; this.setState({ fn: 0 }); const e = document.getElementById('note-' + k); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); },
       ...(() => { const mk = (d && hasBy && d.fn && d.fn[hd[4]]) || []; const k = mk.length ? mk[0][1] : 0; return { epiHasN: !!k, epiN: String(k || ''), epiId: 'fnref-' + k, epiAria: 'Note ' + k, epiOpen: () => this.setState({ fn: k }) }; })(),
+      nowFig: F.mcallen,
       questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
       nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
       nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
