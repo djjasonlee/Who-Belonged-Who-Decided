@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">12</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -333,6 +333,13 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Past to present</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
       </div>
+      <figure style="margin:0 0 36px;display:flex;flex-direction:column;gap:12px;max-width:{{ nowFig.maxW }}">
+        <div role="img" aria-label="{{ nowFig.caption }}" style="width:100%;aspect-ratio:{{ nowFig.ratio }};background:rgba(255,255,255,.05)">
+          <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ nowFig.src }}') center/contain no-repeat"></div>
+        </div>
+        <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ nowFig.caption }}</figcaption>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ nowFig.credit }}</div>
+      </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
         <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
           <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
@@ -658,6 +665,7 @@ class Component extends DCLogic {
       trails: img("trails-numbers", "1400/775", "760px", "Figure 17.9 · Emigrants on the overland trails by destination, 1840 to 1860, and the killings on both sides that John D. Unruh Jr. counted in The Plains Across (1979).", 'Figure by the author'),
       marshall: img("marshall-sutters-mill", "1400/1080", "640px", "Figure 17.10 · James W. Marshall in front of Sutter’s sawmill at Coloma. The picture reproduces, by a photomechanical process in 1948, a daguerreotype R. H. Vance made about 1850.", "Library of Congress, Prints and Photographs Division, LC-USZ62-137164"),
       auburn: img("auburn-ravine-1852", "889/669", "640px", "Figure 17.11 · Miners at Auburn Ravine, California, 1852: three white miners at the sluice box and four Chinese miners beside it. Photographer unknown.", "The Huntington Library, Art Museum, and Botanical Gardens"),
+      seraph: img("seraph-young-1868", "1270/1600", "420px", "Figure 17.13 · Seraph Young, c. 1868.", "Church History Library"),
       calpop: img("california-population", "1400/775", "760px", "Figure 17.12 · California on the eve of the gold rush, and its Native population then and about twenty years later, in the figures this chapter gives.", 'Figure by the author')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -766,6 +774,7 @@ class Component extends DCLogic {
       fnShow: s.fn > 0, fnN: String(s.fn || ''), fnAria: 'Note ' + (s.fn || ''), fnText: (((d && d.notes) || []).find(x => x.n === s.fn) || { text: '' }).text,
       fnClose: () => this.setState({ fn: 0 }), fnAll: () => { const k = s.fn; this.setState({ fn: 0 }); const e = document.getElementById('note-' + k); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); },
       ...(() => { const mk = (d && hasBy && d.fn && d.fn[hd[4]]) || []; const k = mk.length ? mk[0][1] : 0; return { epiHasN: !!k, epiN: String(k || ''), epiId: 'fnref-' + k, epiAria: 'Note ' + k, epiOpen: () => this.setState({ fn: k }) }; })(),
+      nowFig: F.seraph,
       questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
       nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
       nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
