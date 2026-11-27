@@ -665,7 +665,7 @@ class Component extends DCLogic {
       malintzin: img('malintzin', '1400/994', '820px', 'Figure 2.4 · Xicotencatl and Tlaxcaltec nobles present gifts and maidens to Hernan Cortes and his men while Malintzin translates. Reino de Tlaxcala, c. 1530-1540.', 'Ex-Stendahl Collection, Nettie Lee Benson Latin American Collection, University of Texas Libraries, The University of Texas at Austin'),
       debry: img('debry', '1400/1795', '480px', 'Figure 2.5 · de Bry plate 10, Narratio regionum Indicarum. Engraving by Flemish Protestant artist Theodor de Bry.', 'Library of Congress, Jay I. Kislak Collection'),
       lascasas: img('lascasas', '1280/1733', '420px', 'Figure 2.6 · Fray Bartolomé de las Casas. Portrait by an unidentified painter, inscribed with his name and the year of his death, 1566.', 'Wikimedia Commons, File:Fray Bartolomé de las Casas.jpg. Public domain'),
-      columbus: img('columbus', '1000/1246', '420px', 'Christopher Columbus. AI-generated portrait; no portrait painted from life is known to survive.', '')
+      columbus: img('columbus', '1000/1246', '420px', 'Christopher Columbus. AI-generated portrait; no portrait painted from life is known to survive.', 'AI-generated image. Not a historical record')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
