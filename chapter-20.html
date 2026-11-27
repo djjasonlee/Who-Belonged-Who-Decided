@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">12</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -686,10 +686,12 @@ class Component extends DCLogic {
       ep: img("emancipation-proclamation-p1", "1100/1690", "440px", "Figure 20.2 · The first page of the Emancipation Proclamation, signed January 1, 1863. Lincoln grounded it in his war powers as commander in chief, and its words reached only the states in rebellion.", "Emancipation Proclamation; Presidential Proclamations; General Records of the United States Government, Record Group 11; National Archives, Washington, DC"),
       nicolay: img("gettysburg-address-nicolay", "1100/1368", "440px", "Figure 20.5 · The first page of the Nicolay copy of the Gettysburg Address, one of five copies in Lincoln’s hand. This copy lacks the words “under God.”", "Library of Congress, Manuscript Division, Abraham Lincoln Papers"),
       atlanta: img("atlanta-depot-ruins", "1100/1333", "460px", "Figure 20.6 · Ruins of the Atlanta railroad depot, blown up when Sherman’s army left the city in November 1864, photographed by George N. Barnard.", "Library of Congress, Prints and Photographs Division, Civil War Photographs"),
-      thirteenth: img("thirteenth-amendment-resolution", "1100/1512", "440px", "Figure 20.7 · The joint resolution proposing the Thirteenth Amendment, with Lincoln’s signature at lower right. The House approved it on January 31, 1865, by a vote of 119 to 56.", "Joint Resolution Proposing the Thirteenth Amendment; Enrolled Acts and Resolutions of Congress; General Records of the United States Government, Record Group 11; National Archives, Washington, DC"),
-      pair: img("lincoln-1860-1865", "1400/944", "820px", "Figure 20.8 · Abraham Lincoln in February 1860, before the presidency, and in February 1865, after four years of war.", "Left: Mathew B. Brady, 1860. Right: Alexander Gardner, 1865. National Portrait Gallery, Smithsonian Institution; right, Frederick Hill Meserve Collection."),
-      inaug: img("second-inauguration", "1400/1111", "760px", "Figure 20.9 · Lincoln’s second inauguration at the Capitol, March 4, 1865, in a print made between 1910 and 1920 from Alexander Gardner’s photograph.", "Library of Congress, Prints and Photographs Division"),
-      appomattox: img("appomattox-kurz-allison", "1400/987", "760px", "Figure 20.10 · Capitulation & Surrender of Robt. E. Lee & His Army at Appomattox C.H., Va. to Lt. Genl. U.S. Grant, April 9th 1865, a Kurz & Allison print published in Chicago in 1885. The print sets the scene outdoors; Grant and Lee met in McLean’s parlor.", "Library of Congress, Prints and Photographs Division")
+      march: img("sherman-march-to-the-sea", "1800/1181", "820px", "Figure 20.7 · Sherman’s March to the Sea, an engraving by Alexander Hay Ritchie after a design by F. O. C. Darley, copyrighted in 1868 by L. Stebbins.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-09326; restoration by Adam Cuerden, via Wikimedia Commons. Public domain"),
+      contra: img("contrabands-sherman-leslies-1865", "1800/1237", "820px", "Figure 20.8 · Contrabands accompanying the line of Sherman’s march through Georgia, from a sketch by the special artist of Frank Leslie’s Illustrated Newspaper, March 18, 1865.", "Frank Leslie’s Illustrated Newspaper, March 18, 1865, p. 405. Library of Congress, LCCN 92515029, via Wikimedia Commons; cropped. Public domain"),
+      thirteenth: img("thirteenth-amendment-resolution", "1100/1512", "440px", "Figure 20.9 · The joint resolution proposing the Thirteenth Amendment, with Lincoln’s signature at lower right. The House approved it on January 31, 1865, by a vote of 119 to 56.", "Joint Resolution Proposing the Thirteenth Amendment; Enrolled Acts and Resolutions of Congress; General Records of the United States Government, Record Group 11; National Archives, Washington, DC"),
+      pair: img("lincoln-1860-1865", "1400/944", "820px", "Figure 20.10 · Abraham Lincoln in February 1860, before the presidency, and in February 1865, after four years of war.", "Left: Mathew B. Brady, 1860. Right: Alexander Gardner, 1865. National Portrait Gallery, Smithsonian Institution; right, Frederick Hill Meserve Collection."),
+      inaug: img("second-inauguration", "1400/1111", "760px", "Figure 20.11 · Lincoln’s second inauguration at the Capitol, March 4, 1865, in a print made between 1910 and 1920 from Alexander Gardner’s photograph.", "Library of Congress, Prints and Photographs Division"),
+      appomattox: img("appomattox-kurz-allison", "1400/987", "760px", "Figure 20.12 · Capitulation & Surrender of Robt. E. Lee & His Army at Appomattox C.H., Va. to Lt. Genl. U.S. Grant, April 9th 1865, a Kurz & Allison print published in Chicago in 1885. The print sets the scene outdoors; Grant and Lee met in McLean’s parlor.", "Library of Congress, Prints and Photographs Division")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
@@ -700,7 +702,7 @@ class Component extends DCLogic {
       "The Blue Suit": { 1: [F.wagner], 4: [{ isSoldiers: true }] },
       "Two Home Fronts": { 3: [{ isDraft: true }] },
       "Ten Roads": { 3: [F.harvest], 5: [{ isJuly: true }] },
-      "Atlanta and the Sea": { 2: [F.atlanta], 4: [F.thirteenth, { isTurn: true }] },
+      "Atlanta and the Sea": { 2: [F.atlanta, F.march], 3: [F.contra], 4: [F.thirteenth, { isTurn: true }] },
       "Who Gets Through the Gate": { 0: [{ isCauses: true }] },
       "Four Score and Seven": { 1: [F.nicolay] },
       "Appomattox": { 1: [F.appomattox] },
