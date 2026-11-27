@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">7</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -654,6 +654,7 @@ class Component extends DCLogic {
       narrative: img("narrative-dublin-1845", "1350/2576", "360px", "Figure 16.4 · The title page of the Dublin edition of Douglass’s Narrative, printed by Webb and Chapman in 1845, the same year the Anti-Slavery Office published the first edition in Boston.", "From The New York Public Library"),
       northup: img("northup-1859", "1400/2103", "380px", "Figure 16.5 · Solomon Northup in the frontispiece of the 1859 edition of his narrative, Twelve Years a Slave. Born free in New York and kidnapped in Washington in 1841, he regained his freedom in 1853.", "Library of Congress, Rare Book and Special Collections Division"),
       bethel: img("bethel-ame-1829", "1400/1111", "720px", "Figure 16.6 · Bethel African Methodist Episcopal Church, Philada., drawn on stone by W. L. Breton in July 1829 and printed by Kennedy & Lucas while Richard Allen still led the church. The inscription reads: “Founded in 1794 by the Revd Richard Allen, Bishop of the First African Methodist Episcopal Church in the United States. Rebuilt in 1805.”", "Library Company of Philadelphia, via the Library of Congress, World Digital Library"),
+      still: img("still-league-island-1872", "1800/1114", "760px", "Figure 16.8 · Heavy Weights—Arrival of a Party at League Island, an engraving signed Osler, from William Still’s The Underground Rail Road (1872). The plate’s own line reads: “Fifteen escaped in this Schooner.”", "William Still, The Underground Rail Road (1872); public domain. Cropped for this edition"),
       turner: img("turner-horrid-massacre", "1400/1181", "640px", "Figure 16.7 · A woodcut from a New York pamphlet of 1831 pictures Nat Turner’s rebellion as white Americans feared it. It records the fear, not the event.", "Library of Congress, Rare Book and Special Collections Division, LC-USZ62-38902")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -667,7 +668,8 @@ class Component extends DCLogic {
       'The Contraband Curriculum': { 0: [{ isLiteracy: true }], 1: [F.narrative] },
       'Free Black Communities': { 1: [F.northup] },
       'Institutions of the Free': { pre: [F.bethel] },
-      'Slave Revolts': { 2: [F.turner, { isRevolts: true }] }
+      'Slave Revolts': { 2: [F.turner, { isRevolts: true }] },
+      'Slave Resistance': { 0: [F.still] }
     };
     const sections = d ? d.sections.map((sec, i) => {
       const blocks = [];
