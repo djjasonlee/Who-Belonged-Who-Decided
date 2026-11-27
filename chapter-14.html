@@ -82,7 +82,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">13</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">14</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -349,6 +349,13 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Past to present</div>
         <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.08">Then and Now</h2>
       </div>
+      <figure style="margin:0 0 36px;display:flex;flex-direction:column;gap:12px;max-width:{{ nowFig.maxW }}">
+        <div role="img" aria-label="{{ nowFig.caption }}" style="width:100%;aspect-ratio:{{ nowFig.ratio }};background:rgba(255,255,255,.05)">
+          <div aria-hidden="true" class="fig" style="width:100%;height:100%;background:url('{{ nowFig.src }}') center/contain no-repeat"></div>
+        </div>
+        <figcaption style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#a3a7ae;line-height:1.6">{{ nowFig.caption }}</figcaption>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">{{ nowFig.credit }}</div>
+      </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
         <sc-for list="{{ thenNow }}" as="q" hint-placeholder-count="2">
           <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:28px;display:flex;flex-direction:column;gap:18px">
@@ -673,10 +680,11 @@ class Component extends DCLogic {
       attempt: img("attempt-on-jackson-frost", "1475/1232", "640px", "Figure 14.8 · “Attempt on General Jackson’s life,” a wood engraving published twelve years after the attack of January 30, 1835.", "John Frost, Pictorial Life of Andrew Jackson (Hartford: Belknap and Hamersley, 1847), 481; scan of the Library of Congress copy, Internet Archive"),
       phoenix: img("cherokee-phoenix", "1400/2115", "480px", "Figure 14.9 · Cherokee Phoenix, vol. 1, no. 3, New Echota, Thursday, March 6, 1828, edited by Elias Boudinot and printed weekly by Isaac H. Harris “for the Cherokee Nation.” English and Cherokee run in parallel columns, as the paper’s prospectus promised; readers who read only Cherokee paid two dollars a year instead of two-fifty. The text is the Cherokee constitution of 1827, signed at New Echota, John Ross presiding. In the last column, a select committee reports to the legislature of Georgia on the Cherokee lands.", "Library of Congress, Chronicling America"),
       routes: img("removal-routes-map", "2025/1547", "720px", "Figure 14.10 · Routes of removal for the Cherokee, Chickasaw, Choctaw, Creek, and Seminole nations from the Southeast to Indian Territory, mostly in the 1830s. Dark green marks each nation’s homeland, labeled with the year of its removal treaty or agreement; red x marks show battles.", "Map by Nikater, Wikimedia Commons, 2007 (public domain), on a Demis background map, after Wilcomb E. Washburn, ed., Handbook of North American Indians, vol. 4 (Smithsonian Institution Press, 1988)"),
-      trail: img("echohawk-trail-of-tears", "2576/1222", "720px", "Figure 14.14 · Trail of Tears, a 1957 tempera painting by Brummett Echohawk (Pawnee). Marchers and wagons stream across the plain under the eye of a mounted soldier, and at right mourners bend over a wrapped body beside the road. The painting measures about 12 by 23 inches.", "Gilcrease Museum, Tulsa, Oklahoma, accession no. 02.1487"),
+      trail: img("echohawk-trail-of-tears", "2576/1222", "720px", "Figure 14.15 · Trail of Tears, a 1957 tempera painting by Brummett Echohawk (Pawnee). Marchers and wagons stream across the plain under the eye of a mounted soldier, and at right mourners bend over a wrapped body beside the road. The painting measures about 12 by 23 inches.", "Gilcrease Museum, Tulsa, Oklahoma, accession no. 02.1487"),
       npswc: img("nps-trail-of-tears-watercolor", "1200/756", "640px", "Figure 14.11 · A watercolor rendering of Cherokee people on the Trail of Tears, wrapped in blankets against the cold. The National Park Service record does not name the artist or give the date of the painting.", "National Park Service (public domain)"),
       king: img("king-andrew", "1400/1927", "420px", "Figure 14.12 · King Andrew the First, a lithograph probably issued in the fall of 1833, after Jackson ordered the federal deposits removed from the Bank of the United States. Jackson stands in regal costume with a veto in one hand and a scepter in the other, the Constitution in tatters under his feet.", "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-15771"),
       earl: img("jackson-earl", "1400/1808", "380px", "Ralph E. W. Earl, Andrew Jackson, 1835.", "Smithsonian American Art Museum, Transfer from the National Institute"),
+      redress: img("reagan-civil-liberties-act-1988", "1800/1195", "720px", "Figure 14.14 · President Ronald Reagan signs the Civil Liberties Act on August 10, 1988, in the Old Executive Office Building, with Pete Wilson, Spark Matsunaga, Norman Mineta, Robert Matsui and Bill Lowery looking on.", "Reagan White House Photographs, National Archives, NAID 75856233. Unrestricted use"),
       camp: img("camp-meeting", "1400/1120", "720px", "Figure 14.13 · Camp-meeting, a lithograph by Hugh Bridport after a painting by Alexander Rider, published by Kennedy & Lucas about 1829.", "Library of Congress, Prints and Photographs Division, LC-DIG-ds-03095")
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
@@ -790,6 +798,7 @@ class Component extends DCLogic {
       fnShow: s.fn > 0, fnN: String(s.fn || ''), fnAria: 'Note ' + (s.fn || ''), fnText: (((d && d.notes) || []).find(x => x.n === s.fn) || { text: '' }).text,
       fnClose: () => this.setState({ fn: 0 }), fnAll: () => { const k = s.fn; this.setState({ fn: 0 }); const e = document.getElementById('note-' + k); if (e) e.scrollIntoView({ block: 'center', behavior: 'smooth' }); },
       ...(() => { const mk = (d && hasBy && d.fn && d.fn[hd[4]]) || []; const k = mk.length ? mk[0][1] : 0; return { epiHasN: !!k, epiN: String(k || ''), epiId: 'fnref-' + k, epiAria: 'Note ' + k, epiOpen: () => this.setState({ fn: k }) }; })(),
+      nowFig: F.redress,
       questions: qmap(d && d.questions, 'q'), thenNow: qmap(d && d.thenNow, 't'),
       nowTop: [['now-what', 'What happened', 'A headline or event…', 1], ['now-when', 'When', 'Date…', 1]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'none', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) })),
       nowBot: [['now-holds', 'Where the comparison holds', 'What matches…', 4], ['now-breaks', 'Where it breaks', 'What is different…', 4]].map(f => ({ label: f[1], ph: f[2], rows: f[3], resize: 'vertical', val: s.notes[f[0]] || '', onChange: e => this.setNote(f[0], e.target.value) }))
