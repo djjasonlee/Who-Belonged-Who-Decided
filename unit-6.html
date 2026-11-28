@@ -441,8 +441,8 @@ class Component extends DCLogic {
     const introParas = d ? hd.slice(hasBy ? 5 : 4) : [];
     const ufig = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'u6-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: 'Credit: ' + credit });
     const introFigs = {
-      1: [ufig('river-city-steamboats', '1000/677', '680px', 'Our City (St. Louis, Mo.), color lithograph by A. Janicke & Co., published by Hagen & Pfau at the Anzeiger des Westens, St. Louis, 1859.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-3168. No known restrictions on publication'), ufig('homer-bell-time-1868', '1000/693', '680px', 'Winslow Homer, New England Factory Life: “Bell-Time,” wood engraving, Harper’s Weekly, July 25, 1868, page 472.', 'Wikimedia Commons. Sharpened and toned for this edition')],
-      2: [ufig('earl-jackson-sam-patch', '1069/1597', '440px', 'Ralph E. W. Earl, Andrew Jackson, on his horse Sam Patch, about 1833.', 'Andrew Jackson’s Hermitage, Nashville. Public domain')]
+      1: [ufig('river-city-steamboats', '982/646', '680px', 'Our City (St. Louis, Mo.), color lithograph by A. Janicke & Co., published by Hagen & Pfau at the Anzeiger des Westens, St. Louis, 1859.', 'Library of Congress, Prints and Photographs Division, LC-USZC4-3168. No known restrictions on publication'), ufig('homer-bell-time-1868', '1000/693', '680px', 'Winslow Homer, New England Factory Life: “Bell-Time,” wood engraving, Harper’s Weekly, July 25, 1868, page 472.', 'Wikimedia Commons. Sharpened and toned for this edition')],
+      2: [ufig('earl-jackson-sam-patch', '1067/1594', '440px', 'Ralph E. W. Earl, Andrew Jackson, on his horse Sam Patch, about 1833.', 'Andrew Jackson’s Hermitage, Nashville. Public domain')]
     };
     const introBlocks = []; introParas.forEach((p, i) => { introBlocks.push({ isP: true, text: p }); (introFigs[i] || []).forEach(w => introBlocks.push(w)); });
     const hasIntro = !d || hasEp || introParas.length > 0;
