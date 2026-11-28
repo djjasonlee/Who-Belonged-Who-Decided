@@ -44,6 +44,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 ::highlight(lread){background-color:transparent;color:#ffdc8f;text-shadow:0 0 14px rgba(255,196,96,.9),0 0 4px rgba(255,196,96,.7)}
 .ix button{transition:box-shadow .25s ease,transform .25s ease}
 .ix button:hover,.ix button:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
+.lx button,.gl{transition:box-shadow .25s ease,transform .25s ease}
+.lx button:hover,.lx button:focus-visible,.gl:hover,.gl:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
 </style>
 </helmet>
 
@@ -115,7 +117,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <section id="listen" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
-      <div style="background:rgba(255,255,255,.04);border:2px solid #efcf98;border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
+      <div class="lx" style="background:rgba(255,255,255,.04);border:2px solid #efcf98;border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Listen</div>
           <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.05">Hear the chapter</h2>
@@ -147,7 +149,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <section id="figures" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
-      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px)">
+      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;background:rgba(255,255,255,.04);border:2px solid #efcf98;border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px)">
         <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Figure at the chapter’s edge</div>
           <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(34px,4vw,48px);line-height:1.02">Christopher Columbus</h2>
@@ -155,7 +157,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;line-height:1.3;color:#efcf98">This chapter covers the Americas before he arrived in 1492.</div>
           <p style="margin:0;font-family:'Newsreader',serif;font-size:16px;line-height:1.65;color:#dcd8d1">Sailing for the Spanish crown, he reached the Caribbean in October 1492. Everything in the sections ahead happened before that landfall; Chapter 2 picks up from there.</p>
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
-            <a href="#the-first-americans" style="font-family:'Inter',sans-serif;font-size:13px;color:#16171a;background:#efcf98;padding:11px 20px;border-radius:999px">Read what came before →</a>
+            <a class="gl" href="#the-first-americans" style="font-family:'Inter',sans-serif;font-size:13px;color:#16171a;background:#efcf98;padding:11px 20px;border-radius:999px">Read what came before →</a>
           </div>
           <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d;line-height:1.5">AI-generated portrait. No portrait of Columbus painted from life is known to survive.</div>
         </div>
