@@ -84,7 +84,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="display:flex;gap:22px;align-items:center;color:#f2efe9">
         <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">8</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Interactives</div></div>
         <div style="width:1px;height:38px;background:rgba(255,255,255,.25)"></div>
-        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">4</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
+        <div><div style="font-family:'Inter Tight',sans-serif;font-weight:300;font-size:30px">9</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#e8e4dc">Images</div></div>
       </div>
     </div>
   </div>
@@ -672,18 +672,23 @@ class Component extends DCLogic {
     const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c3-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
-      places: img('spanish-places', '1400/934', '820px', 'Figure 3.1 · Spanish expeditions into the borderlands: places named in Chapter 3', 'Figure by the author'),
-      jogues: img('jogues', '1182/1800', '460px', 'Figure 3.x · Martyrdom of Father Isaac Jogues, Adriaen Millaert after Abraham van Diepenbeeck', 'Wellcome Collection'),
-      armada: img('armada', '1400/1076', '820px', 'Figure 3.7 · Armada', 'Philip James de Loutherbourg, 1796. Royal Museums Greenwich, BHC0264. Public domain'),
-      flagroad: img('flagroad', '1400/1050', '820px', 'Figure 3.6 · Flag Road, Oceti Sakowin camp, Standing Rock', 'Becker1999, ‘Flag Road,’ Oceti Sakowin camp, Standing Rock, November 24, 2016. CC BY 2.0, via Wikimedia Commons.')
+      fortcaroline: img('fort-caroline-1591', '965/745', '680px', 'Figure 3.1 · Fort Caroline, the Huguenot settlement built in 1564 on the St. Johns River in Timucua country, as engraved by Theodor de Bry after Jacques Le Moyne de Morgues, 1591.', 'Library of Congress, Rare Book and Special Collections Division, LC-USZ62-31868. No known restrictions on publication'),
+      places: img('spanish-places', '1400/934', '820px', 'Figure 3.2 · Spanish expeditions into the borderlands: places named in Chapter 3', 'Figure by the author'),
+      macana: img('virgin-of-the-macana', '1100/1356', '460px', 'Figure 3.3 · The Virgin of the Macana, unrecorded artist, New Spain, second half of the eighteenth century. Painted for Spanish viewers nearly a century after 1680, it shows the Pueblo revolt as an attack on Franciscans and on a statue of Mary that, the story held, survived a blow from a war club.', 'New Mexico History Museum, Santa Fe, History Collections, 2012.32.1'),
+      champlain: img('champlain-1609', '1400/898', '820px', 'Figure 3.4 · Champlain’s own engraving of the July 1609 battle on the lake that now bears his name: the Huron, Algonquin, and Montagnais war party at left, the Mohawk line at its barricade at right, Champlain firing between them. From Les Voyages du sieur de Champlain, Paris, 1613.', 'Bibliothèque nationale de France, Gallica. Public domain'),
+      jogues: img('jogues', '1182/1800', '460px', 'Figure 3.5 · Martyrdom of Father Isaac Jogues, Adriaen Millaert after Abraham van Diepenbeeck', 'Wellcome Collection'),
+      voc: img('voc-share-1606', '1400/1019', '820px', 'Figure 3.6 · The oldest known share certificate, issued by the Enkhuizen chamber of the Dutch East India Company on September 9, 1606, with dividend payments recorded on the second page.', 'Westfries Archief, Hoorn. Public domain'),
+      schaghen: img('schaghen-letter-1626', '1400/1066', '820px', 'Figure 3.7 · Pieter Schaghen’s letter to the States General, November 5, 1626, reporting that the Dutch had bought Manhattan “from the Indians for the value of 60 guilders.” It is the only record of the transaction.', 'Nationaal Archief, The Hague, States General, 1.01.02, inv. nr. 5751B. Public domain'),
+      armada: img('armada', '1400/1076', '820px', 'Figure 3.8 · Armada', 'Philip James de Loutherbourg, 1796. Royal Museums Greenwich, BHC0264. Public domain'),
+      flagroad: img('flagroad', '1400/1050', '820px', 'Figure 3.9 · Flag Road, Oceti Sakowin camp, Standing Rock', 'Becker1999, ‘Flag Road,’ Oceti Sakowin camp, Standing Rock, November 24, 2016. CC BY 2.0, via Wikimedia Commons.')
     };
     const TQ = ['What does the law say?', 'What do the morals mandate?', 'Who holds the power?'];
     const lmp3 = (key, conflict) => ({ isLMP: true, conflict, qs: TQ.map((text, i) => ({ text, val: s.notes[key + i] || '', onChange: e => this.setNote(key + i, e.target.value) })) });
     const segsOf = text => { const mk = (d && d.fn && d.fn[text]) || []; if (!mk.length) return [{ t: text, hasN: false }]; const o = []; let last = 0; mk.forEach(([off, k]) => { o.push({ t: text.slice(last, off), hasN: true, n: String(k), id: 'fnref-' + k, aria: 'Note ' + k, open: () => this.setState({ fn: k }) }); last = off; }); if (last < text.length) o.push({ t: text.slice(last), hasN: false }); return o; };
     const inserts = {
-      'Spain': { 3: [F.places], 5: [{ isSpainTl: true }] },
-      'France': { 3: [{ isCycle: true }], 6: [F.jogues], 7: [{ isColony: true }] },
-      'The Netherlands': { 1: [{ isManhattan: true }] },
+      'Spain': { 1: [F.fortcaroline], 3: [F.places], 5: [F.macana, { isSpainTl: true }] },
+      'France': { 2: [F.champlain], 3: [{ isCycle: true }], 6: [F.jogues], 7: [{ isColony: true }] },
+      'The Netherlands': { 0: [F.voc], 1: [F.schaghen, { isManhattan: true }] },
       'England': { 2: [{ isArmada: true }, F.armada], 3: [{ isGrants: true }] },
       'The Balance': { 0: [{ isBalance: true }] }
     };
