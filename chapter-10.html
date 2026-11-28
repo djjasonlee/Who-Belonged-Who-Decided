@@ -42,6 +42,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 .fn::after{content:'';position:absolute;left:-13px;right:-13px;top:-15px;bottom:-15px}
 ::selection{background:#efcf98;color:#16171a}
 ::highlight(lread){background-color:transparent;color:#ffdc8f;text-shadow:0 0 14px rgba(255,196,96,.9),0 0 4px rgba(255,196,96,.7)}
+.ix button{transition:box-shadow .25s ease,transform .25s ease}
+.ix button:hover,.ix button:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
 </style>
 </helmet>
 
@@ -119,7 +121,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <section id="listen" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
+      <div style="background:rgba(255,255,255,.04);border:2px solid #efcf98;border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Listen</div>
           <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.05">Hear the chapter</h2>
@@ -203,7 +205,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isArticles }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The Articles at a glance</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ acTabs }}" as="ct" hint-placeholder-count="3">
@@ -253,7 +255,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isPlans }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Three plans for one government</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ pnTabs }}" as="nt" hint-placeholder-count="3">
@@ -270,7 +272,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isVote }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The vote on July 16, 1787</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ vtTabs }}" as="nt" hint-placeholder-count="5">
@@ -294,7 +296,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-if>
           <sc-if value="{{ b.isSeats }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · What the clause did to the House</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ sfTabs }}" as="nt" hint-placeholder-count="3">
@@ -328,7 +330,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
             </div>
           </sc-if>
           <sc-if value="{{ b.isEmancip }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Emancipation, 1777–1804</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ emTabs }}" as="et" hint-placeholder-count="3">
@@ -343,7 +345,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isClauses }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The word that isn’t there</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ clTabs }}" as="lt" hint-placeholder-count="3">
@@ -360,7 +362,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isWitness }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Three witnesses</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ wtTabs }}" as="wt" hint-placeholder-count="3">
@@ -376,7 +378,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isRatify }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The road to ratification, 1787–1791</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
                 <sc-for list="{{ rtTabs }}" as="rt" hint-placeholder-count="3">
@@ -746,7 +748,7 @@ class Component extends DCLogic {
     const s = this.state, d = s.data;
     const slug = x => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const G = '#efcf98', R = '#c2653f', B = '#8ea4bb';
-    const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : '#3a3d44' });
+    const tab = on => ({ bg: on ? G : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? G : 'rgba(239,207,152,.5)' });
     const img = (key, ratio, maxW, caption, credit) => ({ isImage: true, slot: 'c10-' + key, src: '' + key + '.jpg', ratio, maxW, caption, credit: credit ? 'Credit: ' + credit : '', hasCredit: !!credit });
     const F = {
       newburgh: img("sterner-newburgh-saam", "2218/1536", "820px", "Figure 10.1 · Albert Sterner, Washington Prevents a Military Dictatorship, etching, 1932, from the portfolio The Bicentennial Pageant of George Washington. Sterner imagined Washington addressing his officers at Newburgh, New York, in March 1783, a century and a half after the event.", "Smithsonian American Art Museum, Gift of Herbert Brook, 1983.75.16. Public domain. Cropped for this edition"),

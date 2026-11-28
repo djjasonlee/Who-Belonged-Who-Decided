@@ -42,6 +42,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 .fn::after{content:'';position:absolute;left:-13px;right:-13px;top:-15px;bottom:-15px}
 ::selection{background:#efcf98;color:#16171a}
 ::highlight(lread){background-color:transparent;color:#ffdc8f;text-shadow:0 0 14px rgba(255,196,96,.9),0 0 4px rgba(255,196,96,.7)}
+.ix button{transition:box-shadow .25s ease,transform .25s ease}
+.ix button:hover,.ix button:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
 </style>
 </helmet>
 
@@ -113,7 +115,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
     </section>
 
     <section id="listen" data-sec="1" style="max-width:900px;margin-bottom:104px;scroll-margin-top:24px">
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
+      <div style="background:rgba(255,255,255,.04);border:2px solid #efcf98;border-radius:20px;padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Listen</div>
           <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4vw,46px);line-height:1.05">Hear the chapter</h2>
@@ -202,7 +204,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isTimeline }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px">
               <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline">
                 <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · The evidence, in years ago</div>
                 <div style="font-family:'Inter',sans-serif;font-size:13px;color:#80858d">Select a site</div>
@@ -245,7 +247,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isRegions }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);display:flex;flex-direction:column">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);display:flex;flex-direction:column">
               <div style="padding:24px clamp(20px,3vw,32px) 0;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Geography did the sorting</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px;padding:20px clamp(20px,3vw,32px);border-bottom:1px solid #2c2f36">
                 <sc-for list="{{ regionTabs }}" as="r" hint-placeholder-count="5">
@@ -266,7 +268,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isTrep }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
                 <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Cranial surgery, four centuries apart</div>
                 <div style="display:flex;gap:4px">
@@ -292,7 +294,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isNatchez }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Test the traditional account</div>
               <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.6;color:#c8c4bc;max-width:620px;text-wrap:pretty">Apply the rule as the French recorded it: every Sun, Noble, and Honored person marries a commoner, and rank follows the mother. Advance the generations and watch what happens to a nation of about three thousand.</div>
               <div style="display:flex;flex-direction:column;gap:10px">
@@ -322,7 +324,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isArrows }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · One arrow, five arrows</div>
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px">
                 <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
@@ -363,7 +365,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isCollapse }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Interactive · Two centers under strain, 400–1450 C.E.</div>
               <sc-for list="{{ colTracks }}" as="ct" hint-placeholder-count="2">
                 <div style="display:flex;flex-direction:column;gap:8px">
@@ -764,14 +766,14 @@ class Component extends DCLogic {
       { name: 'Great Plains', basis: 'Buffalo', life: 'Communities followed the buffalo and organized their year around the herd.', note: 'On foot. The horse was a European import that reshaped Plains life only after contact.' },
       { name: 'Northwest Coast', basis: 'Salmon & cedar', life: 'Permanent settlements, monumental art, social hierarchies, and slavery without relying on farming.', note: 'Salmon performed the work that maize performed elsewhere.' }
     ];
-    const regionTabs = regionsData.map((r, i) => { const on = i === s.region; return { name: r.name, onClick: () => this.setState({ region: i }), bg: on ? '#efcf98' : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? '#efcf98' : '#3a3d44' }; });
+    const regionTabs = regionsData.map((r, i) => { const on = i === s.region; return { name: r.name, onClick: () => this.setState({ region: i }), bg: on ? '#efcf98' : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? '#efcf98' : 'rgba(239,207,152,.5)' }; });
 
     const surv = s.trep === 'survival';
     const trepRows = [
       { label: 'Inca-period cranial surgery', a: surv ? [75, 83] : [17, 25], color: '#efcf98' },
       { label: 'American Civil War, four centuries later', a: surv ? [44, 54] : [46, 56], color: '#c2653f' }
     ].map(r => ({ label: r.label, color: r.color, range: r.a[0] + '–' + r.a[1] + '%', lo: r.a[0] + '%', span: (r.a[1] - r.a[0]) + '%' }));
-    const trepTabs = ['survival', 'mortality'].map(k => { const on = s.trep === k; return { label: k, onClick: () => this.setState({ trep: k }), bg: on ? '#efcf98' : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? '#efcf98' : '#3a3d44' }; });
+    const trepTabs = ['survival', 'mortality'].map(k => { const on = s.trep === k; return { label: k, onClick: () => this.setState({ trep: k }), bg: on ? '#efcf98' : 'transparent', color: on ? '#16171a' : '#c8c4bc', border: on ? '#efcf98' : 'rgba(239,207,152,.5)' }; });
 
     const n = this.natchez(s.gen), tot = n.S + n.N + n.H + n.C;
     const natBars = [['Suns', n.S, '#efcf98'], ['Nobles', n.N, '#c2653f'], ['Honored People', n.H, '#9c7756'], ['Commoners', n.C, '#4a5a5e']].map(([name, c, color]) => ({ name, count: c.toLocaleString(), width: (c / tot * 100) + '%', color }));
