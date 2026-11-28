@@ -79,7 +79,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
       <sc-for list="{{ starts }}" as="st" hint-placeholder-count="2">
-        <a href="{{ st.href }}" style="display:flex;flex-direction:column;gap:12px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px 28px 24px;color:#f2efe9">
+        <a href="{{ st.href }}" style="display:flex;flex-direction:column;gap:12px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));border:2px solid #efcf98;border-radius:20px;padding:26px 28px 24px;color:#f2efe9">
           <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#efcf98">{{ st.label }}</span>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:30px;line-height:1.12">{{ st.title }}</h3>
           <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.3;color:#c8c4bc">{{ st.sub }}</span>
@@ -95,7 +95,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
         <sc-for list="{{ ways }}" as="w" hint-placeholder-count="4">
-          <div style="display:flex;flex-direction:column;gap:10px;padding:22px 22px 24px;box-sizing:border-box;border:2px solid #efcf98;border-radius:14px;background:rgba(239,207,152,.07)">
+          <div style="display:flex;flex-direction:column;gap:10px;padding:22px 22px 24px;box-sizing:border-box;border:2px solid #efcf98;border-radius:14px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92))">
             <h4 style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:26px;line-height:1.15;color:#efcf98">{{ w.head }}</h4>
             <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.55;color:#dcd8d1;text-wrap:pretty">{{ w.text }}</div>
           </div>
@@ -108,7 +108,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
       <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#efcf98">Jump to a unit</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px 14px">
         <sc-for list="{{ unitNav }}" as="un" hint-placeholder-count="9">
-          <a href="{{ un.href }}" style="display:grid;grid-template-columns:44px 1fr;gap:4px 10px;align-items:baseline;min-height:44px;padding:12px 16px;box-sizing:border-box;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.03);color:#f2efe9">
+          <a href="{{ un.href }}" style="display:grid;grid-template-columns:44px 1fr;gap:4px 10px;align-items:baseline;min-height:44px;padding:12px 16px;box-sizing:border-box;border:2px solid #efcf98;border-radius:14px;background:linear-gradient(120deg,rgba(26,42,60,.92),rgba(14,23,34,.92));color:#f2efe9">
             <span style="font-family:'Playfair Display',serif;font-size:20px;color:#efcf98">{{ un.num }}</span>
             <span style="font-family:'Newsreader',serif;font-size:18px;line-height:1.25">{{ un.title }}</span>
             <span></span>
