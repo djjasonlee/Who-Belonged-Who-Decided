@@ -46,6 +46,8 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
 .ix button:hover,.ix button:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
 .lx button,.lx a,.gl{transition:box-shadow .25s ease,transform .25s ease}
 .lx button:hover,.lx button:focus-visible,.lx a:hover,.lx a:focus-visible,.gl:hover,.gl:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 18px 2px rgba(239,207,152,.35);transform:translateY(-1px)}
+.hb{transition:box-shadow .25s ease,transform .25s ease}
+.hb:hover,.hb:focus-visible{box-shadow:0 0 0 1px rgba(239,207,152,.45),0 0 24px 2px rgba(239,207,152,.32);transform:translateY(-1px)}
 </style>
 </helmet>
 
@@ -72,9 +74,9 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
         <div style="position:absolute;left:50%;top:50%;width:max(112vw,190vh);aspect-ratio:1422/794;transform:translate(-50.2%,-40.3%);z-index:-1;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%);mask-image:linear-gradient(180deg,transparent 0,#000 10%);background:url('dawn.jpg') center/cover no-repeat"></div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px">
-        <a href="#intro" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border-radius:999px">Start the chapter →</a>
-        <a href="#the-boston-massacre" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.85);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">The Boston Massacre, 1770</a>
-        <a href="#listen" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.85);padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">▶ Listen</a>
+        <a class="hb" href="#intro" style="font-family:'Inter',sans-serif;font-size:14px;color:#fff;background:#16171a;padding:13px 24px;border:2px solid #efcf98;border-radius:999px">Start the chapter →</a>
+        <a class="hb" href="#the-boston-massacre" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:2px solid #efcf98;padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">The Boston Massacre, 1770</a>
+        <a class="hb" href="#listen" style="font-family:'Inter',sans-serif;font-size:14px;color:#16171a;background:rgba(255,255,255,.35);border:2px solid #efcf98;padding:13px 24px;border-radius:999px;backdrop-filter:blur(8px)">▶ Listen</a>
       </div>
     </div>
 
@@ -191,7 +193,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isSugar }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · Duty per gallon of molasses</div>
               <sc-for list="{{ suRows }}" as="sw" hint-placeholder-count="2">
                 <div style="display:flex;flex-direction:column;gap:10px">
@@ -224,7 +226,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isBoston }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · Boston, 1769</div>
               <sc-for list="{{ boRows }}" as="bw" hint-placeholder-count="2">
                 <div style="display:flex;flex-direction:column;gap:10px">
@@ -256,7 +258,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isWitB }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Weigh the witnesses · Did Captain Preston give the order to fire?</div>
               <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">King Street, March 5, 1770. Soldiers fired into a crowd, and five Bostonians died. Captain Thomas Preston stood trial that fall. Read each witness. Then make your call before you see how the jury ruled.</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -292,7 +294,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isWitL }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Weigh the witnesses · Who fired first on Lexington green?</div>
               <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#dcd8d1;text-wrap:pretty;max-width:640px">Dawn, April 19, 1775. British regulars met seventy-odd militiamen on Lexington green. When the volleys stopped, eight militiamen were dead. Read each witness. Then make your call.</div>
               <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -375,7 +377,7 @@ textarea:focus{outline:none;border-color:#efcf98 !important}
           </sc-if>
 
           <sc-if value="{{ b.isBunker }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:44px 0;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
+            <div class="ix" style="margin:44px 0;background:rgba(255,255,255,.045);border:2px solid #efcf98;border-radius:20px;backdrop-filter:blur(10px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:24px">
               <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#efcf98">Chart · Breed’s and Bunker Hill, June 17, 1775</div>
               <sc-for list="{{ bkRows }}" as="kw" hint-placeholder-count="2">
                 <div style="display:flex;flex-direction:column;gap:10px">
